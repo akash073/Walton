@@ -11,6 +11,6 @@
     <title></title>
 </head>
 <body>
-BYe
+BYe Logout
 </body>
 </html>

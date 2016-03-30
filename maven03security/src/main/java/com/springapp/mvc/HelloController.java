@@ -20,7 +20,14 @@ public class HelloController {
 		model.addAttribute("message", "Hello world!");
 		return "index";
 	}
+	@RequestMapping(value="/login", method = RequestMethod.GET)
+	public ModelAndView visitLogin() {
+		ModelAndView model = new ModelAndView("login");
+		model.addObject("title", "Admministrator Control Panel");
+		model.addObject("message", "This page demonstrates how to use Spring security.");
 
+		return model;
+	}
 	@RequestMapping(value="/admin", method = RequestMethod.GET)
 	public ModelAndView visitAdmin() {
 		ModelAndView model = new ModelAndView("views/admin");
