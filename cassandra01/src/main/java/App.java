@@ -1,8 +1,7 @@
-import com.datastax.driver.core.Cluster;
-import com.datastax.driver.core.ResultSet;
-import com.datastax.driver.core.Row;
-import com.datastax.driver.core.Session;
+import com.datastax.driver.core.*;
 
+import java.sql.ResultSetMetaData;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -22,11 +21,23 @@ public class App {
        Session session = cluster.connect(keyspace);
        String cqlStatement = "SELECT * FROM messages";
        ResultSet results=session.execute(cqlStatement);
+       List<ColumnDefinitions.Definition> definitions= results.getColumnDefinitions().asList();
+       List<String> columnNames=new ArrayList<String>();
+      for (ColumnDefinitions.Definition definition:definitions){
+          //System.out.println(definition.getName());
+          columnNames.add(definition.getName());
+      }
        List<Row> rows = results.all();
        for (Row row : rows) {
           // Row row = row.;
-           System.out.println(row.getLong("id")+"->"+row.getString("message")+"->"+row.getObject("sender")+"->"+row.getObject("timestamp"));
+          // System.out.println(row.getLong("id")+"->"+row.getString("message")+"->"+row.getObject("sender")+"->"+row.getObject("timestamp"));
           // System.out.println(row.getString(1));
+
+           for(String column:columnNames){
+               System.out.print(row.getObject(column));
+               System.out.print("->");
+           }
+           System.out.println();
        }
     }
 
