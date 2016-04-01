@@ -1,2 +1,0 @@
-http://downloads.datastax.com/datastax-ddc/datastax-ddc-64bit-3.4.0.msi
-
