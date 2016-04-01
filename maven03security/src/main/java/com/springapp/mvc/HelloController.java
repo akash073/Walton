@@ -36,7 +36,7 @@ public class HelloController {
 
 		return model;
 	}
-	@RequestMapping(value="/logout", method = RequestMethod.GET)
+	/*@RequestMapping(value="/logout", method = RequestMethod.GET)
 	public ModelAndView logoutPage (HttpServletRequest request, HttpServletResponse response) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		if (auth != null){
@@ -44,5 +44,5 @@ public class HelloController {
 		}
 		ModelAndView model = new ModelAndView("logout");
 		return model;//You can redirect wherever you want, but generally it's a good practice to show login screen again.
-	}
+	}*/
 }
