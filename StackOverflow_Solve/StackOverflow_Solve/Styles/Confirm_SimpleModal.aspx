@@ -31,7 +31,6 @@
 				<div class='no simplemodal-close'>No</div><div class='yes'>Yes</div>
 			</div>
 		</div>
-		<!-- preload the images -->
 		<div style='display:none'>
 			<img src='../img/confirm/header.gif' alt='' />
 			<img src='../img/confirm/button.gif' alt='' />
@@ -42,7 +41,7 @@
 		<a href='https://github.com/ericmmartin/simplemodal'>SimpleModal on GitHub</a><br/>
 		<a href='http://twitter.com/ericmmartin'>@ericmmartin</a> | <a href='http://twitter.com/simplemodal'>@simplemodal</a>
 	</div>
-</div>
+    </div>
     </form>
     <script src="../js/jquery.js" type="text/javascript"></script>
     <script src="../js/jquery.simplemodal.js" type="text/javascript"></script>
