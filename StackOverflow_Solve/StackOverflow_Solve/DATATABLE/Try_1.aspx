@@ -31,8 +31,7 @@
                 buttons: [{
                     extend: 'excelHtml5',
                     title: 'Location Report'
-                }
-          ]
+                }]
             });
         });
     </script>
