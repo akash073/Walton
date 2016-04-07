@@ -2,3 +2,7 @@ G:\BITBUCKET WORKS\StackOverflow_Solve\StackOverflow_Solve\bin\StackOverflow_Sol
 G:\BITBUCKET WORKS\StackOverflow_Solve\StackOverflow_Solve\bin\StackOverflow_Solve.pdb
 G:\BITBUCKET WORKS\StackOverflow_Solve\StackOverflow_Solve\obj\Debug\StackOverflow_Solve.dll
 G:\BITBUCKET WORKS\StackOverflow_Solve\StackOverflow_Solve\obj\Debug\StackOverflow_Solve.pdb
+F:\BITBUCKET REPO\StackOverflow_Solve\StackOverflow_Solve\bin\StackOverflow_Solve.dll
+F:\BITBUCKET REPO\StackOverflow_Solve\StackOverflow_Solve\bin\StackOverflow_Solve.pdb
+F:\BITBUCKET REPO\StackOverflow_Solve\StackOverflow_Solve\obj\Debug\StackOverflow_Solve.dll
+F:\BITBUCKET REPO\StackOverflow_Solve\StackOverflow_Solve\obj\Debug\StackOverflow_Solve.pdb
