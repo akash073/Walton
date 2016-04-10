@@ -231,6 +231,8 @@
     <Content Include="swf\copy_csv_xls.swf" />
     <Content Include="swf\copy_csv_xls_pdf.swf" />
     <Content Include="swf\flashExport.swf" />
+    <Content Include="UserControl\QueryUserControl.ascx" />
+    <Content Include="UserControl\Show.aspx" />
     <Content Include="VerifyJS\verify_1.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -377,6 +379,20 @@
     </Compile>
     <Compile Include="Styles\SimleModal.aspx.designer.cs">
       <DependentUpon>SimleModal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\QueryUserControl.ascx.cs">
+      <DependentUpon>QueryUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\QueryUserControl.ascx.designer.cs">
+      <DependentUpon>QueryUserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Show.aspx.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Show.aspx.designer.cs">
+      <DependentUpon>Show.aspx</DependentUpon>
     </Compile>
     <Compile Include="VerifyJS\verify_1.aspx.cs">
       <DependentUpon>verify_1.aspx</DependentUpon>
