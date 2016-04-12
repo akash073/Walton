@@ -6,3 +6,10 @@ F:\BITBUCKET REPO\StackOverflow_Solve\StackOverflow_Solve\bin\StackOverflow_Solv
 F:\BITBUCKET REPO\StackOverflow_Solve\StackOverflow_Solve\bin\StackOverflow_Solve.pdb
 F:\BITBUCKET REPO\StackOverflow_Solve\StackOverflow_Solve\obj\Debug\StackOverflow_Solve.dll
 F:\BITBUCKET REPO\StackOverflow_Solve\StackOverflow_Solve\obj\Debug\StackOverflow_Solve.pdb
+F:\BITBUCKET REPO\StackOverflow_Solve\StackOverflow_Solve\obj\Debug\RdlCompile.cache
+F:\BITBUCKET REPO\StackOverflow_Solve\StackOverflow_Solve\obj\Debug\RdlCompile.compiled
+F:\BITBUCKET REPO\StackOverflow_Solve\StackOverflow_Solve\bin\itextsharp.dll
+F:\BITBUCKET REPO\StackOverflow_Solve\StackOverflow_Solve\bin\itextsharp.pdfa.dll
+F:\BITBUCKET REPO\StackOverflow_Solve\StackOverflow_Solve\bin\itextsharp.xtra.dll
+F:\BITBUCKET REPO\StackOverflow_Solve\StackOverflow_Solve\bin\itextsharp.xml
+F:\BITBUCKET REPO\StackOverflow_Solve\StackOverflow_Solve\obj\Debug\StackOverflow_Solve.csprojResolveAssemblyReference.cache
