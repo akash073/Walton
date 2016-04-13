@@ -51,6 +51,8 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -233,6 +235,13 @@
     <Content Include="Scripts\jszip.min.js" />
     <Content Include="Scripts\pdfmake.min.js" />
     <Content Include="Scripts\vfs_fonts.js" />
+    <None Include="Service References\ServiceReference1\WebService1.disco" />
+    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
+    <None Include="Service References\ServiceReference1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Styles\buttons.dataTables.min.css" />
     <Content Include="Styles\Confirm_SimpleModal.aspx" />
     <Content Include="Styles\dataTables.tableTools.css" />
@@ -257,6 +266,8 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="WebService1.asmx" />
+    <Content Include="WEBSERVICE\WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.cs">
@@ -383,6 +394,11 @@
     <Compile Include="RDLCReport\TestPage.aspx.designer.cs">
       <DependentUpon>TestPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Service References\ServiceReference1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -424,6 +440,17 @@
     </Compile>
     <Compile Include="VerifyJS\verify_1.aspx.designer.cs">
       <DependentUpon>verify_1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebService1.asmx.cs">
+      <DependentUpon>WebService1.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WEBSERVICE\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WEBSERVICE\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -467,11 +494,18 @@
     <None Include="Content\scss\_stacked.scss" />
     <None Include="Content\scss\_variables.scss" />
     <None Include="Files\Mastering MeteorJS Application Development.pdf" />
+    <None Include="Service References\ServiceReference1\WebService1.wsdl" />
     <None Include="Styles\common.scss" />
     <None Include="Styles\mixins.scss" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="RDLCReport\Report1.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
