@@ -256,6 +256,7 @@
     <Content Include="swf\flashExport.swf" />
     <Content Include="UserControl\QueryUserControl.ascx" />
     <Content Include="UserControl\Show.aspx" />
+    <Content Include="UserControl\ViewSate.aspx" />
     <Content Include="VerifyJS\verify_1.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -433,6 +434,13 @@
     </Compile>
     <Compile Include="UserControl\Show.aspx.designer.cs">
       <DependentUpon>Show.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ViewSate.aspx.cs">
+      <DependentUpon>ViewSate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\ViewSate.aspx.designer.cs">
+      <DependentUpon>ViewSate.aspx</DependentUpon>
     </Compile>
     <Compile Include="VerifyJS\verify_1.aspx.cs">
       <DependentUpon>verify_1.aspx</DependentUpon>
