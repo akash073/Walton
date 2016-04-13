@@ -8,7 +8,7 @@
     <script src="../js/jquery.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            StackOverflow_Solve.WebService1.Sum(1,3,onSuccess);
+            StackOverflow_Solve.WebService1.Sum([1,2],onSuccess);
             function onSuccess(result) {
                 alert(result);
             } 
@@ -19,8 +19,8 @@
 
             function Register() {
                 var params = {};
-                params.a = 1;
-                params.b = 100;
+                params.a = [112,125];
+                //params.b = 100;
                 $.ajax({
                     type: "POST",
                     url: "http://localhost:1611/WebService1.asmx/Sum",

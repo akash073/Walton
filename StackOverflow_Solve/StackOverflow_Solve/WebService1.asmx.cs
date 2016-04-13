@@ -24,9 +24,10 @@ namespace StackOverflow_Solve
         }
 
         [WebMethod]
-        public string Sum(string a,string b)
+        public string Sum(string []a)
         {
-            return (Convert.ToInt64(a) + Convert.ToInt64(b)).ToString();
+            string b = "12";
+            return (Convert.ToInt64(a[0]) + Convert.ToInt64(a[1])).ToString();
         }
     }
 }
