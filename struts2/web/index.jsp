@@ -4,4 +4,4 @@
   <s:textfield name="name" label="Product Name"></s:textfield>
   <s:textfield name="price" label="Product Price"></s:textfield>
   <s:submit value="save"></s:submit>
-</s:form>  
+</s:form>
