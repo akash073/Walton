@@ -1,6 +1,8 @@
 package com.javatpoint;
 
-public class Product {
+import com.opensymphony.xwork2.ActionSupport;
+
+public class Product extends ActionSupport {
     private int id;
     private String name;
     private float price;
@@ -24,6 +26,7 @@ public class Product {
     }
 
     public String execute(){
-        return "success";
+       // return "success";
+        return SUCCESS;
     }
 }  
