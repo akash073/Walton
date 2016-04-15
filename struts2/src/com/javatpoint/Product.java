@@ -27,6 +27,8 @@ public class Product extends ActionSupport {
 
     public String execute(){
        // return "success";
-        return SUCCESS;
+        //return SUCCESS;
+        return ERROR;
+
     }
 }  
