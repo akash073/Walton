@@ -1,8 +1,9 @@
 package com.javatpoint;
 
+import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class Product extends ActionSupport {
+public class Product extends ActionSupport implements Action{
     private int id;
     private String name;
     private float price;
@@ -27,8 +28,8 @@ public class Product extends ActionSupport {
 
     public String execute(){
        // return "success";
-        //return SUCCESS;
-        return ERROR;
+        return SUCCESS;
+ //       return ERROR;
 
     }
 }  
