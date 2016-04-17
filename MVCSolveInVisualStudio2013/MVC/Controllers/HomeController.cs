@@ -29,11 +29,24 @@ namespace MVC.Controllers
 
         public double Longitude { get; set; }
     }
+    public class Employee
+    {
+        public string Name { get; set; }
+        public string City { get; set; }
+        public string Address { get; set; }
+    }
     public class HomeController : Controller
     {
+        [HttpPost]
+        public JsonResult AddEmployee(Employee obj)
+        {
+            //AddDetails(obj);
+
+            return Json(obj);
+        }
         public ActionResult Index()
         {
-            return View();
+            return View("Contact");
         }
 
         public ActionResult About()

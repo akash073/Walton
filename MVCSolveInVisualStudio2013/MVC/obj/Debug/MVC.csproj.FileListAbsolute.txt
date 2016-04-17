@@ -24,3 +24,29 @@ E:\Visual Studio 2013\MVC\MVC\bin\Newtonsoft.Json.xml
 E:\Visual Studio 2013\MVC\MVC\obj\Debug\MVC.csprojResolveAssemblyReference.cache
 E:\Visual Studio 2013\MVC\MVC\obj\Debug\MVC.dll
 E:\Visual Studio 2013\MVC\MVC\obj\Debug\MVC.pdb
+G:\BITBUCKET WORKS\MVCSolveInVisualStudio2013\MVC\bin\MVC.dll.config
+G:\BITBUCKET WORKS\MVCSolveInVisualStudio2013\MVC\bin\MVC.dll
+G:\BITBUCKET WORKS\MVCSolveInVisualStudio2013\MVC\bin\MVC.pdb
+G:\BITBUCKET WORKS\MVCSolveInVisualStudio2013\MVC\bin\Antlr3.Runtime.dll
+G:\BITBUCKET WORKS\MVCSolveInVisualStudio2013\MVC\bin\Microsoft.Web.Infrastructure.dll
+G:\BITBUCKET WORKS\MVCSolveInVisualStudio2013\MVC\bin\Newtonsoft.Json.dll
+G:\BITBUCKET WORKS\MVCSolveInVisualStudio2013\MVC\bin\System.Web.Helpers.dll
+G:\BITBUCKET WORKS\MVCSolveInVisualStudio2013\MVC\bin\System.Web.Mvc.dll
+G:\BITBUCKET WORKS\MVCSolveInVisualStudio2013\MVC\bin\System.Web.Optimization.dll
+G:\BITBUCKET WORKS\MVCSolveInVisualStudio2013\MVC\bin\System.Web.Razor.dll
+G:\BITBUCKET WORKS\MVCSolveInVisualStudio2013\MVC\bin\System.Web.WebPages.Deployment.dll
+G:\BITBUCKET WORKS\MVCSolveInVisualStudio2013\MVC\bin\System.Web.WebPages.dll
+G:\BITBUCKET WORKS\MVCSolveInVisualStudio2013\MVC\bin\System.Web.WebPages.Razor.dll
+G:\BITBUCKET WORKS\MVCSolveInVisualStudio2013\MVC\bin\WebGrease.dll
+G:\BITBUCKET WORKS\MVCSolveInVisualStudio2013\MVC\bin\System.Web.Helpers.xml
+G:\BITBUCKET WORKS\MVCSolveInVisualStudio2013\MVC\bin\System.Web.Mvc.xml
+G:\BITBUCKET WORKS\MVCSolveInVisualStudio2013\MVC\bin\System.Web.Optimization.xml
+G:\BITBUCKET WORKS\MVCSolveInVisualStudio2013\MVC\bin\System.Web.Razor.xml
+G:\BITBUCKET WORKS\MVCSolveInVisualStudio2013\MVC\bin\System.Web.WebPages.xml
+G:\BITBUCKET WORKS\MVCSolveInVisualStudio2013\MVC\bin\System.Web.WebPages.Deployment.xml
+G:\BITBUCKET WORKS\MVCSolveInVisualStudio2013\MVC\bin\System.Web.WebPages.Razor.xml
+G:\BITBUCKET WORKS\MVCSolveInVisualStudio2013\MVC\bin\Antlr3.Runtime.pdb
+G:\BITBUCKET WORKS\MVCSolveInVisualStudio2013\MVC\bin\Newtonsoft.Json.xml
+G:\BITBUCKET WORKS\MVCSolveInVisualStudio2013\MVC\obj\Debug\MVC.csprojResolveAssemblyReference.cache
+G:\BITBUCKET WORKS\MVCSolveInVisualStudio2013\MVC\obj\Debug\MVC.dll
+G:\BITBUCKET WORKS\MVCSolveInVisualStudio2013\MVC\obj\Debug\MVC.pdb

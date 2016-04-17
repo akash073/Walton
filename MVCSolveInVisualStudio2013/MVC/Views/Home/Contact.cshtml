@@ -1,17 +1,54 @@
-﻿@{
-    ViewBag.Title = "Contact";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+    $(document).ready(function () {
+//function will be called on button click having id btnsave
+        $("#btnSave").click(function () {
+            $.ajax(
+            {
+                type: "POST", //HTTP POST Method
+                url: "/Home/AddEmployee", // Controller/View
+                data: { //Passing data
+                    Name: $("#txtName").val(), //Reading text box values using Jquery
+                    City: $("#txtAddress").val(),
+                    Address: $("#txtcity").val()
+                },
+                success:function(data ) {
+                    console.log(data);
+                }
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+            });
+
+        });
+    });
+
+</script>
+<br /><br />
+<fieldset>
+    <div class="form-horizontal">
+        <div class="editor-label">
+            Name
+        </div>
+        <div class="editor-label">
+            <input type="text" id="txtName" />
+        </div>
+
+        <div class="editor-label">
+            Address
+        </div>
+        <div class="editor-label">
+            <input type="text" id="txtAddress" />
+        </div>
+
+        <div class="editor-label">
+            City
+        </div>
+        <div class="editor-label">
+            <input type="text" id="txtcity" />
+        </div>
+        <div class="editor-label">
+            <br />
+            <input class="btn-default" type="button" id="btnSave" value="Save" />
+        </div>
+    </div>
+</fieldset>
