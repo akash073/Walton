@@ -214,7 +214,7 @@
     <Content Include="FileDownload\WebForm1.aspx" />
     <Content Include="FileDownload\WebForm2.aspx" />
     <Content Include="FileDownload\WebForm3.aspx" />
-    <Content Include="FIND_CONTROL\WebForm1.aspx" />
+    <Content Include="FIND_CONTROL\FindControlNRadioButton.aspx" />
     <Content Include="img\basic\x.png" />
     <Content Include="img\confirm\button.gif" />
     <Content Include="img\confirm\header.gif" />
@@ -222,6 +222,8 @@
     <Content Include="js\confirm.js" />
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.simplemodal.js" />
+    <Content Include="LINQ\MinMaxMultipleValue.aspx" />
+    <Content Include="Others\NoThings.aspx" />
     <Content Include="POST\PostData.aspx" />
     <Content Include="POST\othersite.aspx" />
     <Content Include="RDLCReport\print_button.png" />
@@ -362,14 +364,28 @@
       <DependentUpon>WebForm3.aspx</DependentUpon>
     </Compile>
     <Compile Include="FIND_CONTROL\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <DependentUpon>FindControlNRadioButton.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="FIND_CONTROL\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <DependentUpon>FindControlNRadioButton.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="LINQ\MinMaxMultipleValue.aspx.cs">
+      <DependentUpon>MinMaxMultipleValue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LINQ\MinMaxMultipleValue.aspx.designer.cs">
+      <DependentUpon>MinMaxMultipleValue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Others\NoThings.aspx.cs">
+      <DependentUpon>NoThings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Others\NoThings.aspx.designer.cs">
+      <DependentUpon>NoThings.aspx</DependentUpon>
     </Compile>
     <Compile Include="POST\PostData.aspx.cs">
       <DependentUpon>PostData.aspx</DependentUpon>

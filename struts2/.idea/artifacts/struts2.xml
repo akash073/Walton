@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="struts2">
+    <output-path>$PROJECT_DIR$/out/artifacts/struts2</output-path>
+    <root id="archive" name="struts2.war" />
+  </artifact>
+</component>
