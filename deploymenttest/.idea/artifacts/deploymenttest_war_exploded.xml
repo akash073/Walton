@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="deploymenttest:war exploded">
+    <output-path>$PROJECT_DIR$/target/deploytest</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="deploymenttest" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="F:\Maven Works\deploymenttest\target/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="deploymenttest/web/Web" />
+    </root>
+  </artifact>
+</component>
