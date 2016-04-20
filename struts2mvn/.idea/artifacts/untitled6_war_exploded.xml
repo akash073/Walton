@@ -1,0 +1,30 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="untitled6:war exploded">
+    <output-path>$PROJECT_DIR$/target/00121</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="struts2mvn" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.apache.struts:struts2-core:2.3.20.1" />
+          <element id="library" level="project" name="Maven: org.apache.struts.xwork:xwork-core:2.3.20.1" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.2" />
+          <element id="library" level="project" name="Maven: org.ow2.asm:asm:5.0.2" />
+          <element id="library" level="project" name="Maven: org.ow2.asm:asm-commons:5.0.2" />
+          <element id="library" level="project" name="Maven: org.ow2.asm:asm-tree:5.0.2" />
+          <element id="library" level="project" name="Maven: org.freemarker:freemarker:2.3.19" />
+          <element id="library" level="project" name="Maven: ognl:ognl:3.0.6" />
+          <element id="library" level="project" name="Maven: javassist:javassist:3.11.0.GA" />
+          <element id="library" level="project" name="Maven: commons-fileupload:commons-fileupload:1.3.1" />
+          <element id="library" level="project" name="Maven: commons-io:commons-io:2.2" />
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.14" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="F:\Maven Works\untitled6\target/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="struts2mvn/web/Web" />
+    </root>
+  </artifact>
+</component>

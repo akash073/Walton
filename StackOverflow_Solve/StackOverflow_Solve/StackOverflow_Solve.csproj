@@ -224,6 +224,7 @@
     <Content Include="js\jquery.simplemodal.js" />
     <Content Include="LINQ\MinMaxMultipleValue.aspx" />
     <Content Include="Others\NoThings.aspx" />
+    <Content Include="Others\trytoRestaretQuery.aspx" />
     <Content Include="POST\PostData.aspx" />
     <Content Include="POST\othersite.aspx" />
     <Content Include="RDLCReport\print_button.png" />
@@ -386,6 +387,13 @@
     </Compile>
     <Compile Include="Others\NoThings.aspx.designer.cs">
       <DependentUpon>NoThings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Others\trytoRestaretQuery.aspx.cs">
+      <DependentUpon>trytoRestaretQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Others\trytoRestaretQuery.aspx.designer.cs">
+      <DependentUpon>trytoRestaretQuery.aspx</DependentUpon>
     </Compile>
     <Compile Include="POST\PostData.aspx.cs">
       <DependentUpon>PostData.aspx</DependentUpon>

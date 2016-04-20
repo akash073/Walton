@@ -12,3 +12,4 @@ F:\BITBUCKET REPO\StackOverflow_Solve\StackOverflow_Solve\bin\itextsharp.dll
 F:\BITBUCKET REPO\StackOverflow_Solve\StackOverflow_Solve\bin\itextsharp.pdfa.dll
 F:\BITBUCKET REPO\StackOverflow_Solve\StackOverflow_Solve\bin\itextsharp.xtra.dll
 F:\BITBUCKET REPO\StackOverflow_Solve\StackOverflow_Solve\bin\itextsharp.xml
+F:\BITBUCKET REPO\StackOverflow_Solve\StackOverflow_Solve\obj\Debug\StackOverflow_Solve.csprojResolveAssemblyReference.cache
