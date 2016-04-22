@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="mvnStruts2JavahonkAjax:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="javahonk.war">
+      <element id="artifact" artifact-name="mvnStruts2JavahonkAjax:war exploded" />
+    </root>
+  </artifact>
+</component>
