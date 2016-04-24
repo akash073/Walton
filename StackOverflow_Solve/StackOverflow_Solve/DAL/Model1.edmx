@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WaltonCrmModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="WaltonCrmModelStoreContainer">
+          <EntitySet Name="SpareParts" EntityType="WaltonCrmModel.Store.SpareParts" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="SpareParts">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ItemCode" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ItemName" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="ItemPrice" Type="money" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="ItemDesc" Type="nvarchar" MaxLength="500" />
+          <Property Name="ItemGroup" Type="int" />
+          <Property Name="Model" Type="nvarchar" MaxLength="50" />
+          <Property Name="MajorCategory" Type="nvarchar" MaxLength="50" />
+          <Property Name="MinorCategory" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="UOM" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WaltonCrmModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="WaltonCrmEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="SpareParts" EntityType="WaltonCrmModel.SparePart" />
+        </EntityContainer>
+        <EntityType Name="SparePart">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemCode" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ItemName" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="ItemPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="ItemDesc" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="ItemGroup" Type="Int32" />
+          <Property Name="Model" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MajorCategory" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MinorCategory" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="UOM" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WaltonCrmModelStoreContainer" CdmEntityContainer="WaltonCrmEntities">
+          <EntitySetMapping Name="SpareParts">
+            <EntityTypeMapping TypeName="WaltonCrmModel.SparePart">
+              <MappingFragment StoreEntitySet="SpareParts">
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ItemPrice" ColumnName="ItemPrice" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ItemDesc" ColumnName="ItemDesc" />
+                <ScalarProperty Name="ItemGroup" ColumnName="ItemGroup" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="MajorCategory" ColumnName="MajorCategory" />
+                <ScalarProperty Name="MinorCategory" ColumnName="MinorCategory" />
+                <ScalarProperty Name="UOM" ColumnName="UOM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1">
+        <EntityTypeShape EntityType="WaltonCrmModel.SparePart" Width="1.5" PointX="0.75" PointY="0.75" Height="3.1340950520833335" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

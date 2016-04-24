@@ -22,7 +22,7 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="F:\Maven Works\struts2mvn\target/MANIFEST.MF" />
+        <element id="file-copy" path="F:\BITBUCKET REPO\struts2mvn\target/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="struts2mvn/web/Web" />
     </root>

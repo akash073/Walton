@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WaltonCrmModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="WaltonCrmModelStoreContainer">
+    <EntitySet Name="SpareParts" EntityType="WaltonCrmModel.Store.SpareParts" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="SpareParts">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ItemCode" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ItemName" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="ItemPrice" Type="money" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="ItemDesc" Type="nvarchar" MaxLength="500" />
+    <Property Name="ItemGroup" Type="int" />
+    <Property Name="Model" Type="nvarchar" MaxLength="50" />
+    <Property Name="MajorCategory" Type="nvarchar" MaxLength="50" />
+    <Property Name="MinorCategory" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="UOM" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+</Schema>

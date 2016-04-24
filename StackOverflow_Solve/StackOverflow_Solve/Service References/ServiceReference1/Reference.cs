@@ -9,7 +9,83 @@
 //------------------------------------------------------------------------------
 
 namespace StackOverflow_Solve.ServiceReference1 {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ArrayOfString", Namespace="http://tempuri.org/", ItemName="string")]
+    [System.SerializableAttribute()]
+    public class ArrayOfString : System.Collections.Generic.List<string> {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ArrayOfData", Namespace="http://tempuri.org/", ItemName="data")]
+    [System.SerializableAttribute()]
+    public class ArrayOfData : System.Collections.Generic.List<StackOverflow_Solve.ServiceReference1.data> {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="data", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class data : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private long idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string textField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public long id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string text {
+            get {
+                return this.textField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.textField, value) != true)) {
+                    this.textField = value;
+                    this.RaisePropertyChanged("text");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.WebService1Soap")]
@@ -22,6 +98,10 @@ namespace StackOverflow_Solve.ServiceReference1 {
         // CODEGEN: Generating message contract since element name a from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Sum", ReplyAction="*")]
         StackOverflow_Solve.ServiceReference1.SumResponse Sum(StackOverflow_Solve.ServiceReference1.SumRequest request);
+        
+        // CODEGEN: Generating message contract since element name term from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getSpareParts", ReplyAction="*")]
+        StackOverflow_Solve.ServiceReference1.getSparePartsResponse getSpareParts(StackOverflow_Solve.ServiceReference1.getSparePartsRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -109,17 +189,13 @@ namespace StackOverflow_Solve.ServiceReference1 {
     public partial class SumRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string a;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string b;
+        public StackOverflow_Solve.ServiceReference1.ArrayOfString a;
         
         public SumRequestBody() {
         }
         
-        public SumRequestBody(string a, string b) {
+        public SumRequestBody(StackOverflow_Solve.ServiceReference1.ArrayOfString a) {
             this.a = a;
-            this.b = b;
         }
     }
     
@@ -154,6 +230,74 @@ namespace StackOverflow_Solve.ServiceReference1 {
         
         public SumResponseBody(string SumResult) {
             this.SumResult = SumResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getSparePartsRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getSpareParts", Namespace="http://tempuri.org/", Order=0)]
+        public StackOverflow_Solve.ServiceReference1.getSparePartsRequestBody Body;
+        
+        public getSparePartsRequest() {
+        }
+        
+        public getSparePartsRequest(StackOverflow_Solve.ServiceReference1.getSparePartsRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class getSparePartsRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string term;
+        
+        public getSparePartsRequestBody() {
+        }
+        
+        public getSparePartsRequestBody(string term) {
+            this.term = term;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getSparePartsResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getSparePartsResponse", Namespace="http://tempuri.org/", Order=0)]
+        public StackOverflow_Solve.ServiceReference1.getSparePartsResponseBody Body;
+        
+        public getSparePartsResponse() {
+        }
+        
+        public getSparePartsResponse(StackOverflow_Solve.ServiceReference1.getSparePartsResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class getSparePartsResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public StackOverflow_Solve.ServiceReference1.ArrayOfData getSparePartsResult;
+        
+        public getSparePartsResponseBody() {
+        }
+        
+        public getSparePartsResponseBody(StackOverflow_Solve.ServiceReference1.ArrayOfData getSparePartsResult) {
+            this.getSparePartsResult = getSparePartsResult;
         }
     }
     
@@ -201,13 +345,25 @@ namespace StackOverflow_Solve.ServiceReference1 {
             return base.Channel.Sum(request);
         }
         
-        public string Sum(string a, string b) {
+        public string Sum(StackOverflow_Solve.ServiceReference1.ArrayOfString a) {
             StackOverflow_Solve.ServiceReference1.SumRequest inValue = new StackOverflow_Solve.ServiceReference1.SumRequest();
             inValue.Body = new StackOverflow_Solve.ServiceReference1.SumRequestBody();
             inValue.Body.a = a;
-            inValue.Body.b = b;
             StackOverflow_Solve.ServiceReference1.SumResponse retVal = ((StackOverflow_Solve.ServiceReference1.WebService1Soap)(this)).Sum(inValue);
             return retVal.Body.SumResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        StackOverflow_Solve.ServiceReference1.getSparePartsResponse StackOverflow_Solve.ServiceReference1.WebService1Soap.getSpareParts(StackOverflow_Solve.ServiceReference1.getSparePartsRequest request) {
+            return base.Channel.getSpareParts(request);
+        }
+        
+        public StackOverflow_Solve.ServiceReference1.ArrayOfData getSpareParts(string term) {
+            StackOverflow_Solve.ServiceReference1.getSparePartsRequest inValue = new StackOverflow_Solve.ServiceReference1.getSparePartsRequest();
+            inValue.Body = new StackOverflow_Solve.ServiceReference1.getSparePartsRequestBody();
+            inValue.Body.term = term;
+            StackOverflow_Solve.ServiceReference1.getSparePartsResponse retVal = ((StackOverflow_Solve.ServiceReference1.WebService1Soap)(this)).getSpareParts(inValue);
+            return retVal.Body.getSparePartsResult;
         }
     }
 }
