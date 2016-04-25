@@ -222,14 +222,7 @@
     <Content Include="img\basic\x.png" />
     <Content Include="img\confirm\button.gif" />
     <Content Include="img\confirm\header.gif" />
-    <Content Include="jQueryUIAutocomplete\countries.js" />
-    <Content Include="jQueryUIAutocomplete\demo.js" />
-    <Content Include="jQueryUIAutocomplete\jquery-1.8.2.min.js" />
-    <Content Include="jQueryUIAutocomplete\jquery-2.1.1.js" />
-    <Content Include="jQueryUIAutocomplete\jquery.autocomplete.js" />
-    <Content Include="jQueryUIAutocomplete\jquery.mockjax.js" />
-    <Content Include="jQueryUIAutocomplete\styles.css" />
-    <Content Include="jQueryUIAutocomplete\WebForm1.aspx" />
+    <Content Include="jQueryUI\HTMLPage1.htm" />
     <Content Include="js\basic.js" />
     <Content Include="js\confirm.js" />
     <Content Include="js\jquery.js" />
@@ -312,9 +305,7 @@
     <Content Include="select2\select2.min.js" />
     <Content Include="select2\select2.png" />
     <Content Include="select2\WebForm1.aspx" />
-    <None Include="Service References\ServiceReference1\StackOverflow_Solve.ServiceReference1.ArrayOfData.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
+    <Content Include="jQueryUI\Handler1.ashx" />
     <None Include="Service References\ServiceReference1\WebService1.disco" />
     <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
     <None Include="Service References\ServiceReference1\configuration.svcinfo" />
@@ -335,6 +326,7 @@
     <Content Include="swf\copy_csv_xls_pdf.swf" />
     <Content Include="swf\flashExport.swf" />
     <Content Include="telericUI\Autocomplete.aspx" />
+    <Content Include="telericUI\autocompletWithWebService.aspx" />
     <Content Include="telericUI\combobox.aspx" />
     <Content Include="telericUI\jquery.min.js" />
     <Content Include="telericUI\kendo.all.min.js" />
@@ -470,12 +462,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="jQueryUIAutocomplete\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="jQueryUIAutocomplete\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="jQueryUI\Handler1.ashx.cs">
+      <DependentUpon>Handler1.ashx</DependentUpon>
     </Compile>
     <Compile Include="LINQ\MinMaxMultipleValue.aspx.cs">
       <DependentUpon>MinMaxMultipleValue.aspx</DependentUpon>
@@ -569,6 +557,13 @@
     </Compile>
     <Compile Include="telericUI\Autocomplete.aspx.designer.cs">
       <DependentUpon>Autocomplete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="telericUI\autocompletWithWebService.aspx.cs">
+      <DependentUpon>autocompletWithWebService.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="telericUI\autocompletWithWebService.aspx.designer.cs">
+      <DependentUpon>autocompletWithWebService.aspx</DependentUpon>
     </Compile>
     <Compile Include="telericUI\combobox.aspx.cs">
       <DependentUpon>combobox.aspx</DependentUpon>

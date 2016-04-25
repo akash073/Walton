@@ -4,6 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta charset="utf-8" />
+     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>Kendo UI Snippet</title>
     <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2015.3.1111/styles/kendo.common.min.css">
     <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2015.3.1111/styles/kendo.rtl.min.css">
@@ -18,18 +19,57 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <input id="autocomplete" />
+        <input id="comboBox" style=" width: 500px;"/>
         <div id="result">
+        </div>
+        <div>
+            <input id="suppliers"/> 
         </div>
     </div>
     </form>
     <script type="text/javascript">
+        var webapiUrl = 'http://localhost:56628/api/SpareParts';
+        var myurl = 'http://localhost:1611/jQueryUI/Handler1.ashx';
+        $(function() {
+            $("#comboBox").kendoComboBox({
+                index: 0,
+                dataTextField: "text",
+                dataValueField: "id",
+                filter: "contains",
+                dataSource: {
+                    transport: {
+                        read: {
+                            dataType: "json",
+                            url: myurl
+                        }
+                    }
+                }
+            });
+        });
+//        $(document).ready(function () {
+//            var webapiUrl = 'http://localhost:56628/api/SpareParts';
+//            $("#autoComplete").kendoAutoComplete({
+//                template: $("#headerTemplate").html(),
+//                dataTextField: "name",
+//                dataSource: {
+//                    transport: {
+//                        read: {
+//                            dataType: "jsonp",
+//                            url: webapiUrl
+//                        }
+//                    }
+//                }
+//            });
+//        });
+    </script>
+   <%-- <script type="text/javascript">
         $(function () {
             var myurl = './Autocomplete.aspx/getSpareParts';
             var scriptUrl = '/WebService1.asmx/getSpareParts';
+            var webapiUrl = 'http://localhost:56628/api/SpareParts';
             var items = new kendo.data.DataSource({
 
-                transport: { read: { url: scriptUrl, type: "POST", dataType: "json" 
+                transport: { read: { url: webapiUrl, type: "GET", dataType: "json", contentType: "application/json; charset=utf-8"
                 }, parameterMap: function() {
                      return { value: $("#autocomplete").data("kendoAutoComplete").value() };
                 } } 
@@ -38,29 +78,48 @@
                 { id: 1, name: "Apples" },
                 { id: 2, name: "Oranges" }
             ];
+            var jsonData;
+            $.ajax({
+                type: "POST",
+                url: scriptUrl,
+                data: JSON.stringify({ value: "1" }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    //alert("i am in success");
+
+                    jsonData = result.hasOwnProperty('d') ? result.d : result;
+                   
+                    console.log(jsonData);
+                    
+//                    $("#autocomplete").kendoAutoComplete({
+//                        dataTextField: "text",
+////                        select: function (e) {
+////                            var dataItem = this.dataItem(e.item.index());
+////                            //output selected dataItem
+////                            $("#result").html(kendo.stringify(dataItem)); // Bind html to see your selected text and value      
+////                        },
+//                        dataSource: {
+//                            data: jsonData
+//                        }
+//                    });
+                },
+                failure: function (response) {
+                    console.log("I am in failure");
+                }
+            });
             var autoComplete = $("#autocomplete").kendoAutoComplete({
                 minLength: 3,
                 separator: ", ",
-                dataSource: items,
+                dataSource: jsonData,
                 serverFiltering: true,
                 dataTextField: "text"
-            }).data("kendoAutoComplete");
-//            $.ajax({
-//                type: "POST",
-//                url: myurl,
-//                data: JSON.stringify({value:"1"}),
-//                contentType: "application/json; charset=utf-8",
-//                dataType: "json",
-//                success: function (result) {
-//                    //alert("i am in success");
-//                    console.log(result);
-
-//                },
-//                failure: function (response) {
-//                    console.log("I am in failure");
-//                }
-//            });
+                        }).data("kendoAutoComplete");
+            //            var testData = [{ "id": 1, "text": "Horn -100/110cc" }, { "id": 2, "text": "Crankcase Cover Right Assy-Clutch Cover Cruize-Fusion 110" }, { "id": 3, "text": "Main Stand Gabrial Cruize-Fusion 110" }];
+            
+           
+            
         });
-    </script>
+    </script>--%>
 </body>
 </html>

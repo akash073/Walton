@@ -20,73 +20,6 @@ namespace StackOverflow_Solve.ServiceReference1 {
     public class ArrayOfString : System.Collections.Generic.List<string> {
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ArrayOfData", Namespace="http://tempuri.org/", ItemName="data")]
-    [System.SerializableAttribute()]
-    public class ArrayOfData : System.Collections.Generic.List<StackOverflow_Solve.ServiceReference1.data> {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="data", Namespace="http://tempuri.org/")]
-    [System.SerializableAttribute()]
-    public partial class data : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private long idField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string textField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public long id {
-            get {
-                return this.idField;
-            }
-            set {
-                if ((this.idField.Equals(value) != true)) {
-                    this.idField = value;
-                    this.RaisePropertyChanged("id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string text {
-            get {
-                return this.textField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.textField, value) != true)) {
-                    this.textField = value;
-                    this.RaisePropertyChanged("text");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.WebService1Soap")]
     public interface WebService1Soap {
@@ -99,7 +32,7 @@ namespace StackOverflow_Solve.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Sum", ReplyAction="*")]
         StackOverflow_Solve.ServiceReference1.SumResponse Sum(StackOverflow_Solve.ServiceReference1.SumRequest request);
         
-        // CODEGEN: Generating message contract since element name term from namespace http://tempuri.org/ is not marked nillable
+        // CODEGEN: Generating message contract since element name getSparePartsResult from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getSpareParts", ReplyAction="*")]
         StackOverflow_Solve.ServiceReference1.getSparePartsResponse getSpareParts(StackOverflow_Solve.ServiceReference1.getSparePartsRequest request);
     }
@@ -253,17 +186,10 @@ namespace StackOverflow_Solve.ServiceReference1 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    [System.Runtime.Serialization.DataContractAttribute()]
     public partial class getSparePartsRequestBody {
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string term;
-        
         public getSparePartsRequestBody() {
-        }
-        
-        public getSparePartsRequestBody(string term) {
-            this.term = term;
         }
     }
     
@@ -291,12 +217,12 @@ namespace StackOverflow_Solve.ServiceReference1 {
     public partial class getSparePartsResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public StackOverflow_Solve.ServiceReference1.ArrayOfData getSparePartsResult;
+        public string getSparePartsResult;
         
         public getSparePartsResponseBody() {
         }
         
-        public getSparePartsResponseBody(StackOverflow_Solve.ServiceReference1.ArrayOfData getSparePartsResult) {
+        public getSparePartsResponseBody(string getSparePartsResult) {
             this.getSparePartsResult = getSparePartsResult;
         }
     }
@@ -358,10 +284,9 @@ namespace StackOverflow_Solve.ServiceReference1 {
             return base.Channel.getSpareParts(request);
         }
         
-        public StackOverflow_Solve.ServiceReference1.ArrayOfData getSpareParts(string term) {
+        public string getSpareParts() {
             StackOverflow_Solve.ServiceReference1.getSparePartsRequest inValue = new StackOverflow_Solve.ServiceReference1.getSparePartsRequest();
             inValue.Body = new StackOverflow_Solve.ServiceReference1.getSparePartsRequestBody();
-            inValue.Body.term = term;
             StackOverflow_Solve.ServiceReference1.getSparePartsResponse retVal = ((StackOverflow_Solve.ServiceReference1.WebService1Soap)(this)).getSpareParts(inValue);
             return retVal.Body.getSparePartsResult;
         }

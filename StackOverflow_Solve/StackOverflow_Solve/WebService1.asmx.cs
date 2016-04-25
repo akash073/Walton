@@ -10,6 +10,7 @@ using StackOverflow_Solve.select2;
 
 namespace StackOverflow_Solve
 {
+    [Serializable]
     public class data
     {
         public long id { get; set; }
@@ -39,22 +40,20 @@ namespace StackOverflow_Solve
             return (Convert.ToInt64(a[0]) + Convert.ToInt64(a[1])).ToString();
         }
         [WebMethod]
-        [ScriptMethod(ResponseFormat = ResponseFormat.Json)] 
-        public List<data> getSpareParts(string value)
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        
+        public String getSpareParts()
         {
-            List<data> spareParts;
+  
+            List<String> spareParts;
             //q	2term	2
             using ( var db = new WaltonCrmEntities())
             {
-                spareParts = db.SpareParts.Select(x => new data
-                {
-                    id = x.ItemID,
-                    text = x.ItemName
-                }).ToList();
+                spareParts = db.SpareParts.Select(x => x.ItemName).Take(1000).ToList();
             }
-           
-           
-            return spareParts;
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            return js.Serialize(spareParts);
+            //return spareParts;
 
         }
     }

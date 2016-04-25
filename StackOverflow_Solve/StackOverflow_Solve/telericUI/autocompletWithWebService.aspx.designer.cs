@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StackOverflow_Solve.jQueryUIAutocomplete
+namespace StackOverflow_Solve.telericUI
 {
 
 
-    public partial class WebForm1
+    public partial class autocompletWithWebService
     {
 
         /// <summary>
