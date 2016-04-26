@@ -219,6 +219,23 @@
     <Content Include="FileDownload\WebForm2.aspx" />
     <Content Include="FileDownload\WebForm3.aspx" />
     <Content Include="FIND_CONTROL\FindControlNRadioButton.aspx" />
+    <Content Include="FIXEDHEADERWITHDATATABLE\WebForm1.aspx" />
+    <Content Include="images\calendar-icon.gif" />
+    <Content Include="images\delivery.png" />
+    <Content Include="images\dropbox-asc.png" />
+    <Content Include="images\dropbox-desc.png" />
+    <Content Include="images\Logo.jpg" />
+    <Content Include="images\minus.png" />
+    <Content Include="images\plus.png" />
+    <Content Include="images\Preloader_2.gif" />
+    <Content Include="images\Preloader_3.gif" />
+    <Content Include="images\Preloader_8.gif" />
+    <Content Include="images\receipt.png" />
+    <Content Include="images\skull.png" />
+    <Content Include="images\sort_asc.png" />
+    <Content Include="images\sort_both.png" />
+    <Content Include="images\sort_desc.png" />
+    <Content Include="images\Walton.jpg" />
     <Content Include="img\basic\x.png" />
     <Content Include="img\confirm\button.gif" />
     <Content Include="img\confirm\header.gif" />
@@ -458,6 +475,13 @@
     </Compile>
     <Compile Include="FIND_CONTROL\WebForm1.aspx.designer.cs">
       <DependentUpon>FindControlNRadioButton.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FIXEDHEADERWITHDATATABLE\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FIXEDHEADERWITHDATATABLE\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

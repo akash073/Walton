@@ -22,7 +22,18 @@ namespace StackOverflow_Solve.jQueryUI
 
         public void ProcessRequest(HttpContext context)
         {
+
             List<data> search;
+            using (var db = new WaltonCrmEntities())
+            {
+                var spareParts =
+                    db.SpareParts.Select(x => new data
+                    {
+                        id = x.ItemID,
+                        text = x.ItemName
+                    }).ToList();
+                search = spareParts;
+            }
             if (context.Request.QueryString["term"] != null)
             {
                 var term = context.Request.QueryString["term"].ToString();
@@ -31,33 +42,10 @@ namespace StackOverflow_Solve.jQueryUI
                 context.Response.ContentType = "application/json";
                 
                 //q	2term	2
-                using (var db = new WaltonCrmEntities())
-                {
-                    var spareParts =
-                        db.SpareParts.Select(x => new data
-                        {
-                            id = x.ItemID,
-                            text = x.ItemName
-                        }).Take(1000).ToList();
-                    search = spareParts;
-                }
-                
+
+                search = search.Where(x => x.text.ToLower().Contains(term)).ToList();
             }
-            else
-            {
-                using (var db = new WaltonCrmEntities())
-                {
-                    var spareParts =
-                        db.SpareParts.Select(x => new data
-                        {
-                            id = x.ItemID,
-                            text = x.ItemName
-                        }).Take(1000).ToList();
-                    search = spareParts;
-                }
-                
-            }
-        
+            
 
         JavaScriptSerializer jsSerializer = new JavaScriptSerializer();
         string json = jsSerializer.Serialize(search);
