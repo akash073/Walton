@@ -52,6 +52,7 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Net" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
@@ -220,6 +221,7 @@
     <Content Include="FileDownload\WebForm3.aspx" />
     <Content Include="FIND_CONTROL\FindControlNRadioButton.aspx" />
     <Content Include="FIXEDHEADERWITHDATATABLE\WebForm1.aspx" />
+    <Content Include="geolocation\geolocation.aspx" />
     <Content Include="images\calendar-icon.gif" />
     <Content Include="images\delivery.png" />
     <Content Include="images\dropbox-asc.png" />
@@ -482,6 +484,13 @@
     </Compile>
     <Compile Include="FIXEDHEADERWITHDATATABLE\WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="geolocation\geolocation.aspx.cs">
+      <DependentUpon>geolocation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="geolocation\geolocation.aspx.designer.cs">
+      <DependentUpon>geolocation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
