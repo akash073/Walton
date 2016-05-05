@@ -10,8 +10,13 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+/*
+Route::get('/', function(){
+	//return view('dur');
+	return view('Employee::dummy');
+});*/
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/','Employee::DummyController@index');
 
 Route::get('home', 'HomeController@index');
 
