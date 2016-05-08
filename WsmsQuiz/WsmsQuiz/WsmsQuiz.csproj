@@ -104,12 +104,33 @@
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\default.css" />
+    <Content Include="Content\images\help.gif" />
+    <Content Include="Content\images\important.gif" />
+    <Content Include="Content\images\info.gif" />
+    <Content Include="Content\images\title.gif" />
+    <Content Include="Content\jquery.alerts.css" />
+    <Content Include="Content\jsgrid-theme.css" />
+    <Content Include="Content\jsgrid-theme.min.css" />
+    <Content Include="Content\jsgrid.css" />
+    <Content Include="Content\jsgrid.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="css\reset.css" />
     <Content Include="css\styles.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="images\calendar-disabled.png" />
+    <Content Include="images\calendar.png" />
+    <Content Include="images\close.png" />
+    <Content Include="images\help.gif" />
+    <Content Include="images\important.gif" />
+    <Content Include="images\info.gif" />
+    <Content Include="images\metallic\default-date.png" />
+    <Content Include="images\metallic\disabled-date.png" />
+    <Content Include="images\metallic\header.png" />
+    <Content Include="images\metallic\selected-date.png" />
+    <Content Include="images\themes.png" />
+    <Content Include="images\title.gif" />
     <Content Include="js\custom.js" />
-    <Content Include="js\jquery.js" />
     <Content Include="js\slider.js" />
     <Content Include="js\superfish.js" />
     <Content Include="Login\css\style.css" />
@@ -118,12 +139,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Scripts\jquery.alerts.js" />
+    <Content Include="Scripts\jsgrid.js" />
+    <Content Include="Scripts\jsgrid.min.js" />
+    <Content Include="Scripts\zebra_datepicker.js" />
     <Content Include="WebForm1.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -253,7 +278,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>18300</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:18300/</IISUrl>
+          <IISUrl>http://localhost:18333/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
