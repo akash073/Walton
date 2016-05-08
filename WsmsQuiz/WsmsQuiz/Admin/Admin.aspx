@@ -40,32 +40,33 @@
 
                 data: clients,
 
-                fields: [
-                    { name: "Name", type: "text", width: 150, validate: "required" },
-                    { name: "Age", type: "number", width: 50 },
-                    { name: "Address", type: "text", width: 200 },
-                    { name: "Country", type: "select", items: countries, valueField: "Id", textField: "Name" },
-                    { name: "Married", type: "checkbox", title: "Is Married", sorting: false },
-                    { type: "control" }
-                ],
+                //fields: [
+                //    { name: "Name", type: "text", width: 150, validate: "required" },
+                //    { name: "Age", type: "number", width: 50 },
+                //    { name: "Address", type: "text", width: 200 },
+                //    { name: "Country", type: "select", items: countries, valueField: "Id", textField: "Name" },
+                //    { name: "Married", type: "checkbox", title: "Is Married", sorting: false },
+                //    { type: "control" }
+                //],
+                fields: [{ name: "Name", type: "text" }, { type: "control" }],
                 onItemInserting: function(args) {
                     var insertedData = args.item;
 
                     console.log(insertedData);
-                    var url = 'Admin.aspx/GetGridData';
-                    $.ajax({
-                        type: "POST",
-                        url: url,
-                        dataType: "json",
-                        contentType: "application/json; charset=utf-8",
-                        data: JSON.stringify ({'jsGridData': insertedData }),
-                        success: function (res) {
-                            console.log(res.d);
-                            alert('The job has been inserted successfully');
-                        },
-                        error: function (res) {
-                        }
-                    });
+                    //var url = 'Admin.aspx/GetGridData';
+                    //$.ajax({
+                    //    type: "POST",
+                    //    url: url,
+                    //    dataType: "json",
+                    //    contentType: "application/json; charset=utf-8",
+                    //    data: JSON.stringify ({'jsGridData': insertedData }),
+                    //    success: function (res) {
+                    //        console.log(res.d);
+                    //        alert('The job has been inserted successfully');
+                    //    },
+                    //    error: function (res) {
+                    //    }
+                    //});
                     
                 },
                 onItemInserted: function(args) {
