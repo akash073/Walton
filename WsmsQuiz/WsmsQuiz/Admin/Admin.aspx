@@ -11,15 +11,16 @@
     <link href="../Content/jquery.alerts.css" rel="stylesheet" />
     <script src="../Scripts/jquery.alerts.js"></script>
     <script type="text/javascript">
+        
         $(function () {
             // alert('HI');
             $('#txtStartDate,#txtEndDate').Zebra_DatePicker();
             var clients = [
-       { "Name": "Otto Clay", "Age": 25, "Country": 1, "Address": "Ap #897-1459 Quam Avenue", "Married": false },
-       { "Name": "Connor Johnston", "Age": 45, "Country": 2, "Address": "Ap #370-4647 Dis Av.", "Married": true },
-       { "Name": "Lacey Hess", "Age": 29, "Country": 3, "Address": "Ap #365-8835 Integer St.", "Married": false },
-       { "Name": "Timothy Henson", "Age": 56, "Country": 1, "Address": "911-5143 Luctus Ave", "Married": true },
-       { "Name": "Ramona Benton", "Age": 32, "Country": 3, "Address": "Ap #614-689 Vehicula Street", "Married": false }
+                { "Name": "Otto Clay", "Age": 25, "Country": 1, "Address": "Ap #897-1459 Quam Avenue", "Married": false },
+                { "Name": "Connor Johnston", "Age": 45, "Country": 2, "Address": "Ap #370-4647 Dis Av.", "Married": true },
+                { "Name": "Lacey Hess", "Age": 29, "Country": 3, "Address": "Ap #365-8835 Integer St.", "Married": false },
+                { "Name": "Timothy Henson", "Age": 56, "Country": 1, "Address": "911-5143 Luctus Ave", "Married": true },
+                { "Name": "Ramona Benton", "Age": 32, "Country": 3, "Address": "Ap #614-689 Vehicula Street", "Married": false }
             ];
 
             var countries = [
@@ -30,6 +31,7 @@
             ];
 
             $("#jsGrid").jsGrid({
+                
                 width: "100%",
                 height: "400px",
 
@@ -38,7 +40,7 @@
                 sorting: true,
                 paging: true,
 
-                data: clients,
+                // data: clients,
 
                 //fields: [
                 //    { name: "Name", type: "text", width: 150, validate: "required" },
@@ -48,11 +50,23 @@
                 //    { name: "Married", type: "checkbox", title: "Is Married", sorting: false },
                 //    { type: "control" }
                 //],
-                fields: [{ name: "Name", type: "text" }, { type: "control" }],
+                fields: [
+                    { name: "QuestionName", type: "text", width: 150, validate: "required" },
+                    { name: "Answer1", type: "text", width: 15 },
+                    { name: "Answer2", type: "text", width: 15},
+                    { name: "Answer3", type: "text", width: 15 },
+                    { name: "Answer4", type: "text", width: 15 },
+                    { name: "Answer5", type: "text", width: 15 },
+                    { type: "control" }
+
+
+                ],
                 onItemInserting: function(args) {
                     var insertedData = args.item;
-
                     console.log(insertedData);
+                    args.cancel = true;
+                    alert("Specify the name of the item!");
+                   
                     //var url = 'Admin.aspx/GetGridData';
                     //$.ajax({
                     //    type: "POST",
@@ -109,6 +123,9 @@
                 <asp:TextBox ID="txtEndDate" runat="server" ClientIDMode="Static" Width="360px"></asp:TextBox>
             </div>
         </div>
+        <div>
+            <div id="jsGrid"></div>
+        </div>
         <div class="row">
             <div class="panel panel-primary">
                 <div class="panel-heading">
@@ -117,7 +134,7 @@
 
                 <div class="panel-body">
                     <%-- Added question here --%>
-                    <div id="jsGrid"></div>
+                    <%--<div id="jsGrid"></div>--%>
 
                 </div>
             </div>
