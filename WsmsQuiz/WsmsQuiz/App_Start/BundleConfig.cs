@@ -12,6 +12,15 @@ namespace WsmsQuiz
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkID=303951
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Add(new ScriptBundle("~/masterContent").Include("~/js/custom.js"  ,
+                "~/js/jQuery.js",
+                "~/js/slider.js",
+                "~/js/superfish.js")
+                );
+
+            bundles.Add(new ScriptBundle("~/masterStyle").Include("~/css/reset.css","~/css/styles.css"));
+
+
             bundles.Add(new ScriptBundle("~/bundles/WebFormsJs").Include(
                             "~/Scripts/WebForms/WebForms.js",
                             "~/Scripts/WebForms/WebUIValidation.js",

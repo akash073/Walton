@@ -2,7 +2,7 @@
 
 <!doctype html>
 <html>
-<head>
+<head  runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>minibiz - Free CSS Template by ZyPOP</title>
 
@@ -16,11 +16,10 @@
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/slider.js"></script>
-<script type="text/javascript" src="js/superfish.js"></script>
-
-<script type="text/javascript" src="js/custom.js"></script>
+<asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/masterContent") %>
+        <%: Styles.Render("~/masterStyle") %>
+    </asp:PlaceHolder>
 
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 
