@@ -356,6 +356,7 @@
     <Content Include="UserControl\Show.aspx" />
     <Content Include="UserControl\ViewSate.aspx" />
     <Content Include="VerifyJS\verify_1.aspx" />
+    <Content Include="WeatherApiByLat\openweathermap_ap.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -632,6 +633,13 @@
     </Compile>
     <Compile Include="VerifyJS\verify_1.aspx.designer.cs">
       <DependentUpon>verify_1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WeatherApiByLat\openweathermap_ap.aspx.cs">
+      <DependentUpon>openweathermap_ap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WeatherApiByLat\openweathermap_ap.aspx.designer.cs">
+      <DependentUpon>openweathermap_ap.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebService1.asmx.cs">
       <DependentUpon>WebService1.asmx</DependentUpon>

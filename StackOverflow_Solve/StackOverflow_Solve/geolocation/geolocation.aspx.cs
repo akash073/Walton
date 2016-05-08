@@ -11,17 +11,17 @@ namespace StackOverflow_Solve.geolocation
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string apiUrl = http://freegeoip.net/xml/{ip}
+           // string apiUrl = http://freegeoip.net/xml/{ip}
 
-HttpClient HttpClient = new HttpClient();
+//HttpClient HttpClient = new HttpClient();
 
-var response = HttpClient.GetAsync(apiUrl).Result;
+//var response = HttpClient.GetAsync(apiUrl).Result;
 
-if (response != null && response.ReasonPhrase != "Unauthorized")
- {
-   var myobject = response.Content.ReadAsStringAsync();
+//if (response != null && response.ReasonPhrase != "Unauthorized")
+// {
+//   var myobject = response.Content.ReadAsStringAsync();
 
- }
+// }
         }
     }
 }
