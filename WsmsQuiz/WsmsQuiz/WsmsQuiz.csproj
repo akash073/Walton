@@ -101,6 +101,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Admin\Admin.aspx" />
+    <Content Include="Admin\HtmlPage1.html" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -114,6 +115,7 @@
     <Content Include="Content\jsgrid-theme.min.css" />
     <Content Include="Content\jsgrid.css" />
     <Content Include="Content\jsgrid.min.css" />
+    <Content Include="Content\parsley.css" />
     <Content Include="Content\Site.css" />
     <Content Include="css\reset.css" />
     <Content Include="css\styles.css" />
@@ -142,6 +144,7 @@
     <Content Include="Scripts\jquery.alerts.js" />
     <Content Include="Scripts\jsgrid.js" />
     <Content Include="Scripts\jsgrid.min.js" />
+    <Content Include="Scripts\parsley.js" />
     <Content Include="Scripts\zebra_datepicker.js" />
     <Content Include="WebForm1.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

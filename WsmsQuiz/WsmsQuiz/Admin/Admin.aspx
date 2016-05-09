@@ -10,6 +10,8 @@
     <script src="../Scripts/jsgrid.js"></script>
     <link href="../Content/jquery.alerts.css" rel="stylesheet" />
     <script src="../Scripts/jquery.alerts.js"></script>
+    <link href="../Content/parsley.css" rel="stylesheet" />
+    <script src="../Scripts/parsley.js"></script>
     <script type="text/javascript">
         
         $(function () {
@@ -90,7 +92,7 @@
             });
         })
     </script>
-    <div class="container">
+    <div class="container" data-parsley-validate="">
         <div class="row">
             <br />
         </div>
@@ -100,7 +102,7 @@
                 Quiz Name:
             </div>
             <div class="col-lg-4">
-                <asp:TextBox ID="txtQuizName" runat="server" ClientIDMode="Static" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtQuizName" runat="server" ClientIDMode="Static" TextMode="MultiLine" CssClass="form-control" data-parsley-trigger="change" required=""></asp:TextBox>
             </div>
         </div>
         <br />
@@ -114,6 +116,7 @@
                 <asp:TextBox ID="txtStartDate" runat="server" ClientIDMode="Static" Width="360px"></asp:TextBox>
             </div>
         </div>
+        <br/>
         <div class="row">
 
             <div class="col-lg-2">
@@ -123,9 +126,7 @@
                 <asp:TextBox ID="txtEndDate" runat="server" ClientIDMode="Static" Width="360px"></asp:TextBox>
             </div>
         </div>
-        <div>
-            <div id="jsGrid"></div>
-        </div>
+        
         <div class="row">
             <div class="panel panel-primary">
                 <div class="panel-heading">
@@ -135,9 +136,13 @@
                 <div class="panel-body">
                     <%-- Added question here --%>
                     <%--<div id="jsGrid"></div>--%>
+                     <div id="jsGrid"></div>
 
                 </div>
             </div>
+        </div>
+        <div class="row">
+            <asp:Button ID="btnSubmit" runat="server" Text="Submit" ClientIDMode="Static" CssClass="btn btn-danger"/>
         </div>
 
     </div>
