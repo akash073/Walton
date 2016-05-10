@@ -70,10 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="Account\ChangePassword.aspx" />
-    <Content Include="Account\ChangePasswordSuccess.aspx" />
-    <Content Include="Account\Login.aspx" />
-    <Content Include="Account\Register.aspx" />
+    <Content Include="AngularJS\PopulateDataAfterButtonClick.aspx" />
     <Content Include="CHOSEN\chosen-sprite.png" />
     <Content Include="CHOSEN\chosen.css" />
     <Content Include="CHOSEN\chosen.jquery.js" />
@@ -215,6 +212,9 @@
     <Content Include="css\confirm.css" />
     <Content Include="css\demo.css" />
     <Content Include="DATATABLE\Try_1.aspx" />
+    <Content Include="AngularJS\ember.min.js" />
+    <Content Include="AngularJS\ember.prod.js" />
+    <Content Include="AngularJS\EmberJsForAsp.aspx" />
     <Content Include="FileDownload\StoredProcedure.aspx" />
     <Content Include="FileDownload\WebForm1.aspx" />
     <Content Include="FileDownload\WebForm2.aspx" />
@@ -241,6 +241,9 @@
     <Content Include="img\basic\x.png" />
     <Content Include="img\confirm\button.gif" />
     <Content Include="img\confirm\header.gif" />
+    <Content Include="jQueryConfirm\jquery-confirm.css" />
+    <Content Include="jQueryConfirm\jquery-confirm.js" />
+    <Content Include="jQueryConfirm\jQueryAjaxForStack.aspx" />
     <Content Include="jQueryUI\HTMLPage1.htm" />
     <Content Include="js\basic.js" />
     <Content Include="js\confirm.js" />
@@ -378,33 +381,12 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Account\ChangePassword.aspx.cs">
-      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    <Compile Include="AngularJS\PopulateDataAfterButtonClick.aspx.cs">
+      <DependentUpon>PopulateDataAfterButtonClick.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Account\ChangePassword.aspx.designer.cs">
-      <DependentUpon>ChangePassword.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\ChangePasswordSuccess.aspx.cs">
-      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\ChangePasswordSuccess.aspx.designer.cs">
-      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\Register.aspx.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Register.aspx.designer.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
+    <Compile Include="AngularJS\PopulateDataAfterButtonClick.aspx.designer.cs">
+      <DependentUpon>PopulateDataAfterButtonClick.aspx</DependentUpon>
     </Compile>
     <Compile Include="CHOSEN\DatatableExample.aspx.cs">
       <DependentUpon>DatatableExample.aspx</DependentUpon>
@@ -443,6 +425,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AngularJS\EmberJsForAsp.aspx.cs">
+      <DependentUpon>EmberJsForAsp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AngularJS\EmberJsForAsp.aspx.designer.cs">
+      <DependentUpon>EmberJsForAsp.aspx</DependentUpon>
     </Compile>
     <Compile Include="FileDownload\StoredProcedure.aspx.cs">
       <DependentUpon>StoredProcedure.aspx</DependentUpon>
@@ -495,6 +484,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="jQueryConfirm\jQueryAjaxForStack.aspx.cs">
+      <DependentUpon>jQueryAjaxForStack.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="jQueryConfirm\jQueryAjaxForStack.aspx.designer.cs">
+      <DependentUpon>jQueryAjaxForStack.aspx</DependentUpon>
     </Compile>
     <Compile Include="jQueryUI\Handler1.ashx.cs">
       <DependentUpon>Handler1.ashx</DependentUpon>
@@ -664,7 +660,6 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Account\Web.config" />
     <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
