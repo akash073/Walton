@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="AngularJS\angularJs.js" />
     <Content Include="AngularJS\PopulateDataAfterButtonClick.aspx" />
     <Content Include="CHOSEN\chosen-sprite.png" />
     <Content Include="CHOSEN\chosen.css" />
