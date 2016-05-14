@@ -24,16 +24,16 @@ namespace Mvc5Practice.Controllers
                 //};
                 //context.Students.Add(student);
                 //context.SaveChanges();
-                var departMent = new Department {DepartmentId = 1};
+                var departMent = new Department { DepartmentId = 1 };
                 var student = new Student()
                 {
                     Name = "yyy",
                     EmailId = "has been",
                     Address = "Added",
                     City = "in ddd",
-                   
+
                 };
-                
+
                 //var studentObject = context.Students.FirstOrDefault(x => x.Department.Id == 1);
                 //studentObject.City = "xxx";
                 //departMent.Students.Add(studentObject);
@@ -53,7 +53,7 @@ namespace Mvc5Practice.Controllers
                 }
                 else
                 {
-                   
+
                 }
                 context.SaveChanges();
 
@@ -74,5 +74,11 @@ namespace Mvc5Practice.Controllers
 
             return View();
         }
+        [HttpPost]
+        public ActionResult LoginPage(LoginPageVM model)
+{
+    //...code to login user to application...
+    return View(model);
+}
     }
 }
