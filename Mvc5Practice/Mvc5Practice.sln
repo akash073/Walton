@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc5Practice", "Mvc5Practice\Mvc5Practice.csproj", "{A9C3F2B0-FBAA-4046-9EEB-FAC14323F03C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WsmsQuiz", "WsmsQuiz\WsmsQuiz.csproj", "{D2A994E7-1125-4F06-A5EE-CD521E3F4B20}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A9C3F2B0-FBAA-4046-9EEB-FAC14323F03C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9C3F2B0-FBAA-4046-9EEB-FAC14323F03C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9C3F2B0-FBAA-4046-9EEB-FAC14323F03C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2A994E7-1125-4F06-A5EE-CD521E3F4B20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2A994E7-1125-4F06-A5EE-CD521E3F4B20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2A994E7-1125-4F06-A5EE-CD521E3F4B20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2A994E7-1125-4F06-A5EE-CD521E3F4B20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
