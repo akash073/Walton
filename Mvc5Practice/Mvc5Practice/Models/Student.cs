@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -20,9 +21,8 @@ namespace Mvc5Practice.Models
         public string EmailId { get; set; }
         public string Address { get; set; }
         public string City { get; set; }
-        public string TestColumn { get; set; }
-        public string TestColumn2 { get; set; }
 
+        [Required]
         public Department Department { get; set; } // Navigation Property
     }
 }

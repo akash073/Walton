@@ -10,7 +10,7 @@ namespace Mvc5Practice.Models
     {
         public Department()
         {
-
+            Students=new List<Student>();
         }
         [Key]
         public int Id { get; set; }
