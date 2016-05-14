@@ -13,7 +13,7 @@ namespace Mvc5Practice.Models
             Students=new List<Student>();
         }
         [Key]
-        public int Id { get; set; }
+        public int DepartmentId { get; set; }
         public string DepartmentName { get; set; }
 
         public List<Student> Students { get; set; } // Navigation property

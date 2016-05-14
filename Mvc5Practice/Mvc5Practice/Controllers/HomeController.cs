@@ -24,7 +24,7 @@ namespace Mvc5Practice.Controllers
                 //};
                 //context.Students.Add(student);
                 //context.SaveChanges();
-                var departMent = new Department {Id = 1};
+                var departMent = new Department {DepartmentId = 1};
                 var student = new Student()
                 {
                     Name = "yyy",
@@ -37,10 +37,24 @@ namespace Mvc5Practice.Controllers
                 //var studentObject = context.Students.FirstOrDefault(x => x.Department.Id == 1);
                 //studentObject.City = "xxx";
                 //departMent.Students.Add(studentObject);
-
-                var departMents = context.Departments.FirstOrDefault(x => x.Id == 2);
+                var dept = new Department
+                {
+                    DepartmentId = 1,
+                    DepartmentName = "Akash"
+                };
+                context.Departments.Add(dept);
+                context.SaveChanges();
+                var departMents = context.Departments.FirstOrDefault(x => x.DepartmentId == 1);
                 student.Department = departMents;
-                departMents.Students.Add(student);
+
+                if (departMents != null)
+                {
+                    departMents.Students.Add(student);
+                }
+                else
+                {
+                   
+                }
                 context.SaveChanges();
 
             }

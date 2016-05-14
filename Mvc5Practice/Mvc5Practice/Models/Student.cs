@@ -14,7 +14,7 @@ namespace Mvc5Practice.Models
 
         }
         [Key]
-        public int Id { get; set; }
+        public int StudentId { get; set; }
         public string Name { get; set; }
 
         public DateTime? DateOfBirth { get; set; }
@@ -22,7 +22,8 @@ namespace Mvc5Practice.Models
         public string Address { get; set; }
         public string City { get; set; }
 
-        [Required]
+        //[Required]
         public Department Department { get; set; } // Navigation Property
+        public List<Course> Courses { get; set; }
     }
 }
