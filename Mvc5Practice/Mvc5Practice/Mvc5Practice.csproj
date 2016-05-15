@@ -129,6 +129,7 @@
     <Compile Include="Models\StudentDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\LoginPageVM.cs" />
+    <Compile Include="ViewModels\Music.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />

@@ -6,7 +6,7 @@
 <script src="~/Scripts/jquery.validate.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
 <div class="container">
-    <div class="row">
+    @*<div class="row">
         @model Mvc5Practice.ViewModels.LoginPageVM
 
         @using (Html.BeginForm("LoginPage", "Home", FormMethod.Post))
@@ -17,6 +17,46 @@
             <input type="submit" value="Save" class="submit" />
         }
 
+    </div>*@
+    <div class="row">
+        @model List<Mvc5Practice.ViewModels.Music>
+
+        @using (Html.BeginForm("Create", "Home", FormMethod.Post, new { }))
+        {
+            @Html.ValidationSummary(true)
+            <fieldset>
+                <legend>Music</legend>
+                @for (int i = 0; i < Model.Count(); i++)
+                {
+                    <div class="editor-label">
+                        @Html.LabelFor(model => Model[i].Music_Id)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => Model[i].Music_Id)
+                        @Html.ValidationMessageFor(model => Model[i].Music_Id)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => Model[i].Song_Name)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => Model[i].Song_Name)
+                        @Html.ValidationMessageFor(model => Model[i].Song_Name)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => Model[i].Music_Director)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => Model[i].Music_Director)
+                        @Html.ValidationMessageFor(model => Model[i].Music_Director)
+                    </div>
+                }
+                <p>
+                    <input type="submit" value="Create" />
+                </p>
+            </fieldset>
+        }
     </div>
 
 </div>
