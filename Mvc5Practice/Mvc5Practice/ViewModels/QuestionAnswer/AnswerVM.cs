@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Mvc5Practice.ViewModels
+﻿namespace Mvc5Practice.ViewModels.QuestionAnswer
 {
     public class AnswerVM
     {
+        public int ID { get; set; }
+        public string Text { get; set; }
     }
 }
