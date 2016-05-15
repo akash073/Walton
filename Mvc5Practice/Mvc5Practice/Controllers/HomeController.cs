@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Mvc5Practice.Models;
+using Mvc5Practice.ViewModels;
 
 namespace Mvc5Practice.Controllers
 {
@@ -76,9 +77,9 @@ namespace Mvc5Practice.Controllers
         }
         [HttpPost]
         public ActionResult LoginPage(LoginPageVM model)
-{
-    //...code to login user to application...
-    return View(model);
-}
+        {
+            //...code to login user to application...
+            return View(model);
+        }
     }
 }
