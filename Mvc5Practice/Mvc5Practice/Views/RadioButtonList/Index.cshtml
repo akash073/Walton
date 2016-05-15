@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@using System.Reflection
+@using Mvc5Practice.ViewModels
+@model Mvc5Practice.ViewModels.CheckOutViewModel
+@using (Html.BeginForm())
+{
+
+    foreach (SelectItems paymentItem in Model.PaymentTypes)
+    {
+        for (int i = 0; i < paymentItem.totalOption; i++)
+        {
+            Type myClassType = paymentItem.GetType();
+            PropertyInfo[] properties = myClassType.GetProperties();
+
+            foreach (PropertyInfo property in properties)
+            {
+
+                //Console.WriteLine("Name: " + property.Name + ", Value: " + property.GetValue(paymentItem, null));
+
+                <input type="radio" name="group2" value="@property.Name"> @property.GetValue(paymentItem, null)
+            }
+            <br>
+        }
+
+
+
+
+    @*@Html.RadioButtonFor(mbox => mbox.SelectedPaymentType,
+                                              paymentItem.option1)
+        @paymentItem.option1*@
+    }
+    <input type="submit" value="Save" />
+}
+<hr/>
+<input type="radio" name="group2" value="Water"> Water<br>
+<input type="radio" name="group2" value="Beer"> Beer<br>
+<input type="radio" name="group2" value="Wine" checked> Wine<br>
