@@ -14,7 +14,7 @@ namespace WsmsQuiz.Controllers
     {
         public ActionResult Index()
         {
-            int userId = 100;
+            const int userId = 100;
             Boolean isMobileCrmUser = true;
 
 
@@ -28,7 +28,7 @@ namespace WsmsQuiz.Controllers
                     questionAnswer.QuizSessionID = session.QuizSessionID;
                     questionAnswer.QuizSessionName = session.QuizSessionName;
                     questionAnswer.QuizTypeID = session.QuizTypeID;
-                    questionAnswer.QuizTypeName = GetQuizNameByQuizTypeId(session.QuizTypeID);
+                    questionAnswer.QuizTypeName = GetQuizTypeByQuizTypeId(session.QuizTypeID);
                     questionAnswer.UserID = userId;
                     questionAnswer.IsMobileCrmUser = true;
 
@@ -41,6 +41,7 @@ namespace WsmsQuiz.Controllers
                         Question question = new Question();
 
                         question.QuizQuestionID = q.QuizQuestionID;
+                        question.QuizQuestionName = q.QuizQuestionName;
 
                         var possible = new List<PossibleAnswer>();
                         int noOfAnswer = q.NoOfAnswer;
@@ -90,9 +91,9 @@ namespace WsmsQuiz.Controllers
             return View(answersList);
         }
 
-        public static string GetQuizNameByQuizTypeId(long quizTypeID)
+        public static string GetQuizTypeByQuizTypeId(long quizTypeID)
         {
-            String quizName = String.Empty;
+            String quizName;
             using (var db = new WsmsQuizEntities())
             {
                 quizName =

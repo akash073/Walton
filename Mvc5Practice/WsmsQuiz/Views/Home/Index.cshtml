@@ -3,31 +3,29 @@
 }
 @model IEnumerable<WsmsQuiz.ViewModels.QuestionAnswerViewModel>
 
-@foreach (var quizQuestions in Model)
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
 {
-    <div>
-       Session Id= @quizQuestions.SessionId
-    </div>
-    <div>
-        @foreach (var questions in quizQuestions.Questions)
+    foreach (var m in Model)
+    {
+        <p>@m.QuizSessionName</p>
+        for (int i = 0; i < m.GeneralQuestions.Count; i++)
         {
-            <div class="row">
-                @questions.NoOfAnswer
+            int questionCount = @i + 1;
+            var question = m.GeneralQuestions[i];
+            <div>
+               Question No.= @questionCount @Html.Label(question.QuizQuestionName)
             </div>
-            <div>@questions.Answer1</div>
-            <br />
-            <div>@questions.Answer2</div>
-    <br />
-            <div>@questions.Answer3</div>
-    <br />
-            <div>@questions.Answer4</div>
-    <br />
-            <div>@questions.Answer5</div>
             
-            <br/>
-            <br/>
-            <hr/>
-
+            <br />
+            foreach (var answer in question.PossibleAnswers)
+            {
+                @Html.RadioButtonFor(model =>
+             m.GeneralQuestions[i].QuizQuestionID, answer.Id)
+                @Html.Label(answer.Answer)
+                <br />
+            }
         }
-    </div>
+    }
+
+    <input type="submit" value="Save" />
 }
