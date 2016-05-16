@@ -8,9 +8,9 @@ namespace WsmsQuiz.ViewModels
     public class Question
     {
 
-        public int QuestionId { get; set; }
-        public string QuestionString { get; set; }
+        public long QuizQuestionID { get; set; }
+        public string QuizQuestionName { get; set; }
         public ICollection<PossibleAnswer> PossibleAnswers { get; set; }
-        public int SelectedAnswerId { get; set; }
+        public int CorrectAnswer { get; set; }
     }
 }

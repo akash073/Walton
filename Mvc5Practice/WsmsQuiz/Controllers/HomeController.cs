@@ -15,7 +15,7 @@ namespace WsmsQuiz.Controllers
         public ActionResult Index()
         {
             int userId = 100;
-            Boolean isMobileCrmUser =true;
+            Boolean isMobileCrmUser = true;
 
 
             List<QuestionAnswerViewModel> answersList = new List<QuestionAnswerViewModel>();
@@ -29,20 +29,62 @@ namespace WsmsQuiz.Controllers
                     questionAnswer.QuizSessionName = session.QuizSessionName;
                     questionAnswer.QuizTypeID = session.QuizTypeID;
                     questionAnswer.QuizTypeName = GetQuizNameByQuizTypeId(session.QuizTypeID);
+                    questionAnswer.UserID = userId;
+                    questionAnswer.IsMobileCrmUser = true;
+
                     var sessionQuestion = session.QuizQuestions.ToList();
 
+
+                    var questions = new List<Question>();
+                    foreach (var q in sessionQuestion)
+                    {
+                        Question question = new Question();
+
+                        question.QuizQuestionID = q.QuizQuestionID;
+
+                        var possible = new List<PossibleAnswer>();
+                        int noOfAnswer = q.NoOfAnswer;
+                        for (int count = 1; count <= noOfAnswer; count++)
+                        {
+                            var answer = new PossibleAnswer();
+                            if (count == 1)
+                            {
+                                answer.Id = count;
+                                answer.Answer = q.Answer1;
+
+                            }
+                            else if (count == 2)
+                            {
+                                answer.Id = count;
+                                answer.Answer = q.Answer2;
+                            }
+                            else if (count == 3)
+                            {
+                                answer.Id = count;
+                                answer.Answer = q.Answer3;
+                            }
+                            else if (count == 4)
+                            {
+                                answer.Id = count;
+                                answer.Answer = q.Answer4;
+                            }
+                            else if (count == 5)
+                            {
+                                answer.Id = count;
+                                answer.Answer = q.Answer5;
+                            }
+                            possible.Add(answer);
+                        }
+                        question.PossibleAnswers = possible;
+                        questions.Add(question);
+                    }
+                    questionAnswer.GeneralQuestions = questions;
 
                     answersList.Add(questionAnswer);
                 }
             }
 
-            var sp = UserInfo.GetUserInfo(1, true);
-            var spp = UserInfo.GetUserInfo(537, false);
 
-            if (sp == spp)
-            {
-                int a = 0;
-            }
 
 
             return View(answersList);
