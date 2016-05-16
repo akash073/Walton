@@ -16,7 +16,7 @@ namespace WsmsQuiz.ViewModels
         public string QuizTypeName { get; set; }
         public int UserID { get; set; }
         public Boolean IsMobileCrmUser { get; set; }
-        public List<Question> GeneralQuestions { get; set; }
+        public List<Question> Questions { get; set; }
 
     }
 }

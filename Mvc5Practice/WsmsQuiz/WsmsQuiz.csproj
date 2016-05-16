@@ -173,7 +173,7 @@
     </Compile>
     <Compile Include="Models\UserInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\PossibleAnswer.cs" />
+    <Compile Include="ViewModels\Answer.cs" />
     <Compile Include="ViewModels\Question.cs" />
     <Compile Include="ViewModels\QuestionAnswerViewModel.cs" />
   </ItemGroup>

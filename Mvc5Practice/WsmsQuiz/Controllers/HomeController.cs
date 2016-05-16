@@ -43,43 +43,43 @@ namespace WsmsQuiz.Controllers
                         question.QuizQuestionID = q.QuizQuestionID;
                         question.QuizQuestionName = q.QuizQuestionName;
 
-                        var possible = new List<PossibleAnswer>();
+                        var possible = new List<Answer>();
                         int noOfAnswer = q.NoOfAnswer;
                         for (int count = 1; count <= noOfAnswer; count++)
                         {
-                            var answer = new PossibleAnswer();
+                            var answer = new Answer();
                             if (count == 1)
                             {
                                 answer.Id = count;
-                                answer.Answer = q.Answer1;
+                                answer.AnswerName = q.Answer1;
 
                             }
                             else if (count == 2)
                             {
                                 answer.Id = count;
-                                answer.Answer = q.Answer2;
+                                answer.AnswerName = q.Answer2;
                             }
                             else if (count == 3)
                             {
                                 answer.Id = count;
-                                answer.Answer = q.Answer3;
+                                answer.AnswerName = q.Answer3;
                             }
                             else if (count == 4)
                             {
                                 answer.Id = count;
-                                answer.Answer = q.Answer4;
+                                answer.AnswerName = q.Answer4;
                             }
                             else if (count == 5)
                             {
                                 answer.Id = count;
-                                answer.Answer = q.Answer5;
+                                answer.AnswerName = q.Answer5;
                             }
                             possible.Add(answer);
                         }
-                        question.PossibleAnswers = possible;
+                        question.Answers = possible;
                         questions.Add(question);
                     }
-                    questionAnswer.GeneralQuestions = questions;
+                    questionAnswer.Questions = questions;
 
                     answersList.Add(questionAnswer);
                 }
@@ -89,6 +89,12 @@ namespace WsmsQuiz.Controllers
 
 
             return View(answersList);
+        }
+
+        [HttpPost]
+        public ActionResult Index(IEnumerable<QuestionAnswerViewModel> model)
+        {
+            return null;
         }
 
         public static string GetQuizTypeByQuizTypeId(long quizTypeID)

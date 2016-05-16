@@ -181,6 +181,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\RadioButtonList\Index.cshtml" />
     <Content Include="Views\RadioButtonList\Question.cshtml" />
+    <Content Include="Views\Home\_QuestionPattern.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

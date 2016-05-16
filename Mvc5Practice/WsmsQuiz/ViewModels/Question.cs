@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -10,7 +11,8 @@ namespace WsmsQuiz.ViewModels
 
         public long QuizQuestionID { get; set; }
         public string QuizQuestionName { get; set; }
-        public ICollection<PossibleAnswer> PossibleAnswers { get; set; }
-        public int CorrectAnswer { get; set; }
+        public ICollection<Answer> Answers { get; set; }
+        [Required(ErrorMessage = "seletec ansy")]
+        public int UserSelectedAnswer { get; set; }
     }
 }

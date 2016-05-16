@@ -1,31 +1,39 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-@model IEnumerable<WsmsQuiz.ViewModels.QuestionAnswerViewModel>
+@model List<WsmsQuiz.ViewModels.QuestionAnswerViewModel>
 
 @using (Html.BeginForm("Index", "Home", FormMethod.Post))
 {
-    foreach (var m in Model)
+    for (int mc = 0; mc < Model.Count; mc++)
     {
-        <p>@m.QuizSessionName</p>
-        for (int i = 0; i < m.GeneralQuestions.Count; i++)
+        @Html.HiddenFor(m => Model[mc].UserID)
+        @Html.HiddenFor(m => Model[mc].IsMobileCrmUser)
+        <p>@Model[mc].QuizSessionName</p>
+        for (int i = 0; i < Model[mc].Questions.Count; i++)
         {
             int questionCount = @i + 1;
-            var question = m.GeneralQuestions[i];
+            //Varibale assignment
+           // var question = Model[mc].GeneralQuestions[i];
             <div>
-               Question No.= @questionCount @Html.Label(question.QuizQuestionName)
+                Question No.= @questionCount . @Html.Label(Model[mc].Questions[i].QuizQuestionName)
             </div>
-            
+
             <br />
-            foreach (var answer in question.PossibleAnswers)
+             @Html.HiddenFor(m => Model[mc].Questions[i].QuizQuestionID)
+
+            foreach (var answer in Model[mc].Questions[i].Answers)
             {
+
                 @Html.RadioButtonFor(model =>
-             m.GeneralQuestions[i].QuizQuestionID, answer.Id)
-                @Html.Label(answer.Answer)
+                                 Model[mc].Questions[i].UserSelectedAnswer, answer.Id)
+                @Html.Label(answer.AnswerName)
                 <br />
             }
+
         }
     }
+
 
     <input type="submit" value="Save" />
 }
