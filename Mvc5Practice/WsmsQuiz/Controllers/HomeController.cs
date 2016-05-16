@@ -14,6 +14,10 @@ namespace WsmsQuiz.Controllers
     {
         public ActionResult Index()
         {
+            int userId = 100;
+            Boolean isMobileCrmUser =true;
+
+
             List<QuestionAnswerViewModel> answersList = new List<QuestionAnswerViewModel>();
             using (var db = new WsmsQuizEntities())
             {
@@ -25,21 +29,20 @@ namespace WsmsQuiz.Controllers
                     questionAnswer.QuizSessionName = session.QuizSessionName;
                     questionAnswer.QuizTypeID = session.QuizTypeID;
                     questionAnswer.QuizTypeName = GetQuizNameByQuizTypeId(session.QuizTypeID);
+                    var sessionQuestion = session.QuizQuestions.ToList();
 
-                    //questionAnswer.QuizQuestionID=
-                    //        var sessionId = session.QuizSessionID;
-                    //        var sessionQuestion = session.QuizQuestions.ToList();
-                    //        var questionAnswer = new QuestionAnswerViewModel
-                    //        {
-                    //            SessionId = sessionId,
-                    //            Questions = sessionQuestion
-                    //        };
-                    //        answersList.Add(questionAnswer);
+
                     answersList.Add(questionAnswer);
                 }
             }
 
+            var sp = UserInfo.GetUserInfo(1, true);
+            var spp = UserInfo.GetUserInfo(537, false);
 
+            if (sp == spp)
+            {
+                int a = 0;
+            }
 
 
             return View(answersList);
