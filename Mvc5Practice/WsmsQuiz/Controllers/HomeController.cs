@@ -107,5 +107,18 @@ namespace WsmsQuiz.Controllers
             }
             return quizName;
         }
+
+
+        public ActionResult LoginPage()
+        {
+            //...code to login user to application...
+            return View();
+        }
+        [HttpPost]
+        public ActionResult LoginPage(LoginPageVM model)
+        {
+            //...code to login user to application...
+            return View(model);
+        }
     }
 }

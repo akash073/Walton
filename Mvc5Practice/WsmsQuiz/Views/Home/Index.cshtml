@@ -5,6 +5,7 @@
 
 @using (Html.BeginForm("Index", "Home", FormMethod.Post))
 {
+    @Html.ValidationSummary(true)
     for (int mc = 0; mc < Model.Count; mc++)
     {
         @Html.HiddenFor(m => Model[mc].UserID)
@@ -21,7 +22,7 @@
 
             <br />
              @Html.HiddenFor(m => Model[mc].Questions[i].QuizQuestionID)
-
+           
             foreach (var answer in Model[mc].Questions[i].Answers)
             {
 
