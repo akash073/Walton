@@ -24,3 +24,7 @@ F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\Newtonsoft.Json.xml
 F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\obj\Debug\WsmsQuiz.csprojResolveAssemblyReference.cache
 F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\obj\Debug\WsmsQuiz.dll
 F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\obj\Debug\WsmsQuiz.pdb
+F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\EntityFramework.dll
+F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\EntityFramework.SqlServer.dll
+F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\EntityFramework.xml
+F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\EntityFramework.SqlServer.xml
