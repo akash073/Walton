@@ -16,6 +16,7 @@ namespace Mvc5Practice.Controllers
         {
             return View(new StudentViewModel
             {
+                QuizType = "Notice",
                 GeneralQuestions =
                     new List<Question>
         {
@@ -26,7 +27,8 @@ namespace Mvc5Practice.Controllers
                     new[]
                     {
                         new PossibleAnswer {Id = 1, Answer = "A01"},
-                        new PossibleAnswer {Id = 2, Answer = "A02"}
+                        new PossibleAnswer {Id = 2, Answer = "A02"},
+                        new PossibleAnswer {Id = 3, Answer = "A03"},
                     }
             },
             new Question

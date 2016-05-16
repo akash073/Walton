@@ -1,4 +1,3 @@
-F:\BITBUCKET REPO\Mvc5Practice\Mvc5Practice\obj\Debug\Mvc5Practice.csprojResolveAssemblyReference.cache
 F:\BITBUCKET REPO\Mvc5Practice\Mvc5Practice\bin\Mvc5Practice.dll.config
 F:\BITBUCKET REPO\Mvc5Practice\Mvc5Practice\bin\Mvc5Practice.dll
 F:\BITBUCKET REPO\Mvc5Practice\Mvc5Practice\bin\Mvc5Practice.pdb

@@ -8,5 +8,6 @@ namespace Mvc5Practice.ViewModels.try2
     public class StudentViewModel
     {
         public List<Question> GeneralQuestions { get; set; }
+        public String QuizType { get; set; }
     }
 }

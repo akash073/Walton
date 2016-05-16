@@ -1,4 +1,33 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+@model IEnumerable<WsmsQuiz.ViewModels.QuestionAnswerViewModel>
 
+@foreach (var quizQuestions in Model)
+{
+    <div>
+       Session Id= @quizQuestions.SessionId
+    </div>
+    <div>
+        @foreach (var questions in quizQuestions.Questions)
+        {
+            <div class="row">
+                @questions.NoOfAnswer
+            </div>
+            <div>@questions.Answer1</div>
+            <br />
+            <div>@questions.Answer2</div>
+    <br />
+            <div>@questions.Answer3</div>
+    <br />
+            <div>@questions.Answer4</div>
+    <br />
+            <div>@questions.Answer5</div>
+            
+            <br/>
+            <br/>
+            <hr/>
+
+        }
+    </div>
+}

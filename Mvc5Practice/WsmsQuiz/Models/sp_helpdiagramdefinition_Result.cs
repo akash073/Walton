@@ -10,17 +10,10 @@
 namespace WsmsQuiz.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class QuizSessionUserAnswer
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public long QuizSessionUserAnswerID { get; set; }
-        public long QuizSessionID { get; set; }
-        public long QuizQuestionID { get; set; }
-        public long QuizSessionUserID { get; set; }
-        public Nullable<int> UserAnswer { get; set; }
-    
-        public virtual QuizQuestion QuizQuestion { get; set; }
-        public virtual QuizSessionUser QuizSessionUser { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

@@ -12,15 +12,12 @@ namespace WsmsQuiz.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class QuizSessionUserAnswer
+    public partial class QuizSecurityQuestion
     {
-        public long QuizSessionUserAnswerID { get; set; }
-        public long QuizSessionID { get; set; }
-        public long QuizQuestionID { get; set; }
-        public long QuizSessionUserID { get; set; }
-        public Nullable<int> UserAnswer { get; set; }
-    
-        public virtual QuizQuestion QuizQuestion { get; set; }
-        public virtual QuizSessionUser QuizSessionUser { get; set; }
+        public long QuizSessionQuestionID { get; set; }
+        public string SecurityQuestion { get; set; }
+        public int NoOfAnswer { get; set; }
+        public string Answer1 { get; set; }
+        public int CorrectAnswer { get; set; }
     }
 }
