@@ -2,6 +2,8 @@ F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\WsmsQuiz.dll.config
 F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\WsmsQuiz.dll
 F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\WsmsQuiz.pdb
 F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\Antlr3.Runtime.dll
+F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\EntityFramework.dll
+F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\EntityFramework.SqlServer.dll
 F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\Microsoft.Web.Infrastructure.dll
 F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\Newtonsoft.Json.dll
 F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\System.Web.Helpers.dll
@@ -12,6 +14,8 @@ F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\System.Web.WebPages.Deployment.dll
 F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\System.Web.WebPages.dll
 F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\System.Web.WebPages.Razor.dll
 F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\WebGrease.dll
+F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\EntityFramework.xml
+F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\EntityFramework.SqlServer.xml
 F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\System.Web.Helpers.xml
 F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\System.Web.Mvc.xml
 F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\System.Web.Optimization.xml
@@ -21,10 +25,5 @@ F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\System.Web.WebPages.Deployment.xml
 F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\System.Web.WebPages.Razor.xml
 F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\Antlr3.Runtime.pdb
 F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\Newtonsoft.Json.xml
-F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\obj\Debug\WsmsQuiz.csprojResolveAssemblyReference.cache
 F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\obj\Debug\WsmsQuiz.dll
 F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\obj\Debug\WsmsQuiz.pdb
-F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\EntityFramework.dll
-F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\EntityFramework.SqlServer.dll
-F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\EntityFramework.xml
-F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\EntityFramework.SqlServer.xml

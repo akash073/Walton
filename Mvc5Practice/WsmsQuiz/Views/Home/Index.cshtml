@@ -5,7 +5,10 @@
 
 @using (Html.BeginForm("Index", "Home", FormMethod.Post))
 {
-    @Html.ValidationSummary(true)
+    <div class="row">
+        @Html.ValidationSummary(true)
+    </div>
+    // @Html.ValidationSummary("Please correct the error")
     for (int mc = 0; mc < Model.Count; mc++)
     {
         @Html.HiddenFor(m => Model[mc].UserID)
@@ -14,27 +17,33 @@
         for (int i = 0; i < Model[mc].Questions.Count; i++)
         {
             int questionCount = @i + 1;
-            //Varibale assignment
-           // var question = Model[mc].GeneralQuestions[i];
             <div>
                 Question No.= @questionCount . @Html.Label(Model[mc].Questions[i].QuizQuestionName)
             </div>
 
             <br />
-             @Html.HiddenFor(m => Model[mc].Questions[i].QuizQuestionID)
-           
-            foreach (var answer in Model[mc].Questions[i].Answers)
-            {
+            @Html.HiddenFor(m => Model[mc].Questions[i].QuizQuestionID)
 
-                @Html.RadioButtonFor(model =>
-                                 Model[mc].Questions[i].UserSelectedAnswer, answer.Id)
-                @Html.Label(answer.AnswerName)
+            @*foreach (var answer in Model[mc].Questions[i].Answers)
+                {
+
+                    @Html.RadioButtonFor(model =>
+                                     Model[mc].Questions[i].UserSelectedAnswer, answer.Id)
+                    @Html.Label(answer.AnswerName)
+                    <br />
+                }*@
+            for (int j = 0; j < Model[mc].Questions[i].Answers.Count; j++)
+            {
+                @Html.RadioButtonFor(model =>Model[mc].Questions[i].UserSelectedAnswer, Model[mc].Questions[i].Answers[j].Id)
+                @Html.Label(Model[mc].Questions[i].Answers[j].AnswerName)
+               // @Html.ValidationMessageFor(model => Model[i].Song_Name)
                 <br />
             }
 
         }
     }
 
-
+    
     <input type="submit" value="Save" />
+    
 }
