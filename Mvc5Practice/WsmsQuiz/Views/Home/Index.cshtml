@@ -42,9 +42,11 @@
             <div class="row">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Question No @questionCount . @Html.Label(Model[mc].Questions[i].QuizQuestionName)</h3>
+                        <h3 class="panel-title">Question No @questionCount . </h3>
                     </div>
                     <div class="panel panel-body">
+                        @Html.Label(Model[mc].Questions[i].QuizQuestionName)
+                        <hr style="width: 100%; color: black; height: 1px; background-color:blue;" />
                         @for (int j = 0; j < Model[mc].Questions[i].Answers.Count; j++)
                         {
                             <div class="radio radio-danger">
