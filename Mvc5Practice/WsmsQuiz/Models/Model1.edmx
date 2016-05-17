@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="WsmsQuizModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="WsmsQuizModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="QuizAdmin">
           <Key>
             <PropertyRef Name="QuizAdminID" />
@@ -63,7 +63,7 @@
           <Key>
             <PropertyRef Name="QuizSessionUserID" />
           </Key>
-          <Property Name="QuizSessionUserID" Type="bigint" Nullable="false" />
+          <Property Name="QuizSessionUserID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="QuizSessionID" Type="bigint" Nullable="false" />
           <Property Name="IsMobileCrmUser" Type="bit" Nullable="false" />
           <Property Name="UserID" Type="int" Nullable="false" />
@@ -71,7 +71,6 @@
           <Property Name="ServicePointID" Type="int" Nullable="false" />
           <Property Name="ServicePointName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="EmployeeCode" Type="nvarchar" MaxLength="50" />
-          <Property Name="UserAnswer" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="QuizSessionUserAnswer">
           <Key>
@@ -237,8 +236,7 @@
             <End Role="QuizSessionUserAnswer" EntitySet="QuizSessionUserAnswer" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="WsmsQuizModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -315,7 +313,6 @@
           <Property Name="ServicePointID" Type="Int32" Nullable="false" />
           <Property Name="ServicePointName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="EmployeeCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UserAnswer" Type="Int32" Nullable="false" />
           <NavigationProperty Name="QuizSession" Relationship="Self.FK_QuizSessionUser_QuizSession" FromRole="QuizSessionUser" ToRole="QuizSession" />
           <NavigationProperty Name="QuizSessionUserAnswers" Relationship="Self.FK_QuizSessionUserAnswer_QuizSessionUser" FromRole="QuizSessionUser" ToRole="QuizSessionUserAnswer" />
         </EntityType>
@@ -571,7 +568,6 @@
                 <ScalarProperty Name="ServicePointID" ColumnName="ServicePointID" />
                 <ScalarProperty Name="ServicePointName" ColumnName="ServicePointName" />
                 <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
-                <ScalarProperty Name="UserAnswer" ColumnName="UserAnswer" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

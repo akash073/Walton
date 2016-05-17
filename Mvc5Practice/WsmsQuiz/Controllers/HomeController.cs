@@ -12,8 +12,22 @@ namespace WsmsQuiz.Controllers
 
     public class HomeController : Controller
     {
+        [HttpGet]
         public ActionResult Index()
         {
+            try
+            {
+                var value = HttpContext.Request.Params.Get("userName");
+
+                value = "ajaj";
+            }
+            catch (Exception e)
+            {
+                
+                
+            }
+            
+
             const int userId = 100;
             Boolean isMobileCrmUser = true;
 
@@ -88,9 +102,72 @@ namespace WsmsQuiz.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(IEnumerable<QuestionAnswerViewModel> model)
+        public ActionResult Index(List<QuestionAnswerViewModel> model)
         {
-            return null;
+            int userId = model[0].UserID;
+            bool isMobileCrm = model[0].IsMobileCrmUser;
+
+            var userInfo = UserInfo.GetUserInfo(userId, isMobileCrm);
+            var servicePointName = ServicePoint.GetServicePointName(userInfo.ServicePointID,isMobileCrm);
+            /*
+             SELECT TOP 1000 [QuizSessionUserID]
+      ,[QuizSessionID]
+      ,[IsMobileCrmUser]
+      ,[UserID]
+      ,[UserFullName]
+      ,[ServicePointID]
+      ,[ServicePointName]
+      ,[EmployeeCode]
+      ,[UserAnswer]
+  FROM [WsmsQuiz].[dbo].[QuizSessionUser]
+             */
+            using (var db = new WsmsQuizEntities())
+            {
+                foreach (var answerViewModel in model)
+                {
+                    long quizSessionId = answerViewModel.QuizSessionID;
+                    var quizSessionUser = new QuizSessionUser
+                    {
+                        QuizSessionID = quizSessionId,
+                        IsMobileCrmUser = isMobileCrm,
+                        UserID = userId,
+                        UserFullName = userInfo.UserFullName,
+                       ServicePointID = userInfo.ServicePointID,
+                       ServicePointName = servicePointName,
+                        EmployeeCode = userInfo.EmployeeCode
+                     
+                         
+                    };
+                    db.QuizSessionUsers.Add(quizSessionUser);
+                    db.SaveChanges();
+                    long quizSessionUserID = quizSessionUser.QuizSessionUserID;
+
+                    foreach (var question in answerViewModel.Questions)
+                    {
+                        /*
+                         
+                         SELECT TOP 1000 [QuizSessionUserAnswerID]
+      ,[QuizSessionID]
+      ,[QuizQuestionID]
+      ,[QuizSessionUserID]
+      ,[UserAnswer]
+  FROM [WsmsQuiz].[dbo].[QuizSessionUserAnswer]
+                         
+                         */
+                        var quizSessionUserAnswer = new QuizSessionUserAnswer
+                        {
+                            QuizSessionID = quizSessionId,
+                            QuizQuestionID = question.QuizQuestionID,
+                            QuizSessionUserID = quizSessionUserID,
+                            UserAnswer = question.UserSelectedAnswer
+                        };
+                        db.QuizSessionUserAnswers.Add(quizSessionUserAnswer);
+                    }
+                    db.SaveChanges();
+
+                }
+            }
+            return Redirect("http://www.google.com");
         }
 
         public static string GetQuizTypeByQuizTypeId(long quizTypeID)

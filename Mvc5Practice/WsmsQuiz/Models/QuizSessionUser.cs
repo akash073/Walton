@@ -27,7 +27,6 @@ namespace WsmsQuiz.Models
         public int ServicePointID { get; set; }
         public string ServicePointName { get; set; }
         public string EmployeeCode { get; set; }
-        public int UserAnswer { get; set; }
     
         public virtual QuizSession QuizSession { get; set; }
         public virtual ICollection<QuizSessionUserAnswer> QuizSessionUserAnswers { get; set; }

@@ -70,7 +70,6 @@
           <ScalarProperty Name="ServicePointID" ColumnName="ServicePointID" />
           <ScalarProperty Name="ServicePointName" ColumnName="ServicePointName" />
           <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
-          <ScalarProperty Name="UserAnswer" ColumnName="UserAnswer" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

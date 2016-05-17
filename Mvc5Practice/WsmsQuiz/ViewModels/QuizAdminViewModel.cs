@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace WsmsQuiz.ViewModels
+{
+    public class QuizAdminViewModel
+    {
+        public long QuizAdminID { get; set; }
+        public long QuizTypeID { get; set; }
+        public System.DateTime StartDate { get; set; }
+        public System.DateTime EndDate { get; set; }
+        public string QuizQuestionName { get; set; }
+        public int NoOfAnswer { get; set; }
+        public string Answer1 { get; set; }
+        public string Answer2 { get; set; }
+        public string Answer3 { get; set; }
+        public string Answer4 { get; set; }
+        public string Answer5 { get; set; }
+        public bool HasAnswer { get; set; }
+    }
+}

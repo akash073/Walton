@@ -58,7 +58,7 @@
     <Key>
       <PropertyRef Name="QuizSessionUserID" />
     </Key>
-    <Property Name="QuizSessionUserID" Type="bigint" Nullable="false" />
+    <Property Name="QuizSessionUserID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="QuizSessionID" Type="bigint" Nullable="false" />
     <Property Name="IsMobileCrmUser" Type="bit" Nullable="false" />
     <Property Name="UserID" Type="int" Nullable="false" />
@@ -66,7 +66,6 @@
     <Property Name="ServicePointID" Type="int" Nullable="false" />
     <Property Name="ServicePointName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="EmployeeCode" Type="nvarchar" MaxLength="50" />
-    <Property Name="UserAnswer" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="QuizSessionUserAnswer">
     <Key>

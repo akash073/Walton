@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5cd06873d0cc4fb6a78781134f1e4258" Name="Diagram1" ZoomLevel="113">
+      <Diagram DiagramId="4be1d0132001408ab8b44b0b87de5549" Name="Diagram1">
         <EntityTypeShape EntityType="WsmsQuizModel.QuizAdmin" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="WsmsQuizModel.QuizQuestion" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="WsmsQuizModel.QuizSecurityQuestion" Width="1.5" PointX="7.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WsmsQuizModel.QuizQuestion" Width="1.5" PointX="5.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="WsmsQuizModel.QuizSecurityQuestion" Width="1.5" PointX="7.75" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="WsmsQuizModel.QuizSession" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="WsmsQuizModel.QuizSessionUser" Width="1.5" PointX="5.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WsmsQuizModel.QuizSessionUser" Width="1.5" PointX="5.25" PointY="6.25" IsExpanded="true" />
         <EntityTypeShape EntityType="WsmsQuizModel.QuizSessionUserAnswer" Width="1.5" PointX="7.5" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="WsmsQuizModel.QuizType" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WsmsQuizModel.sysdiagram" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WsmsQuizModel.sysdiagram" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
         <AssociationConnector Association="WsmsQuizModel.FK_QuizSession_QuizAdmin" ManuallyRouted="false" />
         <AssociationConnector Association="WsmsQuizModel.FK_QuizQuestion_QuizSession" ManuallyRouted="false" />
         <AssociationConnector Association="WsmsQuizModel.FK_QuizSessionUserAnswer_QuizQuestion" ManuallyRouted="false" />
