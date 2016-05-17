@@ -24,64 +24,64 @@ namespace WsmsQuiz.Controllers
                 var quizActiveSession = db.QuizSessions.Where(x => x.IsActive).ToList();
                 foreach (var session in quizActiveSession)
                 {
-                    var questionAnswer = new QuestionAnswerViewModel();
-                    questionAnswer.QuizSessionID = session.QuizSessionID;
-                    questionAnswer.QuizSessionName = session.QuizSessionName;
-                    questionAnswer.QuizTypeID = session.QuizTypeID;
-                    questionAnswer.QuizTypeName = GetQuizTypeByQuizTypeId(session.QuizTypeID);
-                    questionAnswer.UserID = userId;
-                    questionAnswer.IsMobileCrmUser = true;
-
                     var sessionQuestion = session.QuizQuestions.ToList();
-
-
-                    var questions = new List<Question>();
-                    foreach (var q in sessionQuestion)
+                    if (sessionQuestion.Any())
                     {
-                        Question question = new Question();
-
-                        question.QuizQuestionID = q.QuizQuestionID;
-                        question.QuizQuestionName = q.QuizQuestionName;
-
-                        var possible = new List<Answer>();
-                        int noOfAnswer = q.NoOfAnswer;
-                        for (int count = 1; count <= noOfAnswer; count++)
+                        var questionAnswer = new QuestionAnswerViewModel();
+                        questionAnswer.QuizSessionID = session.QuizSessionID;
+                        questionAnswer.QuizSessionName = session.QuizSessionName;
+                        questionAnswer.QuizTypeID = session.QuizTypeID;
+                        questionAnswer.QuizTypeName = GetQuizTypeByQuizTypeId(session.QuizTypeID);
+                        questionAnswer.UserID = userId;
+                        questionAnswer.IsMobileCrmUser = true;
+                        var questions = new List<Question>();
+                        foreach (var q in sessionQuestion)
                         {
-                            var answer = new Answer();
-                            if (count == 1)
-                            {
-                                answer.Id = count;
-                                answer.AnswerName = q.Answer1;
+                            Question question = new Question();
 
-                            }
-                            else if (count == 2)
+                            question.QuizQuestionID = q.QuizQuestionID;
+                            question.QuizQuestionName = q.QuizQuestionName;
+
+                            var possible = new List<Answer>();
+                            int noOfAnswer = q.NoOfAnswer;
+                            for (int count = 1; count <= noOfAnswer; count++)
                             {
-                                answer.Id = count;
-                                answer.AnswerName = q.Answer2;
+                                var answer = new Answer();
+                                if (count == 1)
+                                {
+                                    answer.Id = count;
+                                    answer.AnswerName = q.Answer1;
+
+                                }
+                                else if (count == 2)
+                                {
+                                    answer.Id = count;
+                                    answer.AnswerName = q.Answer2;
+                                }
+                                else if (count == 3)
+                                {
+                                    answer.Id = count;
+                                    answer.AnswerName = q.Answer3;
+                                }
+                                else if (count == 4)
+                                {
+                                    answer.Id = count;
+                                    answer.AnswerName = q.Answer4;
+                                }
+                                else if (count == 5)
+                                {
+                                    answer.Id = count;
+                                    answer.AnswerName = q.Answer5;
+                                }
+                                possible.Add(answer);
                             }
-                            else if (count == 3)
-                            {
-                                answer.Id = count;
-                                answer.AnswerName = q.Answer3;
-                            }
-                            else if (count == 4)
-                            {
-                                answer.Id = count;
-                                answer.AnswerName = q.Answer4;
-                            }
-                            else if (count == 5)
-                            {
-                                answer.Id = count;
-                                answer.AnswerName = q.Answer5;
-                            }
-                            possible.Add(answer);
+                            question.Answers = possible;
+                            questions.Add(question);
                         }
-                        question.Answers = possible;
-                        questions.Add(question);
-                    }
-                    questionAnswer.Questions = questions;
+                        questionAnswer.Questions = questions;
 
-                    answersList.Add(questionAnswer);
+                        answersList.Add(questionAnswer);
+                    }
                 }
             }
 

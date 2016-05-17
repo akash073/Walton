@@ -1,26 +1,70 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<link href="~/Content/font-awesome.css" rel="stylesheet" />
+<link href="~/Content/build.css" rel="stylesheet" />
 @model List<WsmsQuiz.ViewModels.QuestionAnswerViewModel>
+<br />
+<br />
 
-@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+@using (Html.BeginForm())
 {
-    <div class="row">
-        @Html.ValidationSummary(true)
-    </div>
-    // @Html.ValidationSummary("Please correct the error")
+    @*<div class="row">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Add Question</h3>
+                </div>
+
+                <div class="panel-body">
+                    <div id="jsGrid">TEST</div>
+                </div>
+            </div>
+        </div>*@
     for (int mc = 0; mc < Model.Count; mc++)
     {
+
         @Html.HiddenFor(m => Model[mc].UserID)
         @Html.HiddenFor(m => Model[mc].IsMobileCrmUser)
-        <p>@Model[mc].QuizSessionName</p>
+        @Html.HiddenFor(m => Model[mc].QuizSessionID)
+    <div></div>
+        <h2 class="h1" style="color: blue">@Model[mc].QuizSessionName</h2>
+        @*<div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title"></h3>
+            </div>
+        </div>*@
+
         for (int i = 0; i < Model[mc].Questions.Count; i++)
         {
+            
+    
             int questionCount = @i + 1;
-            <div>
-                Question No.= @questionCount . @Html.Label(Model[mc].Questions[i].QuizQuestionName)
-            </div>
+            <div class="row">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Question No @questionCount . @Html.Label(Model[mc].Questions[i].QuizQuestionName)</h3>
+                    </div>
+                    <div class="panel panel-body">
+                        @for (int j = 0; j < Model[mc].Questions[i].Answers.Count; j++)
+                        {
+                            <div class="radio radio-danger">
+                                @Html.RadioButtonFor(model => Model[mc].Questions[i].UserSelectedAnswer, Model[mc].Questions[i].Answers[j].Id)
+                                @Html.Label(Model[mc].Questions[i].Answers[j].AnswerName)
+                            
+                            </div>
 
+                            <br />
+                        }
+
+                        <div>
+                            @Html.ValidationMessageFor(x => Model[mc].Questions[i].UserSelectedAnswer, "", new { @class = "text text-danger" })
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+    @*@Html.HiddenFor(x => Model[mc].Questions[i].UserSelectedAnswer)*@
+   
             <br />
             @Html.HiddenFor(m => Model[mc].Questions[i].QuizQuestionID)
 
@@ -32,18 +76,14 @@
                     @Html.Label(answer.AnswerName)
                     <br />
                 }*@
-            for (int j = 0; j < Model[mc].Questions[i].Answers.Count; j++)
-            {
-                @Html.RadioButtonFor(model =>Model[mc].Questions[i].UserSelectedAnswer, Model[mc].Questions[i].Answers[j].Id)
-                @Html.Label(Model[mc].Questions[i].Answers[j].AnswerName)
-               // @Html.ValidationMessageFor(model => Model[i].Song_Name)
-                <br />
-            }
-
+    
+            
         }
     }
 
+    <div class="row">
+        <input type="submit" value="Save" class="btn btn-success" />
+    </div>
     
-    <input type="submit" value="Save" />
-    
+
 }

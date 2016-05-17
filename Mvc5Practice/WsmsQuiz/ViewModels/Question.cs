@@ -12,8 +12,9 @@ namespace WsmsQuiz.ViewModels
         public long QuizQuestionID { get; set; }
         public string QuizQuestionName { get; set; }
         public List<Answer> Answers { get; set; }
+       
         [Required(ErrorMessage = "Select All the answers ")]
-        [Range(0, int.MaxValue, ErrorMessage = "Please enter a value bigger than {1}")]
+        [Range(-1, int.MaxValue, ErrorMessage = "Please enter a value bigger than {1}")]
         public int UserSelectedAnswer { get; set; }
     }
 }
