@@ -1,0 +1,152 @@
+﻿@model Mvc5Practice.Models.QuizAdminViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>QuizAdminViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.QuizAdminID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuizAdminID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuizTypeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuizTypeID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuizTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuizTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuizSessionID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuizSessionID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuizSessionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuizSessionName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuizQuestionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuizQuestionName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoOfAnswer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoOfAnswer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Answer1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Answer1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Answer2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Answer2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Answer3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Answer3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Answer4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Answer4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Answer5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Answer5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HasAnswer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HasAnswer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CorrectAnswer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CorrectAnswer)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

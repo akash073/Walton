@@ -119,6 +119,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CrudController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RadioButtonListController.cs" />
     <Compile Include="Global.asax.cs">
@@ -126,6 +127,7 @@
     </Compile>
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Department.cs" />
+    <Compile Include="Models\QuizAdminViewModel.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\StudentDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -184,6 +186,11 @@
     <Content Include="Views\RadioButtonList\Index.cshtml" />
     <Content Include="Views\RadioButtonList\Question.cshtml" />
     <Content Include="Views\Home\_QuestionPattern.cshtml" />
+    <Content Include="Views\Crud\Create.cshtml" />
+    <Content Include="Views\Crud\Delete.cshtml" />
+    <Content Include="Views\Crud\Details.cshtml" />
+    <Content Include="Views\Crud\Edit.cshtml" />
+    <Content Include="Views\Crud\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

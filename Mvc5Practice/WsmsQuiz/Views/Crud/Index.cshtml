@@ -1,0 +1,37 @@
+﻿@model WsmsQuiz.ViewModels.QuizAdminViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (@Html.BeginForm("Edit","Crud",FormMethod.Post))
+{
+    @Html.HiddenFor(x=>Model.QuizAdminID)
+    <br/>
+    @Html.Label(Model.QuizTypeName)
+   <br/>
+    for (int i = 0;i< Model.QuizAdminQuestions.Count; i++)
+     {
+         @Html.Label(Model.QuizAdminQuestions[i].Answer1)
+         @Html.Label(Model.QuizAdminQuestions[i].Answer2)
+         @*@Html.Label(Model.QuizAdminQuestions[i].Answer3)
+         @Html.Label(Model.QuizAdminQuestions[i].Answer4)*@
+    <br/>
+         @*@Html.LabelFor(x=>Model.QuizAdminQuestions[i].Answer5)
+         @Html.LabelFor(x=>Model.QuizAdminQuestions[i].CorrectAnswer)
+         @Html.LabelFor(x=>Model.QuizAdminQuestions[i].HasAnswer)
+         @Html.LabelFor(x=>Model.QuizAdminQuestions[i].NoOfAnswer)
+         @Html.LabelFor(x=>Model.QuizAdminQuestions[i].QuizAdminQuestionID)
+         @Html.LabelFor(x=>Model.QuizAdminQuestions[i].QuizQuestionName)*@
+         
+     }
+    <br/>
+    <div class="row">
+
+        <input type="submit" value="Save" class="btn btn-default" style="margin-left: 15px" />
+
+
+    </div>
+}
+

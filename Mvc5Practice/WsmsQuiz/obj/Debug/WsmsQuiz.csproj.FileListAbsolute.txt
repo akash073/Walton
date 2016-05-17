@@ -27,4 +27,3 @@ F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\Antlr3.Runtime.pdb
 F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\bin\Newtonsoft.Json.xml
 F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\obj\Debug\WsmsQuiz.dll
 F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\obj\Debug\WsmsQuiz.pdb
-F:\BITBUCKET REPO\Mvc5Practice\WsmsQuiz\obj\Debug\WsmsQuiz.csprojResolveAssemblyReference.cache

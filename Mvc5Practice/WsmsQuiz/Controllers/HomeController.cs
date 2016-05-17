@@ -182,6 +182,11 @@ namespace WsmsQuiz.Controllers
         }
 
 
+        public ActionResult Admin()
+        {
+            return View();
+        }
+
         //public ActionResult LoginPage()
         //{
         //    //...code to login user to application...

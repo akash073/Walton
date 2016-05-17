@@ -13,6 +13,30 @@ namespace Mvc5Practice.Controllers
     {
         public ActionResult Index()
         {
+            using (var db=new StudentDbContext())
+            {
+                var quizAdmin = new QuizAdminViewModel
+                {
+                    QuizSessionID =1,
+                    Answer1 = "1",
+                    Answer2 = "2",
+                   Answer3 = "3",
+                   Answer4 = "4",
+                   Answer5 = "5",
+                  StartDate = DateTime.Now,
+                  EndDate = DateTime.Now,
+                  CorrectAnswer = 1,
+                  HasAnswer = true,
+                  NoOfAnswer = 5,
+                  QuizAdminID = 1,
+                  QuizQuestionName = "Hi the first qustion",
+                  QuizSessionName = "Test Session Name",
+                  QuizTypeID = 1,
+                  QuizTypeName = "General Notice"
+                };
+                db.QuizAdminViewModels.Add(quizAdmin);
+                db.SaveChanges();
+            }
             //using (var context = new StudentDbContext())
             //{
             //    //var student = new Student()
