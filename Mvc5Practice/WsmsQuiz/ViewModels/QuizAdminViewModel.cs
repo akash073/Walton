@@ -9,6 +9,9 @@ namespace WsmsQuiz.ViewModels
     {
         public long QuizAdminID { get; set; }
         public long QuizTypeID { get; set; }
+        public string QuizTypeName { get; set; }
+        public long QuizSessionID { get; set; }
+        public string QuizSessionName { get; set; }
         public System.DateTime StartDate { get; set; }
         public System.DateTime EndDate { get; set; }
         public string QuizQuestionName { get; set; }
@@ -19,5 +22,6 @@ namespace WsmsQuiz.ViewModels
         public string Answer4 { get; set; }
         public string Answer5 { get; set; }
         public bool HasAnswer { get; set; }
+        public int CorrectAnswer { get; set; }
     }
 }
