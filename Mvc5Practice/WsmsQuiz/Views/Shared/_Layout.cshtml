@@ -6,6 +6,32 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <style>
+        #back-top a:hover {
+    background-color: #86bc42;
+    color: #fff;
+}
+         .show {
+             display: block!important;
+         }
+        #back-top a {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            border: 2px solid #86bc42;
+            background-color: transparent;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            font-size: 24px;
+            z-index: 100;
+            color: #86bc42;
+            transition: all .5s ease-in-out;
+        }
+        a:active, a:focus {
+    text-decoration: none;
+}
+    </style>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top" style="background: linear-gradient(#04519B, #044687 60%, #033769);">
@@ -20,6 +46,8 @@
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <div id="back-top"><a href="#top"><i class="fa fa-angle-double-up"></i></a></div>
+
         </footer>
     </div>
 
