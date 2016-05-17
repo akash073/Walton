@@ -65,7 +65,7 @@ namespace Mvc5Practice.Controllers
                 new Music { Music_Id = 123, Song_Name = "foo1" }, 
                 new Music { Music_Id = 456, Song_Name = "foo2" }
             };
-            return View(musicFiles);
+            return View();
            // return View();
         }
 

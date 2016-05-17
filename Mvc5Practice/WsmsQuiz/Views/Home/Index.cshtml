@@ -39,13 +39,18 @@
             
     
             int questionCount = @i + 1;
-            <div class="row">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title">Question No @questionCount . </h3>
                     </div>
                     <div class="panel panel-body">
-                        @Html.Label(Model[mc].Questions[i].QuizQuestionName)
+                        <div class="row">
+                            <div class="col-lg-6"> 
+                                @Html.Label(Model[mc].Questions[i].QuizQuestionName)
+                            </div>
+                        </div>
+                        
+                        
                         <hr style="width: 100%; color: black; height: 1px; background-color:blue;" />
                         @for (int j = 0; j < Model[mc].Questions[i].Answers.Count; j++)
                         {
@@ -55,7 +60,6 @@
                             
                             </div>
 
-                            <br />
                         }
 
                         <div>
@@ -64,8 +68,6 @@
                     </div>
                     
                 </div>
-            </div>
-    @*@Html.HiddenFor(x => Model[mc].Questions[i].UserSelectedAnswer)*@
    
             <br />
             @Html.HiddenFor(m => Model[mc].Questions[i].QuizQuestionID)
@@ -84,7 +86,10 @@
     }
 
     <div class="row">
-        <input type="submit" value="Save" class="btn btn-success" />
+        
+            <input type="submit" value="Save" class="btn btn-success" style="margin-left: 15px"/>
+        
+      
     </div>
     
 

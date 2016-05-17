@@ -1,63 +1,24 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+    Layout = null;
 }
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 <script src="~/Scripts/jquery-1.10.2.js"></script>
 
 <script src="~/Scripts/jquery.validate.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
 <div class="container">
-    @*<div class="row">
-        @model Mvc5Practice.ViewModels.LoginPageVM
-
-        @using (Html.BeginForm("LoginPage", "Home", FormMethod.Post))
-        {
-            
-           @Html.EditorFor(m => m)
-            
-            <input type="submit" value="Save" class="submit" />
-        }
-
-    </div>*@
-    <div class="row">
-        
-
-
-        @using (Html.BeginForm("Create", "Home", FormMethod.Post, new { }))
-        {
-            @Html.ValidationSummary(true)
-            <fieldset>
-                <legend>Music</legend>
-                @for (int i = 0; i < Model.Count(); i++)
-                {
-                    <div class="editor-label">
-                        @Html.LabelFor(model => Model[i].Music_Id)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => Model[i].Music_Id)
-                        @Html.ValidationMessageFor(model => Model[i].Music_Id)
-                    </div>
-
-                    <div class="editor-label">
-                        @Html.LabelFor(model => Model[i].Song_Name)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => Model[i].Song_Name)
-                        @Html.ValidationMessageFor(model => Model[i].Song_Name)
-                    </div>
-
-                    <div class="editor-label">
-                        @Html.LabelFor(model => Model[i].Music_Director)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => Model[i].Music_Director)
-                        @Html.ValidationMessageFor(model => Model[i].Music_Director)
-                    </div>
-                }
-                <p>
-                    <input type="submit" value="Create" />
-                </p>
-            </fieldset>
-        }
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Question No 1 </h3>
+        </div>
+        <div class="panel panel-body">
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-6">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+            </div>
+        </div>
     </div>
 
 </div>

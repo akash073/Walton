@@ -84,10 +84,6 @@ namespace WsmsQuiz.Controllers
                     }
                 }
             }
-
-
-
-
             return View(answersList);
         }
 
