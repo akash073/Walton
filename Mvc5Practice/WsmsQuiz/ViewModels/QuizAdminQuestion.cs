@@ -17,5 +17,6 @@ namespace WsmsQuiz.ViewModels
         public string Answer5 { get; set; }
         public bool HasAnswer { get; set; }
         public int CorrectAnswer { get; set; }
+        public Boolean IsActive { get; set; }
     }
 }

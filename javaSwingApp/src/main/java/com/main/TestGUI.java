@@ -12,6 +12,7 @@ public class TestGUI extends JFrame{
     private JButton button1;
 
     public TestGUI() {
+
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -28,6 +29,7 @@ public class TestGUI extends JFrame{
     }
     private void createUIComponents() {
         // TODO: place custom component creation code here
+
     }
     public static void main(String[] args) {
         try{

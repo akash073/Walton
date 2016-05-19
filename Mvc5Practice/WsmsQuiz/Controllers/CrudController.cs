@@ -15,7 +15,7 @@ namespace WsmsQuiz.Controllers
         public ActionResult Index()
         {
             var quiz=new QuizAdminViewModel();
-            var session = db.QuizSessions.Where(x => x.IsActive).FirstOrDefault();
+            var session = db.QuizSessions.FirstOrDefault(x => x.IsActive);
             quiz.QuizAdminID = 1;
             quiz.StartDate = session.StartDate;
             quiz.EndDate = session.EndDate;
@@ -35,18 +35,16 @@ namespace WsmsQuiz.Controllers
                 HasAnswer = x.HasAnswer,
                 NoOfAnswer = x.NoOfAnswer,
                 QuizAdminQuestionID = x.QuizQuestionID,
-                QuizQuestionName = x.QuizQuestionName
+                QuizQuestionName = x.QuizQuestionName,
+                IsActive = true
             }).ToList();
             quiz.QuizAdminQuestions = questions;
-
-
-
             return View(quiz);
         }
         [HttpPost]
         public ActionResult Edit(QuizAdminViewModel model)
         {
-            return null;
+            return View("Index", model);
         }
     }
 }
