@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by Mhamudul Hasan on 19/05/2016.
  */
-public class TestGUI {
+public class TestGUI extends JFrame{
     private JPanel rootPanel;
     private JButton button1;
 
@@ -26,15 +26,29 @@ public class TestGUI {
             }
         });
     }
-
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+    }
     public static void main(String[] args) {
-        JFrame frame = new JFrame("TestGUI");
-        // frame.setSize(400, 400);
-        frame.setContentPane(new TestGUI().rootPanel);
-        frame.setSize(400,400);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //  frame.pack();
-        System.out.println("Hi in console");
-        frame.setVisible(true);
+        try{
+            TestGUI testGUI=new TestGUI();
+
+           // System.out.println("Hi in console");
+            //JFrame frame = new JFrame("TestGUI");
+            // frame.setSize(400, 400);
+            testGUI.setContentPane(new TestGUI().rootPanel);
+            testGUI.setSize(400,400);
+            testGUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            //  frame.pack();
+
+            testGUI.setVisible(true);
+        }catch (Exception e)
+        {
+            System.out.println(e.toString());
+            System.out.println(e.getStackTrace());
+            JOptionPane.showConfirmDialog(null, "Error Not Succesful", "?????", JOptionPane.YES_NO_OPTION);
+
+        }
+
     }
 }
