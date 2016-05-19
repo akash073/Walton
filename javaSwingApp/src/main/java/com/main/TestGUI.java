@@ -1,4 +1,4 @@
-package com.main;
+package main.java.com.main;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -7,11 +7,11 @@ import java.awt.event.ActionListener;
 /**
  * Created by Mhamudul Hasan on 19/05/2016.
  */
-public class SampleGUI {
+public class TestGUI {
     private JPanel rootPanel;
     private JButton button1;
 
-    public SampleGUI() {
+    public TestGUI() {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -21,19 +21,20 @@ public class SampleGUI {
                 }
                 else {
                     JOptionPane.showMessageDialog(null, "GOODBYE");
-                   // System.exit(0);
+                    // System.exit(0);
                 }
             }
         });
     }
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("SampleGUI");
+        JFrame frame = new JFrame("TestGUI");
         // frame.setSize(400, 400);
-        frame.setContentPane(new SampleGUI().rootPanel);
+        frame.setContentPane(new TestGUI().rootPanel);
         frame.setSize(400,400);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      //  frame.pack();
+        //  frame.pack();
+        System.out.println("Hi in console");
         frame.setVisible(true);
     }
 }
