@@ -24,3 +24,33 @@ c:\users\mhamudul hasan\documents\visual studio 2013\Projects\AspUpdateAjax\AspU
 c:\users\mhamudul hasan\documents\visual studio 2013\Projects\AspUpdateAjax\AspUpdateAjax\obj\Debug\AspUpdateAjax.dll
 c:\users\mhamudul hasan\documents\visual studio 2013\Projects\AspUpdateAjax\AspUpdateAjax\obj\Debug\AspUpdateAjax.pdb
 c:\users\mhamudul hasan\documents\visual studio 2013\Projects\AspUpdateAjax\AspUpdateAjax\obj\Debug\AspUpdateAjax.csprojResolveAssemblyReference.cache
+F:\BITBUCKET REPO\AspUpdateAjax\AspUpdateAjax\bin\AspUpdateAjax.dll.config
+F:\BITBUCKET REPO\AspUpdateAjax\AspUpdateAjax\bin\AspUpdateAjax.dll
+F:\BITBUCKET REPO\AspUpdateAjax\AspUpdateAjax\bin\AspUpdateAjax.pdb
+F:\BITBUCKET REPO\AspUpdateAjax\AspUpdateAjax\bin\Antlr3.Runtime.dll
+F:\BITBUCKET REPO\AspUpdateAjax\AspUpdateAjax\bin\Microsoft.Web.Infrastructure.dll
+F:\BITBUCKET REPO\AspUpdateAjax\AspUpdateAjax\bin\Newtonsoft.Json.dll
+F:\BITBUCKET REPO\AspUpdateAjax\AspUpdateAjax\bin\System.Web.Helpers.dll
+F:\BITBUCKET REPO\AspUpdateAjax\AspUpdateAjax\bin\System.Web.Mvc.dll
+F:\BITBUCKET REPO\AspUpdateAjax\AspUpdateAjax\bin\System.Web.Optimization.dll
+F:\BITBUCKET REPO\AspUpdateAjax\AspUpdateAjax\bin\System.Web.Razor.dll
+F:\BITBUCKET REPO\AspUpdateAjax\AspUpdateAjax\bin\System.Web.WebPages.Deployment.dll
+F:\BITBUCKET REPO\AspUpdateAjax\AspUpdateAjax\bin\System.Web.WebPages.dll
+F:\BITBUCKET REPO\AspUpdateAjax\AspUpdateAjax\bin\System.Web.WebPages.Razor.dll
+F:\BITBUCKET REPO\AspUpdateAjax\AspUpdateAjax\bin\WebGrease.dll
+F:\BITBUCKET REPO\AspUpdateAjax\AspUpdateAjax\bin\System.Web.Helpers.xml
+F:\BITBUCKET REPO\AspUpdateAjax\AspUpdateAjax\bin\System.Web.Mvc.xml
+F:\BITBUCKET REPO\AspUpdateAjax\AspUpdateAjax\bin\System.Web.Optimization.xml
+F:\BITBUCKET REPO\AspUpdateAjax\AspUpdateAjax\bin\System.Web.Razor.xml
+F:\BITBUCKET REPO\AspUpdateAjax\AspUpdateAjax\bin\System.Web.WebPages.xml
+F:\BITBUCKET REPO\AspUpdateAjax\AspUpdateAjax\bin\System.Web.WebPages.Deployment.xml
+F:\BITBUCKET REPO\AspUpdateAjax\AspUpdateAjax\bin\System.Web.WebPages.Razor.xml
+F:\BITBUCKET REPO\AspUpdateAjax\AspUpdateAjax\bin\Antlr3.Runtime.pdb
+F:\BITBUCKET REPO\AspUpdateAjax\AspUpdateAjax\bin\Newtonsoft.Json.xml
+F:\BITBUCKET REPO\AspUpdateAjax\AspUpdateAjax\obj\Debug\AspUpdateAjax.csprojResolveAssemblyReference.cache
+F:\BITBUCKET REPO\AspUpdateAjax\AspUpdateAjax\obj\Debug\AspUpdateAjax.dll
+F:\BITBUCKET REPO\AspUpdateAjax\AspUpdateAjax\obj\Debug\AspUpdateAjax.pdb
+F:\BITBUCKET REPO\AspUpdateAjax\AspUpdateAjax\bin\EntityFramework.dll
+F:\BITBUCKET REPO\AspUpdateAjax\AspUpdateAjax\bin\EntityFramework.SqlServer.dll
+F:\BITBUCKET REPO\AspUpdateAjax\AspUpdateAjax\bin\EntityFramework.xml
+F:\BITBUCKET REPO\AspUpdateAjax\AspUpdateAjax\bin\EntityFramework.SqlServer.xml

@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using AspUpdateAjax.Models;
+using AspUpdateAjax.ViewModels;
 
 namespace AspUpdateAjax.Controllers
 {
-    public class HomeController : Controller
+    [Authorize]
+    public class AdminController : Controller
     {
        
         public ActionResult Index()
@@ -54,6 +55,11 @@ namespace AspUpdateAjax.Controllers
         [HttpPost]
         public ActionResult Save()
         {
+            var questionViewModels = Session["QuestionViewModel"] as List<QuestionViewModel>;
+            if (questionViewModels == null)
+            {
+                return Redirect("/Admin/Index");
+            }
             return View();
         }
     }

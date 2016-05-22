@@ -1,4 +1,4 @@
-﻿@model AspUpdateAjax.Models.QuestionViewModel
+﻿@model AspUpdateAjax.ViewModels.QuestionViewModel
 @{
     Layout = null;
 }
@@ -26,7 +26,7 @@
             $("#Answer1,#Answer2,#Answer3,#Answer4,#Answer5").val('');
             $.ajax({
                 type: "POST",
-                url: "/Home/OnBeginRequest",
+                url: "/Admin/OnBeginRequest",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (result) {
@@ -50,7 +50,7 @@
                         deletedRow.remove();
                         $.ajax({
                             type: "POST",
-                            url: "/Home/RemoveRequest",
+                            url: "/Admin/RemoveRequest",
                             data: JSON.stringify({ 'text': text }),
                             contentType: "application/json; charset=utf-8",
                             dataType: "json",
@@ -152,7 +152,7 @@
         options.InsertionMode = InsertionMode.Replace;
     }
 
-    @using (Ajax.BeginForm("AddQuestions", "Home", options))
+    @using (Ajax.BeginForm("AddQuestions", "Admin", options))
     {
         @Html.ValidationSummary(true)
         <div class="container">
@@ -274,7 +274,7 @@
     </div>
     <br/>
     <br/>
-    @using (@Html.BeginForm("Save", "Home", FormMethod.Post))
+    @using (@Html.BeginForm("Save", "Admin", FormMethod.Post))
     {
         <div class="container">
             <div class="row">
