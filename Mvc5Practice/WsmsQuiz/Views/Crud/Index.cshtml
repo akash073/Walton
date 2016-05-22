@@ -25,8 +25,8 @@
             <br />
             @Html.CheckBoxFor(x => Model.QuizAdminQuestions[i].IsActive)
             <br />
-            @Html.HiddenFor(x => Model.QuizAdminQuestions[i].Answer1)
-            @Html.Label(Model.QuizAdminQuestions[i].Answer1)
+            @Html.TextBoxFor(x => Model.QuizAdminQuestions[i].Answer1)
+            @*@Html.Label(Model.QuizAdminQuestions[i].Answer1)*@
             <br />
             @Html.HiddenFor(x => Model.QuizAdminQuestions[i].Answer2)
             @Html.Label(Model.QuizAdminQuestions[i].Answer2)

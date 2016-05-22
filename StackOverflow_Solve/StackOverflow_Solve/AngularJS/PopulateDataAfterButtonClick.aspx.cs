@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace StackOverflow_Solve.AngularJS
 {
+
     public partial class PopulateDataAfterButtonClick : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
