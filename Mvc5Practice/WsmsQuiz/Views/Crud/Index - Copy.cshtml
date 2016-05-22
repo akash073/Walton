@@ -1,0 +1,95 @@
+﻿@model WsmsQuiz.ViewModels.QuizAdminViewModel
+@{
+    ViewBag.Title = "Index";
+}
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<h2>Index</h2>
+
+
+
+@using (Ajax.BeginForm("Ajax", new AjaxOptions {
+    HttpMethod = "POST", // HttpPost
+    InsertionMode = InsertionMode.Replace, // empty the target first
+    UpdateTargetId = "update-me" // place content within #update-me
+}))
+{
+    @Html.TextBox("quizName")
+    @*<select id="CategoryId" class="dropdown" name="CategoryId">
+        <option value="1">Option</option>
+        <option value="2">Condiments</option>
+        <option value="3">Confections</option>
+        <option value="4">Dairy Products</option>
+        <option value="5">Grains/Cereals</option>
+        <option value="6">Meat/Poultry</option>
+        <option value="7">Produce</option>
+        <option value="8">Seafood</option>
+    </select>*@
+    
+    @Html.DropDownList("CategoryId", new List<SelectListItem>()
+    {
+        new SelectListItem() { Text= "Option1", Value = "1" },
+        new SelectListItem() { Text= "Option2", Value = "2", Selected = true }
+    })
+    <br/>
+    @Html.Label("Insert Your Question")
+    @Html.TextArea("questionName")
+    <br/>
+    @Html.Label("Insert Answer")
+    @Html.TextBox("answer1")
+
+    <button type="submit" class="btn btn-default">
+        <i class="glyphicon glyphicon-refresh"></i>
+        Click Me!
+    </button>
+}
+
+@*@using (@Html.BeginForm("Edit", "Crud", FormMethod.Post))
+{
+    @Html.HiddenFor(x => Model.QuizAdminID)
+    @Html.HiddenFor(x => Model.QuizTypeName)
+    <br />
+    @Html.Label(Model.QuizTypeName)
+    <br />
+    if (Model.QuizAdminQuestions.Count == 0)
+    {
+        <h1>You Have no question</h1>
+    }
+    else
+    {
+        <div>NEW QUESTION= @Model.QuizAdminQuestions.Count</div>
+
+        for (int i = 0; i < Model.QuizAdminQuestions.Count; i++)
+        {
+            <br />
+            @Html.CheckBoxFor(x => Model.QuizAdminQuestions[i].IsActive)
+            <br />
+            @Html.TextBoxFor(x => Model.QuizAdminQuestions[i].Answer1)
+            @Html.Label(Model.QuizAdminQuestions[i].Answer1)
+            <br />
+            @Html.HiddenFor(x => Model.QuizAdminQuestions[i].Answer2)
+            @Html.Label(Model.QuizAdminQuestions[i].Answer2)
+            @Html.Label(Model.QuizAdminQuestions[i].Answer3)
+                @Html.Label(Model.QuizAdminQuestions[i].Answer4)
+            <br />
+
+
+            @Html.LabelFor(x=>Model.QuizAdminQuestions[i].Answer5)
+                @Html.LabelFor(x=>Model.QuizAdminQuestions[i].CorrectAnswer)
+                @Html.LabelFor(x=>Model.QuizAdminQuestions[i].HasAnswer)
+                @Html.LabelFor(x=>Model.QuizAdminQuestions[i].NoOfAnswer)
+                @Html.LabelFor(x=>Model.QuizAdminQuestions[i].QuizAdminQuestionID)
+                @Html.LabelFor(x=>Model.QuizAdminQuestions[i].QuizQuestionName)
+
+
+        }
+    }
+
+    <br />
+    <div class="row">
+
+        <input type="submit" value="Save" class="btn btn-default" style="margin-left: 15px" />
+
+
+    </div>
+}*@
+

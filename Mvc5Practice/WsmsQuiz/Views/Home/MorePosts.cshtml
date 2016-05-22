@@ -1,0 +1,14 @@
+﻿@model IEnumerable<WsmsQuiz.Models.Post>
+
+@{
+    Layout = null;
+}
+
+@foreach (var post in Model)
+{
+    <div class="post">
+        <div>>@post.Prop1</div>
+        <div>@post.Prop2</div>
+    </div>
+    <hr />
+}
