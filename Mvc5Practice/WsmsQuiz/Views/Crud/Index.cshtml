@@ -1,57 +1,48 @@
 ﻿@model WsmsQuiz.ViewModels.QuizAdminViewModel
 @{
-    ViewBag.Title = "Index";
+    
 }
-
-<h2>Index</h2>
-
-@using (@Html.BeginForm("Edit", "Crud", FormMethod.Post))
-{
-    @Html.HiddenFor(x => Model.QuizAdminID)
-    @Html.HiddenFor(x => Model.QuizTypeName)
-    <br />
-    @Html.Label(Model.QuizTypeName)
-    <br />
-    if (Model.QuizAdminQuestions.Count == 0)
-    {
-        <h1>You Have no question</h1>
-    }
-    else
-    {
-        <div>NEW QUESTION= @Model.QuizAdminQuestions.Count</div>
-
-        for (int i = 0; i < Model.QuizAdminQuestions.Count; i++)
-        {
-            <br />
-            @Html.CheckBoxFor(x => Model.QuizAdminQuestions[i].IsActive)
-            <br />
-            @Html.TextBoxFor(x => Model.QuizAdminQuestions[i].Answer1)
-            @*@Html.Label(Model.QuizAdminQuestions[i].Answer1)*@
-            <br />
-            @Html.HiddenFor(x => Model.QuizAdminQuestions[i].Answer2)
-            @Html.Label(Model.QuizAdminQuestions[i].Answer2)
-            @*@Html.Label(Model.QuizAdminQuestions[i].Answer3)
-                @Html.Label(Model.QuizAdminQuestions[i].Answer4)*@
-            <br />
-
-
-            @*@Html.LabelFor(x=>Model.QuizAdminQuestions[i].Answer5)
-                @Html.LabelFor(x=>Model.QuizAdminQuestions[i].CorrectAnswer)
-                @Html.LabelFor(x=>Model.QuizAdminQuestions[i].HasAnswer)
-                @Html.LabelFor(x=>Model.QuizAdminQuestions[i].NoOfAnswer)
-                @Html.LabelFor(x=>Model.QuizAdminQuestions[i].QuizAdminQuestionID)
-                @Html.LabelFor(x=>Model.QuizAdminQuestions[i].QuizQuestionName)*@
-
-
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script type="text/javascript">
+        function OnBeginRequest() {
+            alert('On Begin');
         }
+        function OnCompleteRequest() {
+            alert('On Completed');
+        }
+        function OnSuccessRequest() {
+            alert('On Success');
+        }
+        function OnFailureRequest() {
+            alert('On Failure');
+        }
+    </script>
+
+    @{
+        AjaxOptions options = new AjaxOptions();
+        options.HttpMethod = "POST";
+        options.OnBegin = "OnBeginRequest";
+        options.OnSuccess = "OnSuccessRequest";
+        options.OnComplete = "OnCompleteRequest";
+        options.OnFailure = "OnFailureRequest";
+        options.Confirm = "Do you want to Add Country ?";
     }
 
-    <br />
-    <div class="row">
-
-        <input type="submit" value="Save" class="btn btn-default" style="margin-left: 15px" />
-
-
-    </div>
-}
-
+    @using (Ajax.BeginForm("AddCountries", "Home", options))
+    {
+        @Html.ValidationSummary(true)
+        <fieldset>
+            <legend>Countries</legend>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CountriesName)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CountriesName)
+            </div>
+            <p><input type="submit" value="Create" /></p>
+        </fieldset>
+    }
+  
