@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MVC.Models;
 
 namespace MVC.Controllers
 {
@@ -46,9 +47,20 @@ namespace MVC.Controllers
         }
         public ActionResult Index()
         {
-            return View("Contact");
+            List<ClientModel> clientModels = new List<ClientModel>();
+            ClientModel clientModel = new ClientModel
+            {
+                NumberofClient = 10
+            };
+            clientModels.Add(clientModel);
+            return View(clientModels);
         }
-
+        [HttpPost]
+        public ActionResult Index(List<ClientModel> model)
+        {
+            
+            return View();
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
