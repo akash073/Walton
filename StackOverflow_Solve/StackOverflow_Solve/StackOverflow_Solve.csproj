@@ -63,6 +63,7 @@
     <Content Include="About.aspx" />
     <Content Include="AngularJS\angular.min.js" />
     <Content Include="AngularJS\ButtonClickEvent.aspx" />
+    <Content Include="AngularJS\ListOfItemsByAngularJSAjaxNgRepeat.aspx" />
     <Content Include="AngularJS\PopulateDataAfterButtonClick.aspx" />
     <Content Include="CHOSEN\chosen-sprite.png" />
     <Content Include="CHOSEN\chosen.css" />
@@ -379,6 +380,13 @@
     </Compile>
     <Compile Include="AngularJS\ButtonClickEvent.aspx.designer.cs">
       <DependentUpon>ButtonClickEvent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AngularJS\ListOfItemsByAngularJSAjaxNgRepeat.aspx.cs">
+      <DependentUpon>ListOfItemsByAngularJSAjaxNgRepeat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AngularJS\ListOfItemsByAngularJSAjaxNgRepeat.aspx.designer.cs">
+      <DependentUpon>ListOfItemsByAngularJSAjaxNgRepeat.aspx</DependentUpon>
     </Compile>
     <Compile Include="AngularJS\PopulateDataAfterButtonClick.aspx.cs">
       <DependentUpon>PopulateDataAfterButtonClick.aspx</DependentUpon>
