@@ -13,3 +13,5 @@ F:\BITBUCKET REPO\StackOverflow_Solve\StackOverflow_Solve\bin\itextsharp.pdfa.dl
 F:\BITBUCKET REPO\StackOverflow_Solve\StackOverflow_Solve\bin\itextsharp.xtra.dll
 F:\BITBUCKET REPO\StackOverflow_Solve\StackOverflow_Solve\bin\itextsharp.xml
 F:\BITBUCKET REPO\StackOverflow_Solve\StackOverflow_Solve\obj\Debug\StackOverflow_Solve.csprojResolveAssemblyReference.cache
+G:\BITBUCKET WORKS\StackOverflow_Solve\StackOverflow_Solve\obj\Debug\RdlCompile.cache
+G:\BITBUCKET WORKS\StackOverflow_Solve\StackOverflow_Solve\obj\Debug\RdlCompile.compiled
