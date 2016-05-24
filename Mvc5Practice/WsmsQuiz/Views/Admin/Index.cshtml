@@ -148,7 +148,19 @@
             console.log('On Failure');
         }
     </script>
+    <style>
+  legend.scheduler-border {
+    border: solid 1px #DDD !important;
+    padding: 0 10px 10px 10px;
+    border-bottom: none;
+}
 
+legend.scheduler-border {
+    width: auto !important;
+    border: none;
+    font-size: 14px;
+}
+    </style>
     @{
         AjaxOptions options = new AjaxOptions();
         options.HttpMethod = "POST";
@@ -165,8 +177,8 @@
     {
         @Html.ValidationSummary(true)
         <div class="container">
-            <fieldset>
-                <legend>Add Questions</legend>
+            <fieldset class="scheduler-border">
+                <legend class="scheduler-border"><h3>Add Questions</h3></legend>
                 <div class="row form-group">
                     <div class="col-lg-2">Session Name:</div>
 

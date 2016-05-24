@@ -38,5 +38,20 @@ namespace WsmsQuiz.Models
             }
             return userInfo;
         }
+        public static UserInfo GetUserLoginIfInfo(String userName,String password)
+        {
+            UserInfo userInfo;
+           
+            using (var db = new WsmsQuizEntities())
+            {
+                userInfo = db.QuizAdmins.Where(x => x.UserName == userName && x.Password == password).Select(x=>new UserInfo
+                {
+                    UserID = (int)x.QuizAdminID,
+                    UserName = x.UserName,
+                    UserFullName = x.AdminName 
+                }).FirstOrDefault();
+            }
+            return userInfo;
+        }
     }
 }

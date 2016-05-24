@@ -65,7 +65,7 @@
     <Key>
       <PropertyRef Name="QuizSessionUserID" />
     </Key>
-    <Property Name="QuizSessionUserID" Type="Int64" Nullable="false" />
+    <Property Name="QuizSessionUserID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="QuizSessionID" Type="Int64" Nullable="false" />
     <Property Name="IsMobileCrmUser" Type="Boolean" Nullable="false" />
     <Property Name="UserID" Type="Int32" Nullable="false" />
