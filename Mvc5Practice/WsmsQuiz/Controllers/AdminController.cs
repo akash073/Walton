@@ -92,7 +92,8 @@ namespace AspUpdateAjax.Controllers
             }
             else
             {
-                int quizAdminID = (int)Session["QuizAdminID"]; 
+
+                int quizAdminID = (int) Session["QuizAdminID"];
                 String quizName = questionViewModels[0].SessionName;
                 Boolean isActive = true;
                 DateTime startDateTime = questionViewModels[0].StartDate;
@@ -109,31 +110,43 @@ namespace AspUpdateAjax.Controllers
                     QuizSessionName = quizName,
                     QuizTypeID = quizTypeId
                 };
-                using (var db=new WsmsQuizEntities())
+                using (var db = new WsmsQuizEntities())
                 {
-                    db.QuizSessions.Add(quizSession);
-                    db.SaveChanges();
-                    long quizSessionId = quizSession.QuizSessionID;
-                    foreach (var question in questionViewModels)
+                    using (var transaction = db.Database.BeginTransaction())
                     {
-                        var quizQuestion = new QuizQuestion
+                        try
                         {
-                            QuizSessionID = quizSessionId,
-                            QuizQuestionName = question.QuestionName,
-                            Answer1 = question.Answer1,
-                            Answer2 = question.Answer2,
-                            Answer3 = question.Answer3,
-                            Answer4 = question.Answer4,
-                            Answer5 = question.Answer5,
-                            NoOfAnswer = question.QuestionOption,
-                            CorrectAnswer = question.CorrectAnswer,
-                            HasAnswer = true
-                        };
-                        db.QuizQuestions.Add(quizQuestion);
+                            db.QuizSessions.Add(quizSession);
+                            db.SaveChanges();
+                            long quizSessionId = quizSession.QuizSessionID;
+                            foreach (var question in questionViewModels)
+                            {
+                                var quizQuestion = new QuizQuestion
+                                {
+                                    QuizSessionID = quizSessionId,
+                                    QuizQuestionName = question.QuestionName,
+                                    Answer1 = question.Answer1,
+                                    Answer2 = question.Answer2,
+                                    Answer3 = question.Answer3,
+                                    Answer4 = question.Answer4,
+                                    Answer5 = question.Answer5,
+                                    NoOfAnswer = question.QuestionOption,
+                                    CorrectAnswer = question.CorrectAnswer,
+                                    HasAnswer = true
+                                };
+                                db.QuizQuestions.Add(quizQuestion);
+
+                            }
+                            db.SaveChanges();
+                            transaction.Commit();
+                        }
+                        catch (Exception ex)
+                        {
+                            transaction.Rollback();
+                            return Redirect("/Admin/Index");
+                        }
 
                     }
-                    db.SaveChanges();
-
                 }
             }
             return View();

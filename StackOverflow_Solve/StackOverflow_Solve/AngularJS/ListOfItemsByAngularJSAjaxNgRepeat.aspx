@@ -11,7 +11,8 @@
     <form id="form1" runat="server">
     <div ng-controller="myCtrl">
         <ul>
-            <li ng-repeat="item in items" ng-click="clickMe(item,$event)">{{item.Name}}</li>
+            <%--<li ng-repeat="item in items" ng-click="clickMe(item,$event)">{{item.Name }}</li>--%>
+            <li ng-repeat="item in items" ><button id="{{item.Id}}" ng-click="clickMe(item,$event)">{{item.Name}}</button></li>
         </ul>
     </div>
     </form>
@@ -31,18 +32,18 @@
           });
           
            $scope.clickMe = function (item,event) {
-                //event.preventDefault();
+                event.preventDefault();
                 console.log(item.Id);
-                $http({
-                method: 'POST',
-                url: 'ListOfItemsByAngularJSAjaxNgRepeat.aspx/RemoveItemList',
-                data: { 'id': item.Id }, //forms user object
-              //  headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-            })
-          .success(function (data) {
-              console.log(data);
-              $scope.items = data.d;
-          });
+//                $http({
+//                method: 'POST',
+//                url: 'ListOfItemsByAngularJSAjaxNgRepeat.aspx/RemoveItemList',
+//                data: { 'id': item.Id }, //forms user object
+//              //  headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+//            })
+//          .success(function (data) {
+//              console.log(data);
+//              $scope.items = data.d;
+//          });
             };
 
         });
