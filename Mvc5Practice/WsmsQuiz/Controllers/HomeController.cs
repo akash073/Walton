@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.Ajax.Utilities;
+using WSMSCRM.Login;
 using WsmsQuiz.Models;
 using WsmsQuiz.ViewModels;
 
@@ -15,30 +16,50 @@ namespace WsmsQuiz.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+            int userId = 100;
+            Boolean isMobileCrmUser = true;
             try
             {
                 var value = HttpContext.Request.Params.Get("userName");
-
-                value = "ajaj";
+                userId = Convert.ToInt32(value);
+                if (userId == 0)
+                {
+                    RedirectToAction("Login", "Admin");
+                }
+                else if (userId < 10000)
+                {
+                    isMobileCrmUser = true;
+                }
+                else
+                {
+                    isMobileCrmUser = false;
+                }
+                //  value = "ajaj";
             }
             catch (Exception e)
             {
                 
                 
             }
-            
-
-            const int userId = 100;
-            Boolean isMobileCrmUser = true;
-
-
             List<QuestionAnswerViewModel> answersList = new List<QuestionAnswerViewModel>();
             using (var db = new WsmsQuizEntities())
             {
-                var quizActiveSession = db.QuizSessions.Where(x => x.IsActive).ToList();
+                //var quizActiveSession = db.QuizSessions.Where(x => x.IsActive).ToList();
+                var query = String.Format(@"select * 
+from QuizSession qs
+where IsActive=1
+
+and Exists (select 1 from QuizQuestion where QuizSessionID=qs.QuizSessionID)
+and qs.QuizSessionID not in (
+
+select QuizSessionID from QuizSessionUser where UserID={0}
+)
+", userId);
+                var quizActiveSession = db.Database.SqlQuery<QuizSession>(query).ToList();
+
                 foreach (var session in quizActiveSession)
                 {
-                    var sessionQuestion = session.QuizQuestions.ToList();
+                    var sessionQuestion = db.QuizQuestions.Where(x=>x.QuizSessionID==session.QuizSessionID).ToList();
                     if (sessionQuestion.Any())
                     {
                         var questionAnswer = new QuestionAnswerViewModel();
@@ -47,7 +68,7 @@ namespace WsmsQuiz.Controllers
                         questionAnswer.QuizTypeID = session.QuizTypeID;
                         questionAnswer.QuizTypeName = GetQuizTypeByQuizTypeId(session.QuizTypeID);
                         questionAnswer.UserID = userId;
-                        questionAnswer.IsMobileCrmUser = true;
+                        questionAnswer.IsMobileCrmUser = isMobileCrmUser;
                         var questions = new List<Question>();
                         foreach (var q in sessionQuestion)
                         {
@@ -102,7 +123,7 @@ namespace WsmsQuiz.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(List<QuestionAnswerViewModel> model)
+        public void Index(List<QuestionAnswerViewModel> model)
         {
             int userId = model[0].UserID;
             bool isMobileCrm = model[0].IsMobileCrmUser;
@@ -167,9 +188,13 @@ namespace WsmsQuiz.Controllers
 
                 }
             }
-            return Redirect("http://www.google.com");
-        }
+            FormRedirection formRedirection = new FormRedirection();
+            var userRedirectInfo = UserInfo.GetUserInfo(userId, isMobileCrm);
 
+
+            formRedirection.Post("http://localhost:2456/Login/Login.aspx", userRedirectInfo.UserName, userRedirectInfo.Password);
+           // return RedirectToAction("RedirectToCrm",new {userName="akash",password="akash"});
+        }
         public static string GetQuizTypeByQuizTypeId(long quizTypeID)
         {
             String quizName;
@@ -180,23 +205,5 @@ namespace WsmsQuiz.Controllers
             }
             return quizName;
         }
-
-
-        public ActionResult Admin()
-        {
-            return View();
-        }
-
-        //public ActionResult LoginPage()
-        //{
-        //    //...code to login user to application...
-        //    return View();
-        //}
-        //[HttpPost]
-        //public ActionResult LoginPage(LoginPageVM model)
-        //{
-        //    //...code to login user to application...
-        //    return View(model);
-        //}
     }
 }
