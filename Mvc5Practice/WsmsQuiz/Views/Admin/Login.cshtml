@@ -1,44 +1,104 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Login";
+    Layout = null;
 }
 
-<h2>Index</h2>
 @model WsmsQuiz.ViewModels.UserLoginViewModel
-<link href="~/Content/bootstrap.css" rel="stylesheet" />
-<link href="~/Content/main.css" rel="stylesheet" />
-<link href="~/Content/alertify.core.css" rel="stylesheet" />
-<link href="~/Content/alertify.default.css" rel="stylesheet" />
+@*<link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/main.css" rel="stylesheet" />
+    <link href="~/Content/alertify.core.css" rel="stylesheet" />
+    <link href="~/Content/alertify.default.css" rel="stylesheet" />
 
-<script src="~/Scripts/jquery-1.10.2.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
-<script src="~/Scripts/bootstrap.js"></script>
-<script src="~/Scripts/alertify.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/alertify.js"></script>
 
-@{
-    ViewBag.Title = "User Login";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-@using (Html.BeginForm("Login", "Security", FormMethod.Post))
-{
-    @Html.ValidationSummary(true)
-    <div class="editor-label">
-        @Html.LabelFor(m => m.UserName)
-    </div>
-    <div class="editor-field">
-        @Html.TextBoxFor(m => m.UserName)
-        @Html.ValidationMessageFor(m => m.UserName)
-    </div>
-    <div class="editor-label">
-        @Html.LabelFor(m => m.Password)
-    </div>
-    <div class="editor-field">
-        @Html.PasswordFor(m => m.Password)
-        @Html.ValidationMessageFor(m => m.Password)
-    </div>
-    <p>
-        <input type="submit" value="Log In" />
-    </p>
+    @{
+        ViewBag.Title = "User Login";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    @using (Html.BeginForm("Login", "Admin", FormMethod.Post))
+    {
+        @Html.ValidationSummary(true)
+        <div class="editor-label">
+            @Html.LabelFor(m => m.UserName)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(m => m.UserName)
+            @Html.ValidationMessageFor(m => m.UserName)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Password)
+        </div>
+        <div class="editor-field">
+            @Html.PasswordFor(m => m.Password)
+            @Html.ValidationMessageFor(m => m.Password)
+        </div>
+        <p>
+            <input type="submit" value="Log In" />
+        </p>
 
-}
+    }*@
+
+
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Login Form</title>
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body>
+    <section class="container">
+        <div class="login">
+            <h1>Login to WSMS Quiz</h1>
+            @*<form method="POST" action="/Admin/Login">
+                <p>
+                    @Html.TextBoxFor(m => m.UserName, new { placeholder = "Username or Email" })
+                    @Html.ValidationMessageFor(m => m.UserName)
+                </p>
+                <p>
+                    @Html.PasswordFor(m => m.Password, new { placeholder = "Password" })
+                    @Html.ValidationMessageFor(m => m.Password)
+                </p>
+                <p class="submit"><input type="submit" name="commit" value="Login"></p>
+            </form>*@
+            @using (Html.BeginForm("Login", "Admin", FormMethod.Post))
+            {
+                <p>
+                    @Html.TextBoxFor(m => m.UserName, new { placeholder = "Username or Email" })
+                    @Html.ValidationMessageFor(m => m.UserName)
+                </p>
+                <p>
+                    @Html.PasswordFor(m => m.Password, new { placeholder = "Password" })
+                    @Html.ValidationMessageFor(m => m.Password)
+                </p>
+                <p class="submit"><input type="submit" name="commit" value="Login"></p>
+            }
+
+        </div>
+        @*<div class="login-help">
+                <p>Forgot your password? <a href="index.html">Click here to reset it</a>.</p>
+            </div>*@
+    </section>
+    @*<section class="about">
+            <p class="about-links">
+                <a href="http://www.cssflow.com/snippets/login-form" target="_parent">View Article</a>
+                <a href="http://www.cssflow.com/snippets/login-form.zip" target="_parent">Download</a>
+            </p>
+            <p class="about-author">
+                &copy; 2012&ndash;2013 <a href="http://thibaut.me" target="_blank">Thibaut Courouble</a> -
+                <a href="http://www.cssflow.com/mit-license" target="_blank">MIT License</a><br>
+                Original PSD by <a href="http://www.premiumpixels.com/freebies/clean-simple-login-form-psd/" target="_blank">Orman Clark</a>
+        </section>*@
+</body>
+</html>

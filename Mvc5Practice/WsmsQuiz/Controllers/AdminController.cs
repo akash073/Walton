@@ -8,7 +8,7 @@ using WsmsQuiz.ViewModels;
 
 namespace AspUpdateAjax.Controllers
 {
-   // [Authorize]
+    [Authorize]
     public class AdminController : Controller
     {
         // GET: Security
@@ -17,11 +17,10 @@ namespace AspUpdateAjax.Controllers
         {
             return View();
         }
+        [AllowAnonymous]
         [HttpPost]
         public ActionResult Login(UserLoginViewModel user)
         {
-            // To acces data using LINQ
-            // DataClassesDataContext mobjentity = new DataClassesDataContext();
             if (ModelState.IsValid)
             {
                 int a = 0;
