@@ -8,8 +8,12 @@ namespace WsmsQuiz.ViewModels
         public long SessionID { get; set; }
         public String SessionName { get; set; }
         [Required]
-        [Range(1, int.MaxValue, ErrorMessage = "Please enter a value bigger than {1}")]
+        [Range(1, int.MaxValue, ErrorMessage = "Please selec a type")]
         public int SessionType { get; set; }
+        [Required(ErrorMessage = "Select Start Date")]
+        public System.DateTime StartDate { get; set; }
+        [Required(ErrorMessage = "Select End Date")]
+        public System.DateTime EndDate { get; set; }
         [Required(ErrorMessage = "Please Enter question Name")]
         public string QuestionName { get; set; }
         public int QuestionOption { get; set; }

@@ -122,7 +122,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\CrudController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -142,7 +141,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Post.cs" />
     <Compile Include="Models\QuizAdmin.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -171,7 +169,6 @@
     <Compile Include="Models\sp_helpdiagrams_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\StudentInfo.cs" />
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -186,15 +183,32 @@
     <Compile Include="ViewModels\UserLoginViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\alertify.bootstrap.css" />
+    <Content Include="Content\alertify.core.css" />
+    <Content Include="Content\alertify.default.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\build.css" />
+    <Content Include="Content\default.css" />
     <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\main.css" />
+    <Content Include="Content\metallic.css" />
+    <Content Include="Content\reset.css" />
+    <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\calendar-disabled.png" />
+    <Content Include="images\calendar.png" />
+    <Content Include="images\close.png" />
+    <Content Include="images\metallic\default-date.png" />
+    <Content Include="images\metallic\disabled-date.png" />
+    <Content Include="images\metallic\header.png" />
+    <Content Include="images\metallic\selected-date.png" />
+    <Content Include="images\themes.png" />
+    <Content Include="Scripts\alertify.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\fontawesome-webfont.eot" />
@@ -232,6 +246,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\zebra_datepicker.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -248,12 +263,9 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\_Layout - Copy.cshtml" />
     <Content Include="Views\Home\Admin.cshtml" />
-    <Content Include="Views\Crud\Index.cshtml" />
     <Content Include="Views\Home\AjaxTest.cshtml" />
     <Content Include="Views\Home\AllStudent.cshtml" />
     <Content Include="Views\Home\MorePosts.cshtml" />
-    <Content Include="Views\Crud\Index - Copy.cshtml" />
-    <Content Include="Views\Crud\_QuestionPartial.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\Save.cshtml" />
     <Content Include="Views\Admin\_QuestionPartial.cshtml" />

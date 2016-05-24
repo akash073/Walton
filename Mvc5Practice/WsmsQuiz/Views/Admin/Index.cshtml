@@ -13,15 +13,19 @@
     <link href="~/Content/main.css" rel="stylesheet" />
     <link href="~/Content/alertify.core.css" rel="stylesheet" />
     <link href="~/Content/alertify.default.css" rel="stylesheet" />
+    <link href="~/Content/default.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-1.10.2.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
     <script src="~/Scripts/bootstrap.js"></script>
     <script src="~/Scripts/alertify.js"></script>
+    <script src="~/Scripts/zebra_datepicker.js"></script>
     <script type="text/javascript">
 
         $(function () {
+            $('#StartDate,#EndDate').Zebra_DatePicker();
             $("#Answer1,#Answer2,#Answer3,#Answer4,#Answer5").prop("disabled", true);
             $("#Answer1,#Answer2,#Answer3,#Answer4,#Answer5").val('');
             $.ajax({
@@ -112,6 +116,11 @@
             });
             $('input[type="submit"]').click(function () {
                 //  alert('In submit button');
+                var selectedQuizType = $('#sessionType').val();
+                if (selectedQuizType == 0) {
+                    alertify.alert('select one session Type');
+                    return false;
+                }
                 var questionOptionNo = $('#questionOption').val();
                 var correctAnswerNo = $('#correctAnswer').val();
                 if (correctAnswerNo <= 0) {
@@ -172,7 +181,7 @@
 
                     <div class="col-lg-6">
                         <select id="sessionType" name="sessionType" class="form-control">
-                            @*<option value="0">select</option>*@
+                            <option value="0">select</option>
                             <option value="1">Notice</option>
                             <option value="2">Quiz</option>
                         </select>
@@ -180,7 +189,24 @@
                     </div>
                 </div>
                 <br />
+                <div class="row form-group">
+                    <div class="col-lg-2">Start Date:</div>
 
+                    <div class="col-lg-6">
+                        @Html.TextBoxFor(x => Model.StartDate, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.StartDate)
+                    </div>
+                </div>
+                <br />
+                <div class="row form-group">
+                    <div class="col-lg-2">End Date:</div>
+
+                    <div class="col-lg-6">
+                        @Html.TextBoxFor(x => Model.EndDate, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.EndDate)
+                    </div>
+                </div>
+                <br />
                 <div class="row form-group">
                     <div class="col-lg-2">Enter Question Name:</div>
 
