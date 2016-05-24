@@ -3,14 +3,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using AspUpdateAjax.ViewModels;
+using System.Web.Security;
+using WsmsQuiz.ViewModels;
 
 namespace AspUpdateAjax.Controllers
 {
    // [Authorize]
     public class AdminController : Controller
     {
-       
+        // GET: Security
+        [AllowAnonymous]
+        public ActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Login(UserLoginViewModel user)
+        {
+            // To acces data using LINQ
+            // DataClassesDataContext mobjentity = new DataClassesDataContext();
+            if (ModelState.IsValid)
+            {
+                int a = 0;
+                if (user.UserName == "akash")
+                {
+                    FormsAuthentication.SetAuthCookie(user.UserName, true);
+                    return Redirect("/Admin/Index");
+                }
+
+            }
+            return View("Index");
+        }
         public ActionResult Index()
         {
             return View();

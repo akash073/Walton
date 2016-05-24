@@ -163,7 +163,7 @@ namespace WsmsQuiz.Controllers
                         };
                         db.QuizSessionUserAnswers.Add(quizSessionUserAnswer);
                     }
-                    db.SaveChanges();
+                //    db.SaveChanges();
 
                 }
             }

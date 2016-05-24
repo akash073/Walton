@@ -1,0 +1,288 @@
+﻿@model WsmsQuiz.ViewModels.QuestionViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddCountries</title>
+</head>
+<body>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/main.css" rel="stylesheet" />
+    <link href="~/Content/alertify.core.css" rel="stylesheet" />
+    <link href="~/Content/alertify.default.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/alertify.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+            $("#Answer1,#Answer2,#Answer3,#Answer4,#Answer5").prop("disabled", true);
+            $("#Answer1,#Answer2,#Answer3,#Answer4,#Answer5").val('');
+            $.ajax({
+                type: "POST",
+                url: "/Admin/OnBeginRequest",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    console.log(result);
+                }
+            });
+            $(document).on('click', '.actionButton', function (event) {
+                //console.log(e);
+                //console.log($(this).parent());
+                //console.log($(this).closest('tr').index());
+
+                var index = $(this).closest('tr').index();
+                var table = document.getElementById('tblQuestionDetails');
+                var text = table.rows[index].cells[0].innerHTML;
+                var deletedRow = $(this).closest('tr');
+                // alertify.alert(text);
+                // confirm dialog
+                alertify.confirm("Are you sure to remove question", function (e) {
+                    if (e) {
+                        // user clicked "ok"
+                        deletedRow.remove();
+                        $.ajax({
+                            type: "POST",
+                            url: "/Admin/RemoveRequest",
+                            data: JSON.stringify({ 'text': text }),
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            success: function (result) {
+                                console.log(result);
+                                if (result == "OK") {
+                                    deletedRow.remove();
+                                } else {
+                                    alert('Opsss some thing wrong contract with administrator');
+                                }
+                            }
+                        });
+
+                    } else {
+                        // user clicked "cancel"
+                        alert(text);
+                    }
+                });
+                //  $(this).closest('tr').remove();
+            });
+            $('#questionOption').on('change', function (ee) {
+
+                var optionNo = $('#questionOption').val();
+                $("#Answer1,#Answer2,#Answer3,#Answer4,#Answer5").prop("disabled", true);
+                $("#Answer1,#Answer2,#Answer3,#Answer4,#Answer5").val('');
+                // alert(optionNo);
+
+                if (optionNo == 1) {
+                    $("#Answer1").removeAttr("disabled");
+
+                } else if (optionNo == 2) {
+                    $("#Answer1,#Answer2").removeAttr("disabled");
+                }
+                else if (optionNo == 3) {
+                    $("#Answer1,#Answer2,#Answer3").removeAttr("disabled");
+                }
+                else if (optionNo == 4) {
+                    $("#Answer1,#Answer2,#Answer3,#Answer4").removeAttr("disabled");
+                }
+                else if (optionNo == 5) {
+                    $("#Answer1,#Answer2,#Answer3,#Answer4,#Answer5").removeAttr("disabled");
+                } else {
+                    alertify.alert('Select At least one question ');
+                }
+
+
+            });
+            //correctAnswer
+            $('#correctAnswer').on('change', function (ee) {
+                var questionOptionNo = $('#questionOption').val();
+                var correctAnswerNo = $('#correctAnswer').val();
+
+                //  alert(correctAnswerNo);
+                if (correctAnswerNo > questionOptionNo) {
+                    alertify.alert('Correct Answer can not bigger than no of question');
+                    // return false;
+                }
+
+            });
+            $('input[type="submit"]').click(function () {
+                //  alert('In submit button');
+                var questionOptionNo = $('#questionOption').val();
+                var correctAnswerNo = $('#correctAnswer').val();
+                if (correctAnswerNo <= 0) {
+                    alertify.alert('select correct answer');
+                    return false;
+                } else if (correctAnswerNo > questionOptionNo) {
+                    alertify.alert('Correct Answer can not bigger than no of question');
+                    return false;
+                }
+                // return false;//oks fine
+            });
+
+        });
+        function OnBeginRequest() {
+            console.log('On Begin');
+
+        }
+        function OnCompleteRequest() {
+            console.log('On Completed');
+        }
+        function OnSuccessRequest() {
+            console.log('On Success');
+        }
+        function OnFailureRequest() {
+            console.log('On Failure');
+        }
+    </script>
+
+    @{
+        AjaxOptions options = new AjaxOptions();
+        options.HttpMethod = "POST";
+        options.OnBegin = "OnBeginRequest";
+        options.OnSuccess = "OnSuccessRequest";
+        options.OnComplete = "OnCompleteRequest";
+        options.OnFailure = "OnFailureRequest";
+        //  options.Confirm = "Do you want to Add Country ?";
+        options.UpdateTargetId = "divResponse";
+        options.InsertionMode = InsertionMode.Replace;
+    }
+
+    @using (Ajax.BeginForm("AddQuestions", "Admin", options))
+    {
+        @Html.ValidationSummary(true)
+        <div class="container">
+            <fieldset>
+                <legend>Add Questions</legend>
+                <div class="row form-group">
+                    <div class="col-lg-2">Session Name:</div>
+
+                    <div class="col-lg-6">
+                        @Html.TextAreaFor(model => model.SessionName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.SessionName)
+                    </div>
+                </div>
+                <br />
+                <div class="row form-group">
+                    <div class="col-lg-2">Session Name:</div>
+
+                    <div class="col-lg-6">
+                        <select id="sessionType" name="sessionType" class="form-control">
+                            @*<option value="0">select</option>*@
+                            <option value="1">Notice</option>
+                            <option value="2">Quiz</option>
+                        </select>
+                        @Html.ValidationMessageFor(model => model.SessionType)
+                    </div>
+                </div>
+                <br />
+
+                <div class="row form-group">
+                    <div class="col-lg-2">Enter Question Name:</div>
+
+                    <div class="col-lg-6">
+                        @Html.TextAreaFor(model => model.QuestionName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.QuestionName)
+                    </div>
+                </div>
+                <br />
+                <div class="row form-group">
+
+                    <div class="col-lg-2">No of Answer</div>
+                    <div class="col-lg-4">
+                        <select id="questionOption" name="questionOption" class="form-control">
+                            <option value="0">select Option</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                            <option value="4">Four</option>
+                            <option value="5">Five</option>
+                        </select>
+
+                    </div>
+
+                </div>
+                <br />
+
+                <div class="row form-group">
+
+                    <div class="col-lg-2">Answer1</div>
+                    <div class="col-lg-4">@Html.TextBoxFor(model => model.Answer1, new { @class = "form-control" })</div>
+
+                </div>
+                <br />
+                <div class="row form-group">
+
+                    <div class="col-lg-2">Answer2</div>
+                    <div class="col-lg-4">@Html.TextBoxFor(model => model.Answer2, new { @class = "form-control" })</div>
+
+                </div>
+                <br />
+                <div class="row form-group">
+
+                    <div class="col-lg-2">Answer3</div>
+                    <div class="col-lg-4">@Html.TextBoxFor(model => model.Answer3, new { @class = "form-control" })</div>
+
+                </div>
+                <br />
+                <div class="row form-group">
+
+                    <div class="col-lg-2">Answer4</div>
+                    <div class="col-lg-4">@Html.TextBoxFor(model => model.Answer4, new { @class = "form-control" })</div>
+
+                </div>
+                <br />
+                <div class="row form-group">
+
+                    <div class="col-lg-2">Answer5</div>
+                    <div class="col-lg-4">@Html.TextBoxFor(model => model.Answer5, new { @class = "form-control" })</div>
+
+                </div>
+                <br />
+                <div class="row form-group">
+
+                    <div class="col-lg-2">Correct Answer</div>
+                    <div class="col-lg-4">
+                        <select id="correctAnswer" name="correctAnswer" class="form-control">
+                            <option value="0">select Option</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                            <option value="4">Four</option>
+                            <option value="5">Five</option>
+                        </select>
+
+                    </div>
+
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-lg-1"><input type="submit" value="Add Question" class="btn btn-success" /></div>
+
+                </div>
+            </fieldset>
+        </div>
+    }
+
+    <div class="container">
+        <div id="divResponse">
+        </div>
+    </div>
+    <br/>
+    <br/>
+    @using (@Html.BeginForm("Save", "Admin", FormMethod.Post))
+    {
+        <div class="container">
+            <div class="row">
+                <button type="submit" class="btn btn-info">Submit</button>  
+            </div>
+            
+        </div>
+    }
+
+</body>
+</html>
