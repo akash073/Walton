@@ -12,16 +12,8 @@
     <script src="../Scripts/dataTables.buttons.min.js" type="text/javascript"></script>
     <script src="../Scripts/buttons.flash.min.js" type="text/javascript"></script>
     <script src="../Scripts/jszip.min.js" type="text/javascript"></script>
-    
-    
-    
-    
-    
-    
     <script src="../Scripts/pdfmake.min.js" type="text/javascript"></script>
-    
     <script src="../Scripts/vfs_fonts.js" type="text/javascript"></script>
-    
     <script src="../Scripts/buttons.html5.min.js" type="text/javascript"></script>
     <script src="../Scripts/buttons.print.min.js" type="text/javascript"></script>
     <script type="text/javascript">
