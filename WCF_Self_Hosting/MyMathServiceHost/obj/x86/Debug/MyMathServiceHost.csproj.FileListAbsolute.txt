@@ -1,0 +1,16 @@
+C:\Users\Mhamudul Hasan\documents\visual studio 2010\Projects\WCF_Self_Hosting\MyMathServiceHost\obj\x86\Debug\MyMathServiceHost.csprojResolveAssemblyReference.cache
+C:\Users\Mhamudul Hasan\Documents\Visual Studio 2010\Projects\WCF_Self_Hosting\MyMathServiceHost\bin\Debug\MyMathServiceHost.exe.config
+C:\Users\Mhamudul Hasan\Documents\Visual Studio 2010\Projects\WCF_Self_Hosting\MyMathServiceHost\bin\Debug\MyMathServiceHost.exe
+C:\Users\Mhamudul Hasan\Documents\Visual Studio 2010\Projects\WCF_Self_Hosting\MyMathServiceHost\bin\Debug\MyMathServiceHost.pdb
+C:\Users\Mhamudul Hasan\Documents\Visual Studio 2010\Projects\WCF_Self_Hosting\MyMathServiceHost\bin\Debug\MyMathServiceLib.dll
+C:\Users\Mhamudul Hasan\Documents\Visual Studio 2010\Projects\WCF_Self_Hosting\MyMathServiceHost\bin\Debug\MyMathServiceLib.pdb
+C:\Users\Mhamudul Hasan\Documents\Visual Studio 2010\Projects\WCF_Self_Hosting\MyMathServiceHost\obj\x86\Debug\MyMathServiceHost.exe
+C:\Users\Mhamudul Hasan\Documents\Visual Studio 2010\Projects\WCF_Self_Hosting\MyMathServiceHost\obj\x86\Debug\MyMathServiceHost.pdb
+F:\BITBUCKET REPO\WCF_Self_Hosting\MyMathServiceHost\bin\Debug\MyMathServiceHost.exe.config
+F:\BITBUCKET REPO\WCF_Self_Hosting\MyMathServiceHost\obj\x86\Debug\MyMathServiceHost.exe
+F:\BITBUCKET REPO\WCF_Self_Hosting\MyMathServiceHost\obj\x86\Debug\MyMathServiceHost.pdb
+F:\BITBUCKET REPO\WCF_Self_Hosting\MyMathServiceHost\bin\Debug\MyMathServiceHost.exe
+F:\BITBUCKET REPO\WCF_Self_Hosting\MyMathServiceHost\bin\Debug\MyMathServiceHost.pdb
+F:\BITBUCKET REPO\WCF_Self_Hosting\MyMathServiceHost\bin\Debug\MyMathServiceLib.dll
+F:\BITBUCKET REPO\WCF_Self_Hosting\MyMathServiceHost\bin\Debug\MyMathServiceLib.pdb
+F:\BITBUCKET REPO\WCF_Self_Hosting\MyMathServiceHost\obj\x86\Debug\MyMathServiceHost.csprojResolveAssemblyReference.cache

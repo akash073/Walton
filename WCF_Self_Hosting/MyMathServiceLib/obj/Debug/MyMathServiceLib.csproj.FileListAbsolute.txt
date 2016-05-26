@@ -1,0 +1,10 @@
+C:\Users\Mhamudul Hasan\documents\visual studio 2010\Projects\WCF_Self_Hosting\MyMathServiceLib\bin\Debug\MyMathServiceLib.dll.config
+C:\Users\Mhamudul Hasan\documents\visual studio 2010\Projects\WCF_Self_Hosting\MyMathServiceLib\bin\Debug\MyMathServiceLib.dll
+C:\Users\Mhamudul Hasan\documents\visual studio 2010\Projects\WCF_Self_Hosting\MyMathServiceLib\bin\Debug\MyMathServiceLib.pdb
+C:\Users\Mhamudul Hasan\documents\visual studio 2010\Projects\WCF_Self_Hosting\MyMathServiceLib\obj\Debug\MyMathServiceLib.dll
+C:\Users\Mhamudul Hasan\documents\visual studio 2010\Projects\WCF_Self_Hosting\MyMathServiceLib\obj\Debug\MyMathServiceLib.pdb
+F:\BITBUCKET REPO\WCF_Self_Hosting\MyMathServiceLib\bin\Debug\MyMathServiceLib.dll.config
+F:\BITBUCKET REPO\WCF_Self_Hosting\MyMathServiceLib\bin\Debug\MyMathServiceLib.dll
+F:\BITBUCKET REPO\WCF_Self_Hosting\MyMathServiceLib\bin\Debug\MyMathServiceLib.pdb
+F:\BITBUCKET REPO\WCF_Self_Hosting\MyMathServiceLib\obj\Debug\MyMathServiceLib.dll
+F:\BITBUCKET REPO\WCF_Self_Hosting\MyMathServiceLib\obj\Debug\MyMathServiceLib.pdb
