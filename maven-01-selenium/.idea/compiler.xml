@@ -25,5 +25,8 @@
         <module name="maven-01-selenium" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="maven-01-selenium" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
