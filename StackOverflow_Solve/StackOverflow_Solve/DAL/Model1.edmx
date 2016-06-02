@@ -4,9 +4,45 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="WaltonCrmModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="WaltonCrmModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="WaltonCrmModelStoreContainer">
           <EntitySet Name="SpareParts" EntityType="WaltonCrmModel.Store.SpareParts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tv_FailedServiceLog" EntityType="WaltonCrmModel.Store.Tv_FailedServiceLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tv_ProductDeny" EntityType="WaltonCrmModel.Store.Tv_ProductDeny" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tv_ProductReceive" EntityType="WaltonCrmModel.Store.Tv_ProductReceive" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tv_ProductService" EntityType="WaltonCrmModel.Store.Tv_ProductService" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tv_ProductTransfer" EntityType="WaltonCrmModel.Store.Tv_ProductTransfer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tv_ReplacedParts" EntityType="WaltonCrmModel.Store.Tv_ReplacedParts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tv_SparePartsRequision" EntityType="WaltonCrmModel.Store.Tv_SparePartsRequision" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tv_SparePartsUnAvailable" EntityType="WaltonCrmModel.Store.Tv_SparePartsUnAvailable" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Tv_FailedServiceLog_Tv_ProductService" Association="WaltonCrmModel.Store.FK_Tv_FailedServiceLog_Tv_ProductService">
+            <End Role="Tv_ProductService" EntitySet="Tv_ProductService" />
+            <End Role="Tv_FailedServiceLog" EntitySet="Tv_FailedServiceLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tv_ProductDeny_Tv_ProductReceive" Association="WaltonCrmModel.Store.FK_Tv_ProductDeny_Tv_ProductReceive">
+            <End Role="Tv_ProductReceive" EntitySet="Tv_ProductReceive" />
+            <End Role="Tv_ProductDeny" EntitySet="Tv_ProductDeny" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tv_ProductService_Tv_ProductReceive" Association="WaltonCrmModel.Store.FK_Tv_ProductService_Tv_ProductReceive">
+            <End Role="Tv_ProductReceive" EntitySet="Tv_ProductReceive" />
+            <End Role="Tv_ProductService" EntitySet="Tv_ProductService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tv_ProductTransfer_Tv_ProductReceive" Association="WaltonCrmModel.Store.FK_Tv_ProductTransfer_Tv_ProductReceive">
+            <End Role="Tv_ProductReceive" EntitySet="Tv_ProductReceive" />
+            <End Role="Tv_ProductTransfer" EntitySet="Tv_ProductTransfer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tv_ReplacedParts_Tv_SparePartsUnAvailable" Association="WaltonCrmModel.Store.FK_Tv_ReplacedParts_Tv_SparePartsUnAvailable">
+            <End Role="Tv_SparePartsUnAvailable" EntitySet="Tv_SparePartsUnAvailable" />
+            <End Role="Tv_ReplacedParts" EntitySet="Tv_ReplacedParts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tv_SparePartsRequision_Tv_ProductService" Association="WaltonCrmModel.Store.FK_Tv_SparePartsRequision_Tv_ProductService">
+            <End Role="Tv_ProductService" EntitySet="Tv_ProductService" />
+            <End Role="Tv_SparePartsRequision" EntitySet="Tv_SparePartsRequision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tv_SparePartsUnAvailable_Tv_ProductService" Association="WaltonCrmModel.Store.FK_Tv_SparePartsUnAvailable_Tv_ProductService">
+            <End Role="Tv_ProductService" EntitySet="Tv_ProductService" />
+            <End Role="Tv_SparePartsUnAvailable" EntitySet="Tv_SparePartsUnAvailable" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="SpareParts">
           <Key>
@@ -24,13 +60,385 @@
           <Property Name="MinorCategory" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="UOM" Type="nvarchar" MaxLength="50" />
         </EntityType>
-      </Schema>
-    </edmx:StorageModels>
+        <EntityType Name="Tv_FailedServiceLog">
+          <Key>
+            <PropertyRef Name="FailedServiceLogID" />
+          </Key>
+          <Property Name="FailedServiceLogID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProductServiceId" Type="bigint" Nullable="false" />
+          <Property Name="ServiceManagerId" Type="int" />
+          <Property Name="AssignDate" Type="datetime2" />
+          <Property Name="AssignComment" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsTechnicianAssigned" Type="bit" />
+          <Property Name="TechnicianId" Type="int" />
+          <Property Name="TechnicianStartDate" Type="datetime2" />
+          <Property Name="IsTechnicianPaused" Type="bit" />
+          <Property Name="TechnicianEndTime" Type="datetime2" />
+          <Property Name="IsQCAssigned" Type="bit" />
+          <Property Name="QcId" Type="int" />
+          <Property Name="QcStartDate" Type="datetime2" />
+          <Property Name="QcEndTime" Type="datetime2" />
+          <Property Name="ProductServiceStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="AddedBy" Type="int" />
+          <Property Name="AddedDate" Type="datetime2" />
+          <Property Name="UpdatedBy" Type="int" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tv_ProductDeny">
+          <Key>
+            <PropertyRef Name="ProductDenyId" />
+          </Key>
+          <Property Name="ProductDenyId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="ProductDeniedBy" Type="int" />
+          <Property Name="ProductDinedDate" Type="datetime2" />
+          <Property Name="ProductDeniedReason" Type="nvarchar(max)" />
+          <Property Name="Comments" Type="nvarchar(max)" />
+          <Property Name="NewID" Type="bigint" Nullable="false" />
+          <Property Name="AddedBy" Type="int" />
+          <Property Name="AddedDate" Type="datetime2" />
+          <Property Name="UpdatedBy" Type="int" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tv_ProductReceive">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="JobID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ServicePointID" Type="int" Nullable="false" />
+          <Property Name="ModelName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ProductType" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="SubType" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="SerialNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="CustomerAddress" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="CustomerMobile" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DateOfSale" Type="datetime2" />
+          <Property Name="WarrentyCardNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsWarrantyAvailable" Type="bit" Nullable="false" />
+          <Property Name="IsWarrantyVoid" Type="bit" />
+          <Property Name="WarrantyVoidReason" Type="nvarchar" MaxLength="50" />
+          <Property Name="WarrantyVoidUserId" Type="int" />
+          <Property Name="WarrantyVoidDate" Type="datetime2" />
+          <Property Name="ApproxDeliveryDate" Type="datetime2" />
+          <Property Name="Accessories" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Complaints" Type="nvarchar" Nullable="false" MaxLength="1000" />
+          <Property Name="ApproxBilling" Type="decimal" Scale="2" />
+          <Property Name="InchargeComment" Type="nvarchar" MaxLength="500" />
+          <Property Name="FinalAmount" Type="decimal" Scale="2" />
+          <Property Name="CustomerCareComment" Type="nvarchar" MaxLength="500" />
+          <Property Name="FinalBillSetterId" Type="bigint" />
+          <Property Name="ReceivedUserId" Type="int" Nullable="false" />
+          <Property Name="ReceivedDate" Type="datetime2" Nullable="false" />
+          <Property Name="DeliveredUserId" Type="int" />
+          <Property Name="DeliveryDate" Type="datetime2" />
+          <Property Name="IsBillingConfirmed" Type="bit" />
+          <Property Name="IsIndoorReceive" Type="bit" Nullable="false" />
+          <Property Name="IsAssigned" Type="bit" Nullable="false" />
+          <Property Name="IsCustomerApproved" Type="bit" />
+          <Property Name="CustomerApproveUserId" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerApproveDate" Type="datetime2" />
+          <Property Name="IsTransfered" Type="bit" />
+          <Property Name="IsTransferReceive" Type="bit" />
+          <Property Name="IsTerminated" Type="bit" />
+          <Property Name="TerminationReason" Type="nvarchar(max)" />
+          <Property Name="TerminatedDate" Type="datetime2" />
+          <Property Name="TerminatorId" Type="int" />
+          <Property Name="IsProductDenied" Type="bit" />
+          <Property Name="IsDelivered" Type="bit" />
+          <Property Name="ServiceStatus" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DeliveryAmount" Type="decimal" Scale="2" />
+          <Property Name="AddedBy" Type="int" />
+          <Property Name="AddedDate" Type="datetime2" />
+          <Property Name="UpdatedBy" Type="int" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime2" Nullable="false" />
+          <Property Name="IsViewed" Type="bit" />
+          <Property Name="IsDenied" Type="bit" />
+          <Property Name="IsServiceFailed" Type="bit" />
+          <Property Name="StatusDetail" Type="nvarchar(max)" />
+          <Property Name="ServiceCharge" Type="decimal" Scale="2" />
+          <Property Name="IsPlaza" Type="bit" />
+          <Property Name="PlazaOrDealName" Type="nvarchar(max)" />
+          <Property Name="IsDisplayProduct" Type="bit" />
+          <Property Name="BodyPartsType" Type="int" />
+        </EntityType>
+        <EntityType Name="Tv_ProductService">
+          <Key>
+            <PropertyRef Name="ProductServiceId" />
+          </Key>
+          <Property Name="ProductServiceId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="ServicePointId" Type="int" Nullable="false" />
+          <Property Name="ServiceManagerId" Type="int" Nullable="false" />
+          <Property Name="AssignDate" Type="datetime2" Nullable="false" />
+          <Property Name="AssignComment" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsTechnicianAssigned" Type="bit" Nullable="false" />
+          <Property Name="TechnicianId" Type="int" />
+          <Property Name="TechnicianStartDate" Type="datetime2" />
+          <Property Name="IsTechnicianPaused" Type="bit" />
+          <Property Name="TechnicianPausedDate" Type="datetime2" />
+          <Property Name="TechnicianPauseComment" Type="nvarchar" MaxLength="500" />
+          <Property Name="TechnicianEndTime" Type="datetime2" />
+          <Property Name="TechnicianEndComment" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsQCAssigned" Type="bit" />
+          <Property Name="QcId" Type="int" />
+          <Property Name="QcReceiveDate" Type="datetime2" />
+          <Property Name="QcStartDate" Type="datetime2" />
+          <Property Name="IsQcPaused" Type="bit" />
+          <Property Name="QcPausedDate" Type="datetime2" />
+          <Property Name="QcComment" Type="nvarchar" MaxLength="500" />
+          <Property Name="QcEndTime" Type="datetime2" />
+          <Property Name="IsQCFailed" Type="bit" />
+          <Property Name="IsInchargeRecommended" Type="bit" />
+          <Property Name="InchargeRecommendedUserId" Type="int" />
+          <Property Name="InchargeRecommendDate" Type="datetime2" />
+          <Property Name="IsStoreApproved" Type="bit" />
+          <Property Name="StoreApprovedUserId" Type="int" />
+          <Property Name="StoreApproveDate" Type="datetime2" />
+          <Property Name="IsTerminated" Type="bit" />
+          <Property Name="TerminationReason" Type="nvarchar" MaxLength="50" />
+          <Property Name="TerminationComment" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsServiceFailed" Type="bit" />
+          <Property Name="ServiceFailedReason" Type="nvarchar" MaxLength="50" />
+          <Property Name="ServiceFailedComment" Type="nvarchar" MaxLength="500" />
+          <Property Name="TerminationServcieFailedDate" Type="datetime2" />
+          <Property Name="IsServiceCompleted" Type="bit" Nullable="false" />
+          <Property Name="ServiceCompletionDate" Type="datetime2" />
+          <Property Name="ProductServiceStatus" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="IsBounced" Type="bit" />
+          <Property Name="BounceReason" Type="nvarchar(max)" />
+          <Property Name="BounceDate" Type="datetime2" />
+          <Property Name="AddedBy" Type="int" />
+          <Property Name="AddedDate" Type="datetime2" />
+          <Property Name="UpdatedBy" Type="int" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime2" Nullable="false" />
+          <Property Name="ServiceCharge" Type="decimal" Scale="2" />
+          <Property Name="InstallationCharge" Type="decimal" Scale="2" />
+          <Property Name="TotalCharge" Type="decimal" Scale="2" />
+        </EntityType>
+        <EntityType Name="Tv_ProductTransfer">
+          <Key>
+            <PropertyRef Name="ProductTranferID" />
+          </Key>
+          <Property Name="ProductTranferID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="FromServicePointId" Type="int" Nullable="false" />
+          <Property Name="TransferDate" Type="datetime2" Nullable="false" />
+          <Property Name="FromUserId" Type="int" Nullable="false" />
+          <Property Name="ToServicePointId" Type="int" Nullable="false" />
+          <Property Name="ReceiveDate" Type="datetime2" />
+          <Property Name="ToUserId" Type="int" />
+          <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsParentPointIDReceive" Type="bit" />
+          <Property Name="CourierName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CourierNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="AddedBy" Type="int" />
+          <Property Name="AddedDate" Type="datetime2" />
+          <Property Name="UpdatedBy" Type="int" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tv_ReplacedParts">
+          <Key>
+            <PropertyRef Name="ReplacedPartsID" />
+          </Key>
+          <Property Name="ReplacedPartsID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SparePartsUnAvailableId" Type="bigint" Nullable="false" />
+          <Property Name="Oracode" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ReplaceUserId" Type="int" Nullable="false" />
+          <Property Name="ReplaceDate" Type="datetime2" Nullable="false" />
+          <Property Name="AddedBy" Type="int" />
+          <Property Name="AddedDate" Type="datetime2" />
+          <Property Name="UpdatedBy" Type="int" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tv_SparePartsRequision">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProductServiceId" Type="bigint" Nullable="false" />
+          <Property Name="TechnicianId" Type="int" Nullable="false" />
+          <Property Name="ServicePointID" Type="int" Nullable="false" />
+          <Property Name="RequestDate" Type="datetime2" Nullable="false" />
+          <Property Name="ItemID" Type="bigint" Nullable="false" />
+          <Property Name="Oracode" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="SparePartName" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="SpareUnitPrice" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="UOM" Type="nvarchar" MaxLength="50" />
+          <Property Name="Qty" Type="decimal" Scale="3" />
+          <Property Name="SanctionUserId" Type="int" />
+          <Property Name="SanctionComment" Type="nvarchar" MaxLength="500" />
+          <Property Name="SanctionDate" Type="datetime2" />
+          <Property Name="IsPartsUnAvailable" Type="bit" />
+          <Property Name="RecommendedUserId" Type="int" />
+          <Property Name="RecommendationDate" Type="datetime2" />
+          <Property Name="UsedQty" Type="decimal" Scale="3" />
+          <Property Name="ReturnQty" Type="decimal" Scale="3" />
+          <Property Name="StockFaultyQty" Type="decimal" Scale="3" />
+          <Property Name="WastageQty" Type="decimal" Scale="3" />
+          <Property Name="StoreApprovalUserId" Type="int" />
+          <Property Name="StoreApprovalDate" Type="datetime2" />
+          <Property Name="SparePartsRequisionStatus" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="AddedBy" Type="int" />
+          <Property Name="AddedDate" Type="datetime2" />
+          <Property Name="UpdatedBy" Type="int" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tv_SparePartsUnAvailable">
+          <Key>
+            <PropertyRef Name="SparePartsUnAvailableId" />
+          </Key>
+          <Property Name="SparePartsUnAvailableId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProductServiceId" Type="bigint" Nullable="false" />
+          <Property Name="SparePartsRequisitionId" Type="bigint" Nullable="false" />
+          <Property Name="TechnicianId" Type="int" Nullable="false" />
+          <Property Name="ServicePointID" Type="int" Nullable="false" />
+          <Property Name="Oracode" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="SparePartName" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="RequestDate" Type="datetime2" Nullable="false" />
+          <Property Name="ReplacedPartsDate" Type="datetime2" />
+          <Property Name="SanctionUserId" Type="int" />
+          <Property Name="SanctionDate" Type="datetime2" />
+          <Property Name="IsReplaced" Type="bit" />
+          <Property Name="PartsUnavailableComment" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsPartsNotNeeded" Type="bit" />
+          <Property Name="PartsNotNeededUserId" Type="int" />
+          <Property Name="PartsNotNeededDate" Type="datetime2" />
+          <Property Name="PartsNotNeededComment" Type="nvarchar" MaxLength="500" />
+          <Property Name="AddedBy" Type="int" />
+          <Property Name="AddedDate" Type="datetime2" />
+          <Property Name="UpdatedBy" Type="int" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime2" Nullable="false" />
+          <Property Name="Qty" Type="decimal" Scale="3" />
+        </EntityType>
+        <Association Name="FK_Tv_FailedServiceLog_Tv_ProductService">
+          <End Role="Tv_ProductService" Type="WaltonCrmModel.Store.Tv_ProductService" Multiplicity="1" />
+          <End Role="Tv_FailedServiceLog" Type="WaltonCrmModel.Store.Tv_FailedServiceLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tv_ProductService">
+              <PropertyRef Name="ProductServiceId" />
+            </Principal>
+            <Dependent Role="Tv_FailedServiceLog">
+              <PropertyRef Name="ProductServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tv_ProductDeny_Tv_ProductReceive">
+          <End Role="Tv_ProductReceive" Type="WaltonCrmModel.Store.Tv_ProductReceive" Multiplicity="1" />
+          <End Role="Tv_ProductDeny" Type="WaltonCrmModel.Store.Tv_ProductDeny" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tv_ProductReceive">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tv_ProductDeny">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tv_ProductService_Tv_ProductReceive">
+          <End Role="Tv_ProductReceive" Type="WaltonCrmModel.Store.Tv_ProductReceive" Multiplicity="1" />
+          <End Role="Tv_ProductService" Type="WaltonCrmModel.Store.Tv_ProductService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tv_ProductReceive">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tv_ProductService">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tv_ProductTransfer_Tv_ProductReceive">
+          <End Role="Tv_ProductReceive" Type="WaltonCrmModel.Store.Tv_ProductReceive" Multiplicity="1" />
+          <End Role="Tv_ProductTransfer" Type="WaltonCrmModel.Store.Tv_ProductTransfer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tv_ProductReceive">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tv_ProductTransfer">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tv_ReplacedParts_Tv_SparePartsUnAvailable">
+          <End Role="Tv_SparePartsUnAvailable" Type="WaltonCrmModel.Store.Tv_SparePartsUnAvailable" Multiplicity="1" />
+          <End Role="Tv_ReplacedParts" Type="WaltonCrmModel.Store.Tv_ReplacedParts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tv_SparePartsUnAvailable">
+              <PropertyRef Name="SparePartsUnAvailableId" />
+            </Principal>
+            <Dependent Role="Tv_ReplacedParts">
+              <PropertyRef Name="SparePartsUnAvailableId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tv_SparePartsRequision_Tv_ProductService">
+          <End Role="Tv_ProductService" Type="WaltonCrmModel.Store.Tv_ProductService" Multiplicity="1" />
+          <End Role="Tv_SparePartsRequision" Type="WaltonCrmModel.Store.Tv_SparePartsRequision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tv_ProductService">
+              <PropertyRef Name="ProductServiceId" />
+            </Principal>
+            <Dependent Role="Tv_SparePartsRequision">
+              <PropertyRef Name="ProductServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tv_SparePartsUnAvailable_Tv_ProductService">
+          <End Role="Tv_ProductService" Type="WaltonCrmModel.Store.Tv_ProductService" Multiplicity="1" />
+          <End Role="Tv_SparePartsUnAvailable" Type="WaltonCrmModel.Store.Tv_SparePartsUnAvailable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tv_ProductService">
+              <PropertyRef Name="ProductServiceId" />
+            </Principal>
+            <Dependent Role="Tv_SparePartsUnAvailable">
+              <PropertyRef Name="ProductServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="WaltonCrmModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="WaltonCrmEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="SpareParts" EntityType="WaltonCrmModel.SparePart" />
+          <EntitySet Name="Tv_FailedServiceLog" EntityType="WaltonCrmModel.Tv_FailedServiceLog" />
+          <EntitySet Name="Tv_ProductDeny" EntityType="WaltonCrmModel.Tv_ProductDeny" />
+          <EntitySet Name="Tv_ProductReceive" EntityType="WaltonCrmModel.Tv_ProductReceive" />
+          <EntitySet Name="Tv_ProductService" EntityType="WaltonCrmModel.Tv_ProductService" />
+          <EntitySet Name="Tv_ProductTransfer" EntityType="WaltonCrmModel.Tv_ProductTransfer" />
+          <EntitySet Name="Tv_ReplacedParts" EntityType="WaltonCrmModel.Tv_ReplacedParts" />
+          <EntitySet Name="Tv_SparePartsRequision" EntityType="WaltonCrmModel.Tv_SparePartsRequision" />
+          <EntitySet Name="Tv_SparePartsUnAvailable" EntityType="WaltonCrmModel.Tv_SparePartsUnAvailable" />
+          <AssociationSet Name="FK_Tv_FailedServiceLog_Tv_ProductService" Association="WaltonCrmModel.FK_Tv_FailedServiceLog_Tv_ProductService">
+            <End Role="Tv_ProductService" EntitySet="Tv_ProductService" />
+            <End Role="Tv_FailedServiceLog" EntitySet="Tv_FailedServiceLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tv_ProductDeny_Tv_ProductReceive" Association="WaltonCrmModel.FK_Tv_ProductDeny_Tv_ProductReceive">
+            <End Role="Tv_ProductReceive" EntitySet="Tv_ProductReceive" />
+            <End Role="Tv_ProductDeny" EntitySet="Tv_ProductDeny" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tv_ProductService_Tv_ProductReceive" Association="WaltonCrmModel.FK_Tv_ProductService_Tv_ProductReceive">
+            <End Role="Tv_ProductReceive" EntitySet="Tv_ProductReceive" />
+            <End Role="Tv_ProductService" EntitySet="Tv_ProductService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tv_ProductTransfer_Tv_ProductReceive" Association="WaltonCrmModel.FK_Tv_ProductTransfer_Tv_ProductReceive">
+            <End Role="Tv_ProductReceive" EntitySet="Tv_ProductReceive" />
+            <End Role="Tv_ProductTransfer" EntitySet="Tv_ProductTransfer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tv_SparePartsRequision_Tv_ProductService" Association="WaltonCrmModel.FK_Tv_SparePartsRequision_Tv_ProductService">
+            <End Role="Tv_ProductService" EntitySet="Tv_ProductService" />
+            <End Role="Tv_SparePartsRequision" EntitySet="Tv_SparePartsRequision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tv_SparePartsUnAvailable_Tv_ProductService" Association="WaltonCrmModel.FK_Tv_SparePartsUnAvailable_Tv_ProductService">
+            <End Role="Tv_ProductService" EntitySet="Tv_ProductService" />
+            <End Role="Tv_SparePartsUnAvailable" EntitySet="Tv_SparePartsUnAvailable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tv_ReplacedParts_Tv_SparePartsUnAvailable" Association="WaltonCrmModel.FK_Tv_ReplacedParts_Tv_SparePartsUnAvailable">
+            <End Role="Tv_SparePartsUnAvailable" EntitySet="Tv_SparePartsUnAvailable" />
+            <End Role="Tv_ReplacedParts" EntitySet="Tv_ReplacedParts" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="SparePart">
           <Key>
@@ -48,6 +456,357 @@
           <Property Name="MinorCategory" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="UOM" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
         </EntityType>
+        <EntityType Name="Tv_FailedServiceLog">
+          <Key>
+            <PropertyRef Name="FailedServiceLogID" />
+          </Key>
+          <Property Type="Int64" Name="FailedServiceLogID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="ProductServiceId" Nullable="false" />
+          <Property Type="Int32" Name="ServiceManagerId" />
+          <Property Type="DateTime" Name="AssignDate" />
+          <Property Type="String" Name="AssignComment" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsTechnicianAssigned" />
+          <Property Type="Int32" Name="TechnicianId" />
+          <Property Type="DateTime" Name="TechnicianStartDate" />
+          <Property Type="Boolean" Name="IsTechnicianPaused" />
+          <Property Type="DateTime" Name="TechnicianEndTime" />
+          <Property Type="Boolean" Name="IsQCAssigned" />
+          <Property Type="Int32" Name="QcId" />
+          <Property Type="DateTime" Name="QcStartDate" />
+          <Property Type="DateTime" Name="QcEndTime" />
+          <Property Type="String" Name="ProductServiceStatus" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="AddedBy" />
+          <Property Type="DateTime" Name="AddedDate" />
+          <Property Type="Int32" Name="UpdatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="false" />
+          <NavigationProperty Name="Tv_ProductService" Relationship="WaltonCrmModel.FK_Tv_FailedServiceLog_Tv_ProductService" FromRole="Tv_FailedServiceLog" ToRole="Tv_ProductService" />
+        </EntityType>
+        <EntityType Name="Tv_ProductDeny">
+          <Key>
+            <PropertyRef Name="ProductDenyId" />
+          </Key>
+          <Property Type="Int64" Name="ProductDenyId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="ProductDeniedBy" />
+          <Property Type="DateTime" Name="ProductDinedDate" />
+          <Property Type="String" Name="ProductDeniedReason" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Comments" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="NewID" Nullable="false" />
+          <Property Type="Int32" Name="AddedBy" />
+          <Property Type="DateTime" Name="AddedDate" />
+          <Property Type="Int32" Name="UpdatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="false" />
+          <NavigationProperty Name="Tv_ProductReceive" Relationship="WaltonCrmModel.FK_Tv_ProductDeny_Tv_ProductReceive" FromRole="Tv_ProductDeny" ToRole="Tv_ProductReceive" />
+        </EntityType>
+        <EntityType Name="Tv_ProductReceive">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="JobID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ServicePointID" Nullable="false" />
+          <Property Type="String" Name="ModelName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ProductType" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SubType" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SerialNo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CustomerName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CustomerAddress" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CustomerMobile" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateOfSale" />
+          <Property Type="String" Name="WarrentyCardNo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsWarrantyAvailable" Nullable="false" />
+          <Property Type="Boolean" Name="IsWarrantyVoid" />
+          <Property Type="String" Name="WarrantyVoidReason" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="WarrantyVoidUserId" />
+          <Property Type="DateTime" Name="WarrantyVoidDate" />
+          <Property Type="DateTime" Name="ApproxDeliveryDate" />
+          <Property Type="String" Name="Accessories" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Complaints" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="ApproxBilling" Precision="18" Scale="2" />
+          <Property Type="String" Name="InchargeComment" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="FinalAmount" Precision="18" Scale="2" />
+          <Property Type="String" Name="CustomerCareComment" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="FinalBillSetterId" />
+          <Property Type="Int32" Name="ReceivedUserId" Nullable="false" />
+          <Property Type="DateTime" Name="ReceivedDate" Nullable="false" />
+          <Property Type="Int32" Name="DeliveredUserId" />
+          <Property Type="DateTime" Name="DeliveryDate" />
+          <Property Type="Boolean" Name="IsBillingConfirmed" />
+          <Property Type="Boolean" Name="IsIndoorReceive" Nullable="false" />
+          <Property Type="Boolean" Name="IsAssigned" Nullable="false" />
+          <Property Type="Boolean" Name="IsCustomerApproved" />
+          <Property Type="String" Name="CustomerApproveUserId" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CustomerApproveDate" />
+          <Property Type="Boolean" Name="IsTransfered" />
+          <Property Type="Boolean" Name="IsTransferReceive" />
+          <Property Type="Boolean" Name="IsTerminated" />
+          <Property Type="String" Name="TerminationReason" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="TerminatedDate" />
+          <Property Type="Int32" Name="TerminatorId" />
+          <Property Type="Boolean" Name="IsProductDenied" />
+          <Property Type="Boolean" Name="IsDelivered" />
+          <Property Type="String" Name="ServiceStatus" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="DeliveryAmount" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="AddedBy" />
+          <Property Type="DateTime" Name="AddedDate" />
+          <Property Type="Int32" Name="UpdatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="false" />
+          <Property Type="Boolean" Name="IsViewed" />
+          <Property Type="Boolean" Name="IsDenied" />
+          <Property Type="Boolean" Name="IsServiceFailed" />
+          <Property Type="String" Name="StatusDetail" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="ServiceCharge" Precision="18" Scale="2" />
+          <Property Type="Boolean" Name="IsPlaza" />
+          <Property Type="String" Name="PlazaOrDealName" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsDisplayProduct" />
+          <Property Type="Int32" Name="BodyPartsType" />
+          <NavigationProperty Name="Tv_ProductDeny" Relationship="WaltonCrmModel.FK_Tv_ProductDeny_Tv_ProductReceive" FromRole="Tv_ProductReceive" ToRole="Tv_ProductDeny" />
+          <NavigationProperty Name="Tv_ProductService" Relationship="WaltonCrmModel.FK_Tv_ProductService_Tv_ProductReceive" FromRole="Tv_ProductReceive" ToRole="Tv_ProductService" />
+          <NavigationProperty Name="Tv_ProductTransfer" Relationship="WaltonCrmModel.FK_Tv_ProductTransfer_Tv_ProductReceive" FromRole="Tv_ProductReceive" ToRole="Tv_ProductTransfer" />
+        </EntityType>
+        <EntityType Name="Tv_ProductService">
+          <Key>
+            <PropertyRef Name="ProductServiceId" />
+          </Key>
+          <Property Type="Int64" Name="ProductServiceId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="ServicePointId" Nullable="false" />
+          <Property Type="Int32" Name="ServiceManagerId" Nullable="false" />
+          <Property Type="DateTime" Name="AssignDate" Nullable="false" />
+          <Property Type="String" Name="AssignComment" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsTechnicianAssigned" Nullable="false" />
+          <Property Type="Int32" Name="TechnicianId" />
+          <Property Type="DateTime" Name="TechnicianStartDate" />
+          <Property Type="Boolean" Name="IsTechnicianPaused" />
+          <Property Type="DateTime" Name="TechnicianPausedDate" />
+          <Property Type="String" Name="TechnicianPauseComment" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="TechnicianEndTime" />
+          <Property Type="String" Name="TechnicianEndComment" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsQCAssigned" />
+          <Property Type="Int32" Name="QcId" />
+          <Property Type="DateTime" Name="QcReceiveDate" />
+          <Property Type="DateTime" Name="QcStartDate" />
+          <Property Type="Boolean" Name="IsQcPaused" />
+          <Property Type="DateTime" Name="QcPausedDate" />
+          <Property Type="String" Name="QcComment" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="QcEndTime" />
+          <Property Type="Boolean" Name="IsQCFailed" />
+          <Property Type="Boolean" Name="IsInchargeRecommended" />
+          <Property Type="Int32" Name="InchargeRecommendedUserId" />
+          <Property Type="DateTime" Name="InchargeRecommendDate" />
+          <Property Type="Boolean" Name="IsStoreApproved" />
+          <Property Type="Int32" Name="StoreApprovedUserId" />
+          <Property Type="DateTime" Name="StoreApproveDate" />
+          <Property Type="Boolean" Name="IsTerminated" />
+          <Property Type="String" Name="TerminationReason" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TerminationComment" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsServiceFailed" />
+          <Property Type="String" Name="ServiceFailedReason" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ServiceFailedComment" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="TerminationServcieFailedDate" />
+          <Property Type="Boolean" Name="IsServiceCompleted" Nullable="false" />
+          <Property Type="DateTime" Name="ServiceCompletionDate" />
+          <Property Type="String" Name="ProductServiceStatus" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsBounced" />
+          <Property Type="String" Name="BounceReason" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="BounceDate" />
+          <Property Type="Int32" Name="AddedBy" />
+          <Property Type="DateTime" Name="AddedDate" />
+          <Property Type="Int32" Name="UpdatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="false" />
+          <Property Type="Decimal" Name="ServiceCharge" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="InstallationCharge" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="TotalCharge" Precision="18" Scale="2" />
+          <NavigationProperty Name="Tv_FailedServiceLog" Relationship="WaltonCrmModel.FK_Tv_FailedServiceLog_Tv_ProductService" FromRole="Tv_ProductService" ToRole="Tv_FailedServiceLog" />
+          <NavigationProperty Name="Tv_ProductReceive" Relationship="WaltonCrmModel.FK_Tv_ProductService_Tv_ProductReceive" FromRole="Tv_ProductService" ToRole="Tv_ProductReceive" />
+          <NavigationProperty Name="Tv_SparePartsRequision" Relationship="WaltonCrmModel.FK_Tv_SparePartsRequision_Tv_ProductService" FromRole="Tv_ProductService" ToRole="Tv_SparePartsRequision" />
+          <NavigationProperty Name="Tv_SparePartsUnAvailable" Relationship="WaltonCrmModel.FK_Tv_SparePartsUnAvailable_Tv_ProductService" FromRole="Tv_ProductService" ToRole="Tv_SparePartsUnAvailable" />
+        </EntityType>
+        <EntityType Name="Tv_ProductTransfer">
+          <Key>
+            <PropertyRef Name="ProductTranferID" />
+          </Key>
+          <Property Type="Int64" Name="ProductTranferID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="FromServicePointId" Nullable="false" />
+          <Property Type="DateTime" Name="TransferDate" Nullable="false" />
+          <Property Type="Int32" Name="FromUserId" Nullable="false" />
+          <Property Type="Int32" Name="ToServicePointId" Nullable="false" />
+          <Property Type="DateTime" Name="ReceiveDate" />
+          <Property Type="Int32" Name="ToUserId" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Comment" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsParentPointIDReceive" />
+          <Property Type="String" Name="CourierName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CourierNumber" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="AddedBy" />
+          <Property Type="DateTime" Name="AddedDate" />
+          <Property Type="Int32" Name="UpdatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="false" />
+          <NavigationProperty Name="Tv_ProductReceive" Relationship="WaltonCrmModel.FK_Tv_ProductTransfer_Tv_ProductReceive" FromRole="Tv_ProductTransfer" ToRole="Tv_ProductReceive" />
+        </EntityType>
+        <EntityType Name="Tv_ReplacedParts">
+          <Key>
+            <PropertyRef Name="ReplacedPartsID" />
+          </Key>
+          <Property Type="Int64" Name="ReplacedPartsID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="SparePartsUnAvailableId" Nullable="false" />
+          <Property Type="String" Name="Oracode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ReplaceUserId" Nullable="false" />
+          <Property Type="DateTime" Name="ReplaceDate" Nullable="false" />
+          <Property Type="Int32" Name="AddedBy" />
+          <Property Type="DateTime" Name="AddedDate" />
+          <Property Type="Int32" Name="UpdatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="false" />
+          <NavigationProperty Name="Tv_SparePartsUnAvailable" Relationship="WaltonCrmModel.FK_Tv_ReplacedParts_Tv_SparePartsUnAvailable" FromRole="Tv_ReplacedParts" ToRole="Tv_SparePartsUnAvailable" />
+        </EntityType>
+        <EntityType Name="Tv_SparePartsRequision">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="ProductServiceId" Nullable="false" />
+          <Property Type="Int32" Name="TechnicianId" Nullable="false" />
+          <Property Type="Int32" Name="ServicePointID" Nullable="false" />
+          <Property Type="DateTime" Name="RequestDate" Nullable="false" />
+          <Property Type="Int64" Name="ItemID" Nullable="false" />
+          <Property Type="String" Name="Oracode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SparePartName" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="SpareUnitPrice" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="String" Name="UOM" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="Qty" Precision="18" Scale="3" />
+          <Property Type="Int32" Name="SanctionUserId" />
+          <Property Type="String" Name="SanctionComment" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="SanctionDate" />
+          <Property Type="Boolean" Name="IsPartsUnAvailable" />
+          <Property Type="Int32" Name="RecommendedUserId" />
+          <Property Type="DateTime" Name="RecommendationDate" />
+          <Property Type="Decimal" Name="UsedQty" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="ReturnQty" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="StockFaultyQty" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="WastageQty" Precision="18" Scale="3" />
+          <Property Type="Int32" Name="StoreApprovalUserId" />
+          <Property Type="DateTime" Name="StoreApprovalDate" />
+          <Property Type="String" Name="SparePartsRequisionStatus" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="AddedBy" />
+          <Property Type="DateTime" Name="AddedDate" />
+          <Property Type="Int32" Name="UpdatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="false" />
+          <NavigationProperty Name="Tv_ProductService" Relationship="WaltonCrmModel.FK_Tv_SparePartsRequision_Tv_ProductService" FromRole="Tv_SparePartsRequision" ToRole="Tv_ProductService" />
+        </EntityType>
+        <EntityType Name="Tv_SparePartsUnAvailable">
+          <Key>
+            <PropertyRef Name="SparePartsUnAvailableId" />
+          </Key>
+          <Property Type="Int64" Name="SparePartsUnAvailableId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="ProductServiceId" Nullable="false" />
+          <Property Type="Int64" Name="SparePartsRequisitionId" Nullable="false" />
+          <Property Type="Int32" Name="TechnicianId" Nullable="false" />
+          <Property Type="Int32" Name="ServicePointID" Nullable="false" />
+          <Property Type="String" Name="Oracode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SparePartName" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="RequestDate" Nullable="false" />
+          <Property Type="DateTime" Name="ReplacedPartsDate" />
+          <Property Type="Int32" Name="SanctionUserId" />
+          <Property Type="DateTime" Name="SanctionDate" />
+          <Property Type="Boolean" Name="IsReplaced" />
+          <Property Type="String" Name="PartsUnavailableComment" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsPartsNotNeeded" />
+          <Property Type="Int32" Name="PartsNotNeededUserId" />
+          <Property Type="DateTime" Name="PartsNotNeededDate" />
+          <Property Type="String" Name="PartsNotNeededComment" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="AddedBy" />
+          <Property Type="DateTime" Name="AddedDate" />
+          <Property Type="Int32" Name="UpdatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="false" />
+          <Property Type="Decimal" Name="Qty" Precision="18" Scale="3" />
+          <NavigationProperty Name="Tv_ProductService" Relationship="WaltonCrmModel.FK_Tv_SparePartsUnAvailable_Tv_ProductService" FromRole="Tv_SparePartsUnAvailable" ToRole="Tv_ProductService" />
+          <NavigationProperty Name="Tv_ReplacedParts" Relationship="WaltonCrmModel.FK_Tv_ReplacedParts_Tv_SparePartsUnAvailable" FromRole="Tv_SparePartsUnAvailable" ToRole="Tv_ReplacedParts" />
+        </EntityType>
+        <Association Name="FK_Tv_FailedServiceLog_Tv_ProductService">
+          <End Type="WaltonCrmModel.Tv_ProductService" Role="Tv_ProductService" Multiplicity="1" />
+          <End Type="WaltonCrmModel.Tv_FailedServiceLog" Role="Tv_FailedServiceLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tv_ProductService">
+              <PropertyRef Name="ProductServiceId" />
+            </Principal>
+            <Dependent Role="Tv_FailedServiceLog">
+              <PropertyRef Name="ProductServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tv_ProductDeny_Tv_ProductReceive">
+          <End Type="WaltonCrmModel.Tv_ProductReceive" Role="Tv_ProductReceive" Multiplicity="1" />
+          <End Type="WaltonCrmModel.Tv_ProductDeny" Role="Tv_ProductDeny" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tv_ProductReceive">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tv_ProductDeny">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tv_ProductService_Tv_ProductReceive">
+          <End Type="WaltonCrmModel.Tv_ProductReceive" Role="Tv_ProductReceive" Multiplicity="1" />
+          <End Type="WaltonCrmModel.Tv_ProductService" Role="Tv_ProductService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tv_ProductReceive">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tv_ProductService">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tv_ProductTransfer_Tv_ProductReceive">
+          <End Type="WaltonCrmModel.Tv_ProductReceive" Role="Tv_ProductReceive" Multiplicity="1" />
+          <End Type="WaltonCrmModel.Tv_ProductTransfer" Role="Tv_ProductTransfer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tv_ProductReceive">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tv_ProductTransfer">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tv_SparePartsRequision_Tv_ProductService">
+          <End Type="WaltonCrmModel.Tv_ProductService" Role="Tv_ProductService" Multiplicity="1" />
+          <End Type="WaltonCrmModel.Tv_SparePartsRequision" Role="Tv_SparePartsRequision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tv_ProductService">
+              <PropertyRef Name="ProductServiceId" />
+            </Principal>
+            <Dependent Role="Tv_SparePartsRequision">
+              <PropertyRef Name="ProductServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tv_SparePartsUnAvailable_Tv_ProductService">
+          <End Type="WaltonCrmModel.Tv_ProductService" Role="Tv_ProductService" Multiplicity="1" />
+          <End Type="WaltonCrmModel.Tv_SparePartsUnAvailable" Role="Tv_SparePartsUnAvailable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tv_ProductService">
+              <PropertyRef Name="ProductServiceId" />
+            </Principal>
+            <Dependent Role="Tv_SparePartsUnAvailable">
+              <PropertyRef Name="ProductServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tv_ReplacedParts_Tv_SparePartsUnAvailable">
+          <End Type="WaltonCrmModel.Tv_SparePartsUnAvailable" Role="Tv_SparePartsUnAvailable" Multiplicity="1" />
+          <End Type="WaltonCrmModel.Tv_ReplacedParts" Role="Tv_ReplacedParts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tv_SparePartsUnAvailable">
+              <PropertyRef Name="SparePartsUnAvailableId" />
+            </Principal>
+            <Dependent Role="Tv_ReplacedParts">
+              <PropertyRef Name="SparePartsUnAvailableId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -68,6 +827,267 @@
                 <ScalarProperty Name="MajorCategory" ColumnName="MajorCategory" />
                 <ScalarProperty Name="MinorCategory" ColumnName="MinorCategory" />
                 <ScalarProperty Name="UOM" ColumnName="UOM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tv_FailedServiceLog">
+            <EntityTypeMapping TypeName="WaltonCrmModel.Tv_FailedServiceLog">
+              <MappingFragment StoreEntitySet="Tv_FailedServiceLog">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="ProductServiceStatus" ColumnName="ProductServiceStatus" />
+                <ScalarProperty Name="QcEndTime" ColumnName="QcEndTime" />
+                <ScalarProperty Name="QcStartDate" ColumnName="QcStartDate" />
+                <ScalarProperty Name="QcId" ColumnName="QcId" />
+                <ScalarProperty Name="IsQCAssigned" ColumnName="IsQCAssigned" />
+                <ScalarProperty Name="TechnicianEndTime" ColumnName="TechnicianEndTime" />
+                <ScalarProperty Name="IsTechnicianPaused" ColumnName="IsTechnicianPaused" />
+                <ScalarProperty Name="TechnicianStartDate" ColumnName="TechnicianStartDate" />
+                <ScalarProperty Name="TechnicianId" ColumnName="TechnicianId" />
+                <ScalarProperty Name="IsTechnicianAssigned" ColumnName="IsTechnicianAssigned" />
+                <ScalarProperty Name="AssignComment" ColumnName="AssignComment" />
+                <ScalarProperty Name="AssignDate" ColumnName="AssignDate" />
+                <ScalarProperty Name="ServiceManagerId" ColumnName="ServiceManagerId" />
+                <ScalarProperty Name="ProductServiceId" ColumnName="ProductServiceId" />
+                <ScalarProperty Name="FailedServiceLogID" ColumnName="FailedServiceLogID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tv_ProductDeny">
+            <EntityTypeMapping TypeName="WaltonCrmModel.Tv_ProductDeny">
+              <MappingFragment StoreEntitySet="Tv_ProductDeny">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="NewID" ColumnName="NewID" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="ProductDeniedReason" ColumnName="ProductDeniedReason" />
+                <ScalarProperty Name="ProductDinedDate" ColumnName="ProductDinedDate" />
+                <ScalarProperty Name="ProductDeniedBy" ColumnName="ProductDeniedBy" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ProductDenyId" ColumnName="ProductDenyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tv_ProductReceive">
+            <EntityTypeMapping TypeName="WaltonCrmModel.Tv_ProductReceive">
+              <MappingFragment StoreEntitySet="Tv_ProductReceive">
+                <ScalarProperty Name="BodyPartsType" ColumnName="BodyPartsType" />
+                <ScalarProperty Name="IsDisplayProduct" ColumnName="IsDisplayProduct" />
+                <ScalarProperty Name="PlazaOrDealName" ColumnName="PlazaOrDealName" />
+                <ScalarProperty Name="IsPlaza" ColumnName="IsPlaza" />
+                <ScalarProperty Name="ServiceCharge" ColumnName="ServiceCharge" />
+                <ScalarProperty Name="StatusDetail" ColumnName="StatusDetail" />
+                <ScalarProperty Name="IsServiceFailed" ColumnName="IsServiceFailed" />
+                <ScalarProperty Name="IsDenied" ColumnName="IsDenied" />
+                <ScalarProperty Name="IsViewed" ColumnName="IsViewed" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="DeliveryAmount" ColumnName="DeliveryAmount" />
+                <ScalarProperty Name="ServiceStatus" ColumnName="ServiceStatus" />
+                <ScalarProperty Name="IsDelivered" ColumnName="IsDelivered" />
+                <ScalarProperty Name="IsProductDenied" ColumnName="IsProductDenied" />
+                <ScalarProperty Name="TerminatorId" ColumnName="TerminatorId" />
+                <ScalarProperty Name="TerminatedDate" ColumnName="TerminatedDate" />
+                <ScalarProperty Name="TerminationReason" ColumnName="TerminationReason" />
+                <ScalarProperty Name="IsTerminated" ColumnName="IsTerminated" />
+                <ScalarProperty Name="IsTransferReceive" ColumnName="IsTransferReceive" />
+                <ScalarProperty Name="IsTransfered" ColumnName="IsTransfered" />
+                <ScalarProperty Name="CustomerApproveDate" ColumnName="CustomerApproveDate" />
+                <ScalarProperty Name="CustomerApproveUserId" ColumnName="CustomerApproveUserId" />
+                <ScalarProperty Name="IsCustomerApproved" ColumnName="IsCustomerApproved" />
+                <ScalarProperty Name="IsAssigned" ColumnName="IsAssigned" />
+                <ScalarProperty Name="IsIndoorReceive" ColumnName="IsIndoorReceive" />
+                <ScalarProperty Name="IsBillingConfirmed" ColumnName="IsBillingConfirmed" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="DeliveredUserId" ColumnName="DeliveredUserId" />
+                <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
+                <ScalarProperty Name="ReceivedUserId" ColumnName="ReceivedUserId" />
+                <ScalarProperty Name="FinalBillSetterId" ColumnName="FinalBillSetterId" />
+                <ScalarProperty Name="CustomerCareComment" ColumnName="CustomerCareComment" />
+                <ScalarProperty Name="FinalAmount" ColumnName="FinalAmount" />
+                <ScalarProperty Name="InchargeComment" ColumnName="InchargeComment" />
+                <ScalarProperty Name="ApproxBilling" ColumnName="ApproxBilling" />
+                <ScalarProperty Name="Complaints" ColumnName="Complaints" />
+                <ScalarProperty Name="Accessories" ColumnName="Accessories" />
+                <ScalarProperty Name="ApproxDeliveryDate" ColumnName="ApproxDeliveryDate" />
+                <ScalarProperty Name="WarrantyVoidDate" ColumnName="WarrantyVoidDate" />
+                <ScalarProperty Name="WarrantyVoidUserId" ColumnName="WarrantyVoidUserId" />
+                <ScalarProperty Name="WarrantyVoidReason" ColumnName="WarrantyVoidReason" />
+                <ScalarProperty Name="IsWarrantyVoid" ColumnName="IsWarrantyVoid" />
+                <ScalarProperty Name="IsWarrantyAvailable" ColumnName="IsWarrantyAvailable" />
+                <ScalarProperty Name="WarrentyCardNo" ColumnName="WarrentyCardNo" />
+                <ScalarProperty Name="DateOfSale" ColumnName="DateOfSale" />
+                <ScalarProperty Name="CustomerMobile" ColumnName="CustomerMobile" />
+                <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="SerialNo" ColumnName="SerialNo" />
+                <ScalarProperty Name="SubType" ColumnName="SubType" />
+                <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+                <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+                <ScalarProperty Name="ServicePointID" ColumnName="ServicePointID" />
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tv_ProductService">
+            <EntityTypeMapping TypeName="WaltonCrmModel.Tv_ProductService">
+              <MappingFragment StoreEntitySet="Tv_ProductService">
+                <ScalarProperty Name="TotalCharge" ColumnName="TotalCharge" />
+                <ScalarProperty Name="InstallationCharge" ColumnName="InstallationCharge" />
+                <ScalarProperty Name="ServiceCharge" ColumnName="ServiceCharge" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="BounceDate" ColumnName="BounceDate" />
+                <ScalarProperty Name="BounceReason" ColumnName="BounceReason" />
+                <ScalarProperty Name="IsBounced" ColumnName="IsBounced" />
+                <ScalarProperty Name="ProductServiceStatus" ColumnName="ProductServiceStatus" />
+                <ScalarProperty Name="ServiceCompletionDate" ColumnName="ServiceCompletionDate" />
+                <ScalarProperty Name="IsServiceCompleted" ColumnName="IsServiceCompleted" />
+                <ScalarProperty Name="TerminationServcieFailedDate" ColumnName="TerminationServcieFailedDate" />
+                <ScalarProperty Name="ServiceFailedComment" ColumnName="ServiceFailedComment" />
+                <ScalarProperty Name="ServiceFailedReason" ColumnName="ServiceFailedReason" />
+                <ScalarProperty Name="IsServiceFailed" ColumnName="IsServiceFailed" />
+                <ScalarProperty Name="TerminationComment" ColumnName="TerminationComment" />
+                <ScalarProperty Name="TerminationReason" ColumnName="TerminationReason" />
+                <ScalarProperty Name="IsTerminated" ColumnName="IsTerminated" />
+                <ScalarProperty Name="StoreApproveDate" ColumnName="StoreApproveDate" />
+                <ScalarProperty Name="StoreApprovedUserId" ColumnName="StoreApprovedUserId" />
+                <ScalarProperty Name="IsStoreApproved" ColumnName="IsStoreApproved" />
+                <ScalarProperty Name="InchargeRecommendDate" ColumnName="InchargeRecommendDate" />
+                <ScalarProperty Name="InchargeRecommendedUserId" ColumnName="InchargeRecommendedUserId" />
+                <ScalarProperty Name="IsInchargeRecommended" ColumnName="IsInchargeRecommended" />
+                <ScalarProperty Name="IsQCFailed" ColumnName="IsQCFailed" />
+                <ScalarProperty Name="QcEndTime" ColumnName="QcEndTime" />
+                <ScalarProperty Name="QcComment" ColumnName="QcComment" />
+                <ScalarProperty Name="QcPausedDate" ColumnName="QcPausedDate" />
+                <ScalarProperty Name="IsQcPaused" ColumnName="IsQcPaused" />
+                <ScalarProperty Name="QcStartDate" ColumnName="QcStartDate" />
+                <ScalarProperty Name="QcReceiveDate" ColumnName="QcReceiveDate" />
+                <ScalarProperty Name="QcId" ColumnName="QcId" />
+                <ScalarProperty Name="IsQCAssigned" ColumnName="IsQCAssigned" />
+                <ScalarProperty Name="TechnicianEndComment" ColumnName="TechnicianEndComment" />
+                <ScalarProperty Name="TechnicianEndTime" ColumnName="TechnicianEndTime" />
+                <ScalarProperty Name="TechnicianPauseComment" ColumnName="TechnicianPauseComment" />
+                <ScalarProperty Name="TechnicianPausedDate" ColumnName="TechnicianPausedDate" />
+                <ScalarProperty Name="IsTechnicianPaused" ColumnName="IsTechnicianPaused" />
+                <ScalarProperty Name="TechnicianStartDate" ColumnName="TechnicianStartDate" />
+                <ScalarProperty Name="TechnicianId" ColumnName="TechnicianId" />
+                <ScalarProperty Name="IsTechnicianAssigned" ColumnName="IsTechnicianAssigned" />
+                <ScalarProperty Name="AssignComment" ColumnName="AssignComment" />
+                <ScalarProperty Name="AssignDate" ColumnName="AssignDate" />
+                <ScalarProperty Name="ServiceManagerId" ColumnName="ServiceManagerId" />
+                <ScalarProperty Name="ServicePointId" ColumnName="ServicePointId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ProductServiceId" ColumnName="ProductServiceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tv_ProductTransfer">
+            <EntityTypeMapping TypeName="WaltonCrmModel.Tv_ProductTransfer">
+              <MappingFragment StoreEntitySet="Tv_ProductTransfer">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="CourierNumber" ColumnName="CourierNumber" />
+                <ScalarProperty Name="CourierName" ColumnName="CourierName" />
+                <ScalarProperty Name="IsParentPointIDReceive" ColumnName="IsParentPointIDReceive" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ToUserId" ColumnName="ToUserId" />
+                <ScalarProperty Name="ReceiveDate" ColumnName="ReceiveDate" />
+                <ScalarProperty Name="ToServicePointId" ColumnName="ToServicePointId" />
+                <ScalarProperty Name="FromUserId" ColumnName="FromUserId" />
+                <ScalarProperty Name="TransferDate" ColumnName="TransferDate" />
+                <ScalarProperty Name="FromServicePointId" ColumnName="FromServicePointId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ProductTranferID" ColumnName="ProductTranferID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tv_ReplacedParts">
+            <EntityTypeMapping TypeName="WaltonCrmModel.Tv_ReplacedParts">
+              <MappingFragment StoreEntitySet="Tv_ReplacedParts">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="ReplaceDate" ColumnName="ReplaceDate" />
+                <ScalarProperty Name="ReplaceUserId" ColumnName="ReplaceUserId" />
+                <ScalarProperty Name="Oracode" ColumnName="Oracode" />
+                <ScalarProperty Name="SparePartsUnAvailableId" ColumnName="SparePartsUnAvailableId" />
+                <ScalarProperty Name="ReplacedPartsID" ColumnName="ReplacedPartsID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tv_SparePartsRequision">
+            <EntityTypeMapping TypeName="WaltonCrmModel.Tv_SparePartsRequision">
+              <MappingFragment StoreEntitySet="Tv_SparePartsRequision">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="SparePartsRequisionStatus" ColumnName="SparePartsRequisionStatus" />
+                <ScalarProperty Name="StoreApprovalDate" ColumnName="StoreApprovalDate" />
+                <ScalarProperty Name="StoreApprovalUserId" ColumnName="StoreApprovalUserId" />
+                <ScalarProperty Name="WastageQty" ColumnName="WastageQty" />
+                <ScalarProperty Name="StockFaultyQty" ColumnName="StockFaultyQty" />
+                <ScalarProperty Name="ReturnQty" ColumnName="ReturnQty" />
+                <ScalarProperty Name="UsedQty" ColumnName="UsedQty" />
+                <ScalarProperty Name="RecommendationDate" ColumnName="RecommendationDate" />
+                <ScalarProperty Name="RecommendedUserId" ColumnName="RecommendedUserId" />
+                <ScalarProperty Name="IsPartsUnAvailable" ColumnName="IsPartsUnAvailable" />
+                <ScalarProperty Name="SanctionDate" ColumnName="SanctionDate" />
+                <ScalarProperty Name="SanctionComment" ColumnName="SanctionComment" />
+                <ScalarProperty Name="SanctionUserId" ColumnName="SanctionUserId" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="UOM" ColumnName="UOM" />
+                <ScalarProperty Name="SpareUnitPrice" ColumnName="SpareUnitPrice" />
+                <ScalarProperty Name="SparePartName" ColumnName="SparePartName" />
+                <ScalarProperty Name="Oracode" ColumnName="Oracode" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="ServicePointID" ColumnName="ServicePointID" />
+                <ScalarProperty Name="TechnicianId" ColumnName="TechnicianId" />
+                <ScalarProperty Name="ProductServiceId" ColumnName="ProductServiceId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tv_SparePartsUnAvailable">
+            <EntityTypeMapping TypeName="WaltonCrmModel.Tv_SparePartsUnAvailable">
+              <MappingFragment StoreEntitySet="Tv_SparePartsUnAvailable">
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="PartsNotNeededComment" ColumnName="PartsNotNeededComment" />
+                <ScalarProperty Name="PartsNotNeededDate" ColumnName="PartsNotNeededDate" />
+                <ScalarProperty Name="PartsNotNeededUserId" ColumnName="PartsNotNeededUserId" />
+                <ScalarProperty Name="IsPartsNotNeeded" ColumnName="IsPartsNotNeeded" />
+                <ScalarProperty Name="PartsUnavailableComment" ColumnName="PartsUnavailableComment" />
+                <ScalarProperty Name="IsReplaced" ColumnName="IsReplaced" />
+                <ScalarProperty Name="SanctionDate" ColumnName="SanctionDate" />
+                <ScalarProperty Name="SanctionUserId" ColumnName="SanctionUserId" />
+                <ScalarProperty Name="ReplacedPartsDate" ColumnName="ReplacedPartsDate" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="SparePartName" ColumnName="SparePartName" />
+                <ScalarProperty Name="Oracode" ColumnName="Oracode" />
+                <ScalarProperty Name="ServicePointID" ColumnName="ServicePointID" />
+                <ScalarProperty Name="TechnicianId" ColumnName="TechnicianId" />
+                <ScalarProperty Name="SparePartsRequisitionId" ColumnName="SparePartsRequisitionId" />
+                <ScalarProperty Name="ProductServiceId" ColumnName="ProductServiceId" />
+                <ScalarProperty Name="SparePartsUnAvailableId" ColumnName="SparePartsUnAvailableId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -93,6 +1113,43 @@
     <Diagrams>
       <Diagram Name="Model1">
         <EntityTypeShape EntityType="WaltonCrmModel.SparePart" Width="1.5" PointX="0.75" PointY="0.75" Height="3.1340950520833335" IsExpanded="true" />
+        <EntityTypeShape EntityType="WaltonCrmModel.Tv_FailedServiceLog" Width="1.5" PointX="7.875" PointY="11.5" Height="4.8648079427083317" />
+        <EntityTypeShape EntityType="WaltonCrmModel.Tv_ProductDeny" Width="1.5" PointX="5.625" PointY="2.25" Height="3.3263964843749996" />
+        <EntityTypeShape EntityType="WaltonCrmModel.Tv_ProductReceive" Width="1.5" PointX="3.375" PointY="9.75" Height="12.749166666666667" />
+        <EntityTypeShape EntityType="WaltonCrmModel.Tv_ProductService" Width="1.5" PointX="5.625" PointY="15.25" Height="11.210755208333332" />
+        <EntityTypeShape EntityType="WaltonCrmModel.Tv_ProductTransfer" Width="1.5" PointX="5.625" PointY="6.25" Height="4.4802050781250031" />
+        <EntityTypeShape EntityType="WaltonCrmModel.Tv_ReplacedParts" Width="1.5" PointX="10.125" PointY="25.875" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="WaltonCrmModel.Tv_SparePartsRequision" Width="1.5" PointX="7.875" PointY="17.125" Height="6.5955208333333388" />
+        <EntityTypeShape EntityType="WaltonCrmModel.Tv_SparePartsUnAvailable" Width="1.5" PointX="7.875" PointY="24.5" Height="5.634013671874996" />
+        <AssociationConnector Association="WaltonCrmModel.FK_Tv_FailedServiceLog_Tv_ProductService" >
+          <ConnectorPoint PointX="7.125" PointY="15.807403971354166" />
+          <ConnectorPoint PointX="7.875" PointY="15.807403971354166" />
+        </AssociationConnector>
+        <AssociationConnector Association="WaltonCrmModel.FK_Tv_ProductDeny_Tv_ProductReceive" >
+          <ConnectorPoint PointX="4.125" PointY="9.75" />
+          <ConnectorPoint PointX="4.125" PointY="3.9131982421875" />
+          <ConnectorPoint PointX="5.625" PointY="3.9131982421875" />
+        </AssociationConnector>
+        <AssociationConnector Association="WaltonCrmModel.FK_Tv_ProductService_Tv_ProductReceive" >
+          <ConnectorPoint PointX="4.875" PointY="18.874583333333334" />
+          <ConnectorPoint PointX="5.625" PointY="18.874583333333334" />
+        </AssociationConnector>
+        <AssociationConnector Association="WaltonCrmModel.FK_Tv_ProductTransfer_Tv_ProductReceive" >
+          <ConnectorPoint PointX="4.875" PointY="10.240102539062502" />
+          <ConnectorPoint PointX="5.625" PointY="10.240102539062502" />
+        </AssociationConnector>
+        <AssociationConnector Association="WaltonCrmModel.FK_Tv_SparePartsRequision_Tv_ProductService" >
+          <ConnectorPoint PointX="7.125" PointY="20.422760416666669" />
+          <ConnectorPoint PointX="7.875" PointY="20.422760416666669" />
+        </AssociationConnector>
+        <AssociationConnector Association="WaltonCrmModel.FK_Tv_SparePartsUnAvailable_Tv_ProductService" >
+          <ConnectorPoint PointX="7.125" PointY="25.480377604166666" />
+          <ConnectorPoint PointX="7.875" PointY="25.480377604166666" />
+        </AssociationConnector>
+        <AssociationConnector Association="WaltonCrmModel.FK_Tv_ReplacedParts_Tv_SparePartsUnAvailable" >
+          <ConnectorPoint PointX="9.375" PointY="27.345896809895834" />
+          <ConnectorPoint PointX="10.125" PointY="27.345896809895834" />
+        </AssociationConnector>
       </Diagram>
     </Diagrams>
   </Designer>
