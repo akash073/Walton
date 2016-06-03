@@ -209,6 +209,7 @@
     <Content Include="DATATABLE\buttons.flash.min.js" />
     <Content Include="DATATABLE\buttons.html5.min.js" />
     <Content Include="DATATABLE\buttons.print.min.js" />
+    <Content Include="DATATABLE\DatatableRefreshedByTimeInterValAjax.aspx" />
     <Content Include="DATATABLE\dataTables.buttons.min.js" />
     <Content Include="DATATABLE\jquery-1.12.0.min.js" />
     <Content Include="DATATABLE\jquery.dataTables.css" />
@@ -430,6 +431,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DATATABLE\DatatableRefreshedByTimeInterValAjax.aspx.cs">
+      <DependentUpon>DatatableRefreshedByTimeInterValAjax.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DATATABLE\DatatableRefreshedByTimeInterValAjax.aspx.designer.cs">
+      <DependentUpon>DatatableRefreshedByTimeInterValAjax.aspx</DependentUpon>
     </Compile>
     <Compile Include="DATATABLE\Try_1.aspx.cs">
       <DependentUpon>Try_1.aspx</DependentUpon>

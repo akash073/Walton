@@ -11,8 +11,8 @@ namespace StackOverflow_Solve.POST
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            String email = Request["email"];
+
+            String userName = Request["userName"];
             String password = Request["password"];
 
         }
