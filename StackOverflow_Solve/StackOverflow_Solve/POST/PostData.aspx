@@ -18,10 +18,10 @@
       <fieldset>
         <dl>
           <dt>
-            <label for="txtUserName">Email:</label>
+            <label for="txtUserName">UserName</label>
           </dt>
           <dd>
-            <input name="email" type="text" id="email" class="fieldSignin"/>
+            <input name="userName" type="text" id="UserName" class="fieldSignin"/>
           </dd>
           <dt>
             <label for="txtPassword">Password:</label>
