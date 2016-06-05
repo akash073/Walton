@@ -47,6 +47,7 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -341,6 +342,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Services\SpareInfos.asmx" />
     <Content Include="Styles\buttons.dataTables.min.css" />
     <Content Include="Styles\Confirm_SimpleModal.aspx" />
     <Content Include="Styles\dataTables.tableTools.css" />
@@ -365,6 +367,7 @@
     <Content Include="UserControl\Show.aspx" />
     <Content Include="UserControl\ViewSate.aspx" />
     <Content Include="VerifyJS\verify_1.aspx" />
+    <Content Include="WCF\Service1.svc" />
     <Content Include="WeatherApiByLat\openweathermap_ap.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -580,6 +583,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Services\SpareInfos.asmx.cs">
+      <DependentUpon>SpareInfos.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -649,6 +656,10 @@
     </Compile>
     <Compile Include="VerifyJS\verify_1.aspx.designer.cs">
       <DependentUpon>verify_1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WCF\IService1.cs" />
+    <Compile Include="WCF\Service1.svc.cs">
+      <DependentUpon>Service1.svc</DependentUpon>
     </Compile>
     <Compile Include="WeatherApiByLat\openweathermap_ap.aspx.cs">
       <DependentUpon>openweathermap_ap.aspx</DependentUpon>
