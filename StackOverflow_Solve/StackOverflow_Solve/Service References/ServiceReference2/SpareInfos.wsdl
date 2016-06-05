@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetDropDownListBindings">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDropDownListBindingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDropDownListBindingsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSpareParts">
+        <s:complexType />
+      </s:element>
+      <s:element name="getSparePartsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSparePartsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetDropDownListBindingsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDropDownListBindings" />
+  </wsdl:message>
+  <wsdl:message name="GetDropDownListBindingsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDropDownListBindingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSparePartsSoapIn">
+    <wsdl:part name="parameters" element="tns:getSpareParts" />
+  </wsdl:message>
+  <wsdl:message name="getSparePartsSoapOut">
+    <wsdl:part name="parameters" element="tns:getSparePartsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDropDownListBindingsHttpGetIn" />
+  <wsdl:message name="GetDropDownListBindingsHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpGetIn" />
+  <wsdl:message name="HelloWorldHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getSparePartsHttpGetIn" />
+  <wsdl:message name="getSparePartsHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDropDownListBindingsHttpPostIn" />
+  <wsdl:message name="GetDropDownListBindingsHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpPostIn" />
+  <wsdl:message name="HelloWorldHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getSparePartsHttpPostIn" />
+  <wsdl:message name="getSparePartsHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="SpareInfosSoap">
+    <wsdl:operation name="GetDropDownListBindings">
+      <wsdl:input message="tns:GetDropDownListBindingsSoapIn" />
+      <wsdl:output message="tns:GetDropDownListBindingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSpareParts">
+      <wsdl:input message="tns:getSparePartsSoapIn" />
+      <wsdl:output message="tns:getSparePartsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SpareInfosHttpGet">
+    <wsdl:operation name="GetDropDownListBindings">
+      <wsdl:input message="tns:GetDropDownListBindingsHttpGetIn" />
+      <wsdl:output message="tns:GetDropDownListBindingsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpGetIn" />
+      <wsdl:output message="tns:HelloWorldHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSpareParts">
+      <wsdl:input message="tns:getSparePartsHttpGetIn" />
+      <wsdl:output message="tns:getSparePartsHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SpareInfosHttpPost">
+    <wsdl:operation name="GetDropDownListBindings">
+      <wsdl:input message="tns:GetDropDownListBindingsHttpPostIn" />
+      <wsdl:output message="tns:GetDropDownListBindingsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpPostIn" />
+      <wsdl:output message="tns:HelloWorldHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSpareParts">
+      <wsdl:input message="tns:getSparePartsHttpPostIn" />
+      <wsdl:output message="tns:getSparePartsHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SpareInfosSoap" type="tns:SpareInfosSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDropDownListBindings">
+      <soap:operation soapAction="http://tempuri.org/GetDropDownListBindings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSpareParts">
+      <soap:operation soapAction="http://tempuri.org/getSpareParts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SpareInfosSoap12" type="tns:SpareInfosSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDropDownListBindings">
+      <soap12:operation soapAction="http://tempuri.org/GetDropDownListBindings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSpareParts">
+      <soap12:operation soapAction="http://tempuri.org/getSpareParts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SpareInfosHttpGet" type="tns:SpareInfosHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetDropDownListBindings">
+      <http:operation location="/GetDropDownListBindings" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSpareParts">
+      <http:operation location="/getSpareParts" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SpareInfosHttpPost" type="tns:SpareInfosHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetDropDownListBindings">
+      <http:operation location="/GetDropDownListBindings" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSpareParts">
+      <http:operation location="/getSpareParts" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SpareInfos">
+    <wsdl:port name="SpareInfosSoap" binding="tns:SpareInfosSoap">
+      <soap:address location="http://localhost:1611/Services/SpareInfos.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SpareInfosSoap12" binding="tns:SpareInfosSoap12">
+      <soap12:address location="http://localhost:1611/Services/SpareInfos.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SpareInfosHttpGet" binding="tns:SpareInfosHttpGet">
+      <http:address location="http://localhost:1611/Services/SpareInfos.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SpareInfosHttpPost" binding="tns:SpareInfosHttpPost">
+      <http:address location="http://localhost:1611/Services/SpareInfos.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
