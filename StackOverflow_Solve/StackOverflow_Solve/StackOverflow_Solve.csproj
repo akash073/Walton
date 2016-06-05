@@ -258,6 +258,7 @@
     <Content Include="js\confirm.js" />
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.simplemodal.js" />
+    <Content Include="KendoUI\DropdownListImages.aspx" />
     <Content Include="LINQ\MinMaxMultipleValue.aspx" />
     <Content Include="Others\NoThings.aspx" />
     <Content Include="Others\trytoRestaretQuery.aspx" />
@@ -336,6 +337,7 @@
     <Content Include="select2\select2.png" />
     <Content Include="select2\WebForm1.aspx" />
     <Content Include="jQueryUI\Handler1.ashx" />
+    <Content Include="KendoUI\GetProductData.ashx" />
     <None Include="Service References\ServiceReference1\WebService1.disco" />
     <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
     <None Include="Service References\ServiceReference1\configuration.svcinfo" />
@@ -539,6 +541,16 @@
     </Compile>
     <Compile Include="jQueryUI\Handler1.ashx.cs">
       <DependentUpon>Handler1.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="KendoUI\DropdownListImages.aspx.cs">
+      <DependentUpon>DropdownListImages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KendoUI\DropdownListImages.aspx.designer.cs">
+      <DependentUpon>DropdownListImages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KendoUI\GetProductData.ashx.cs">
+      <DependentUpon>GetProductData.ashx</DependentUpon>
     </Compile>
     <Compile Include="LINQ\MinMaxMultipleValue.aspx.cs">
       <DependentUpon>MinMaxMultipleValue.aspx</DependentUpon>

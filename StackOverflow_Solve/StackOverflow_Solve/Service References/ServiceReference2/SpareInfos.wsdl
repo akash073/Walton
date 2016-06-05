@@ -6,11 +6,7 @@
         <s:complexType />
       </s:element>
       <s:element name="GetDropDownListBindingsResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetDropDownListBindingsResult" type="s:string" />
-          </s:sequence>
-        </s:complexType>
+        <s:complexType />
       </s:element>
       <s:element name="HelloWorld">
         <s:complexType />
@@ -54,9 +50,7 @@
     <wsdl:part name="parameters" element="tns:getSparePartsResponse" />
   </wsdl:message>
   <wsdl:message name="GetDropDownListBindingsHttpGetIn" />
-  <wsdl:message name="GetDropDownListBindingsHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
-  </wsdl:message>
+  <wsdl:message name="GetDropDownListBindingsHttpGetOut" />
   <wsdl:message name="HelloWorldHttpGetIn" />
   <wsdl:message name="HelloWorldHttpGetOut">
     <wsdl:part name="Body" element="tns:string" />
@@ -66,9 +60,7 @@
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="GetDropDownListBindingsHttpPostIn" />
-  <wsdl:message name="GetDropDownListBindingsHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
-  </wsdl:message>
+  <wsdl:message name="GetDropDownListBindingsHttpPostOut" />
   <wsdl:message name="HelloWorldHttpPostIn" />
   <wsdl:message name="HelloWorldHttpPostOut">
     <wsdl:part name="Body" element="tns:string" />
@@ -186,9 +178,7 @@
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
-      <wsdl:output>
-        <mime:mimeXml part="Body" />
-      </wsdl:output>
+      <wsdl:output />
     </wsdl:operation>
     <wsdl:operation name="HelloWorld">
       <http:operation location="/HelloWorld" />
@@ -216,9 +206,7 @@
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
-      <wsdl:output>
-        <mime:mimeXml part="Body" />
-      </wsdl:output>
+      <wsdl:output />
     </wsdl:operation>
     <wsdl:operation name="HelloWorld">
       <http:operation location="/HelloWorld" />

@@ -17,7 +17,7 @@ namespace StackOverflow_Solve.ServiceReference2 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetDropDownListBindings", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        string GetDropDownListBindings();
+        void GetDropDownListBindings();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HelloWorld", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -55,8 +55,8 @@ namespace StackOverflow_Solve.ServiceReference2 {
                 base(binding, remoteAddress) {
         }
         
-        public string GetDropDownListBindings() {
-            return base.Channel.GetDropDownListBindings();
+        public void GetDropDownListBindings() {
+            base.Channel.GetDropDownListBindings();
         }
         
         public string HelloWorld() {

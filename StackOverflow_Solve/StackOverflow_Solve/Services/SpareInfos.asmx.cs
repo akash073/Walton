@@ -29,17 +29,49 @@ namespace StackOverflow_Solve.Services
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public void GetDropDownListBindings()
         {
-            List<DropDownListBinding> downList;
-            using (var db = new WaltonCrmEntities())
+            if (!User.Identity.IsAuthenticated)
             {
-                downList = db.SpareParts.Where(x => x.ItemID < 100).Select(x => new DropDownListBinding
+                List<DropDownListBinding> downList;
+                using (var db = new WaltonCrmEntities())
                 {
-                    Id = x.ItemID,
-                    ItemName = x.ItemName + "_" + x.ItemCode
-                }).ToList();
+                    downList = db.SpareParts.Where(x => x.ItemID < 100).Select(x => new DropDownListBinding
+                    {
+                        Id = x.ItemID,
+                        ItemName = x.ItemName + "_" + x.ItemCode
+                    }).ToList();
+                }
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                HttpContext.Current.Response.Write(js.Serialize(downList));
             }
-            JavaScriptSerializer js = new JavaScriptSerializer();
-            HttpContext.Current.Response.Write(js.Serialize(downList));
+            else
+            {
+                HttpContext.Current.Response.Write("hi");
+            }
+            //return js.Serialize(downList);
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void GetBinding()
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                List<DropDownListBinding> downList;
+                using (var db = new WaltonCrmEntities())
+                {
+                    downList = db.SpareParts.Where(x => x.ItemID < 100).Select(x => new DropDownListBinding
+                    {
+                        Id = x.ItemID,
+                        ItemName = x.ItemName + "_" + x.ItemCode
+                    }).ToList();
+                }
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                HttpContext.Current.Response.Write(js.Serialize(downList));
+            }
+            else
+            {
+                HttpContext.Current.Response.Write("hi");
+            }
             //return js.Serialize(downList);
         }
         

@@ -68,7 +68,7 @@
             // Posting data to php file
             $http({
                 method: 'GET',
-                url: 'http://localhost:1611/Services/SpareInfos.asmx/GetDropDownListBindings',
+                url: '/Services/SpareInfos.asmx/GetDropDownListBindings',
                // data: { 'id': 1 }, //forms user object
               //  headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
             })
