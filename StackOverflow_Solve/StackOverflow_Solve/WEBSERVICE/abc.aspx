@@ -11,12 +11,13 @@
             $('#btnAddNewUser').click(function(e) {
                 e.preventDefault();
                 //Make your ajax call
+                var url = 'http://localhost:1915/Services/Customer/TestService.asmx/GetSapares';
                 var params = {};
                 params.parameter = "passing string data";
                 $.ajax({
-                    type: "POST",
-                    url: "abc.aspx/MyFunction1",
-                    dataType: "json",
+                    type: "GET",
+                    url: url,
+                    dataType: "jsonp",
                     contentType: "application/json; charset=utf-8",
                     data: JSON.stringify(params),
                     success: function(res) {
