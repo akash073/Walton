@@ -353,7 +353,11 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Services\HTMLPage1.htm" />
     <Content Include="Services\SpareInfos.asmx" />
+    <Content Include="Services\WebForm1.aspx" />
+    <Content Include="Services\WebForm2.aspx" />
+    <Content Include="Services\WebService1.asmx" />
     <Content Include="Styles\buttons.dataTables.min.css" />
     <Content Include="Styles\Confirm_SimpleModal.aspx" />
     <Content Include="Styles\dataTables.tableTools.css" />
@@ -618,6 +622,24 @@
     </Compile>
     <Compile Include="Services\SpareInfos.asmx.cs">
       <DependentUpon>SpareInfos.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Services\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Services\WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\WebService1.asmx.cs">
+      <DependentUpon>WebService1.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Site.Master.cs">

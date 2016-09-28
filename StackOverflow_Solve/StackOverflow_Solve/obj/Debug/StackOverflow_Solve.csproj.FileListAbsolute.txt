@@ -12,4 +12,3 @@ F:\BITBUCKET REPO\StackOverflow_Solve\StackOverflow_Solve\obj\Debug\StackOverflo
 G:\BITBUCKET WORKS\StackOverflow_Solve\StackOverflow_Solve\obj\Debug\RdlCompile.cache
 G:\BITBUCKET WORKS\StackOverflow_Solve\StackOverflow_Solve\obj\Debug\RdlCompile.compiled
 G:\BITBUCKET WORKS\StackOverflow_Solve\StackOverflow_Solve\obj\Debug\StackOverflow_Solve.csprojResolveAssemblyReference.cache
-F:\BITBUCKET REPO\StackOverflow_Solve\StackOverflow_Solve\bin\Oracle.Web.dll
