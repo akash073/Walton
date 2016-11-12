@@ -261,6 +261,7 @@
     <Content Include="js\jquery.simplemodal.js" />
     <Content Include="KendoUI\DropdownListImages.aspx" />
     <Content Include="LINQ\MinMaxMultipleValue.aspx" />
+    <Content Include="Others\GridView.aspx" />
     <Content Include="Others\NoThings.aspx" />
     <Content Include="Others\trytoRestaretQuery.aspx" />
     <Content Include="POST\PostData.aspx" />
@@ -563,6 +564,13 @@
     </Compile>
     <Compile Include="LINQ\MinMaxMultipleValue.aspx.designer.cs">
       <DependentUpon>MinMaxMultipleValue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Others\GridView.aspx.cs">
+      <DependentUpon>GridView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Others\GridView.aspx.designer.cs">
+      <DependentUpon>GridView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Others\NoThings.aspx.cs">
       <DependentUpon>NoThings.aspx</DependentUpon>

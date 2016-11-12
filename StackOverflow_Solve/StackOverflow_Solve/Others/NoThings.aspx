@@ -5,12 +5,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+
+    <script src="~/Scripts/jquery-1.12.0.min.js" type="text/javascript"></script>
+    <script>
+       $(function() {
+           alert('Jquery');
+       })
+     </script>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-    <asp:Label ID="AER_UI_Exam_MPN_ThreeAttemptsBefore_1" runat="server" Text="Please visist: <a id='google'class='translatetext lblfont' href='https://google.com' target='_blank' >google</a>" CssClass="lblfont translatetext" Style="font-size: 12px;" />
-    </div>
+    <input type="checkbox" checked id="chk1"  />
+<input type="checkbox" checked id="chk2"  />
+<input type="checkbox" checked id="chk3"  />
+<input type="checkbox" checked id="chk4"  />
+
+<input type="text" id="txt1" disabled="disabled" />
+<input type="text" id="txt2" disabled="disabled" />
+<input type="text" id="txt3" disabled="disabled" />
+<input type="text" id="txt4" disabled="disabled" />
+
+
     </form>
 </body>
 </html>
